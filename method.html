@@ -10,7 +10,7 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "Acquisition to destruction procedure"
 authority: Principal
-content_sha256: 81f5d58e5b9559d392e80fc07e8ff303c8def84a9d5f8e168bd29fbd391c9aae
+content_sha256: 8e9fee5eb9b1bd10ac91323639324209c9a173ebdf64c2068e590bf44af90539
 ---
 
 <style>
@@ -26,19 +26,19 @@ pre.tr i{font-style:normal;color:var(--ink-2)}
 <h2>What you end up holding</h2>
 <ul>
 <li><b>A signed report</b> — each opinion, its basis, the data considered and the method applied, traceable to something verified.</li>
-<li><b>A verified forensic image</b>, hash-matched at acquisition, before analysis and before production.</li>
+<li><b>A verified forensic image</b>, hash-matched at acquisition, before analysis and before production. <span class="v">$950</span> up to 2 TB, per device.</li>
 <li><b>The acquisition log and imaging worksheet</b> — tool, version, operator, timestamps, blocker make and firmware.</li>
 <li><b>A chain of custody record</b>, closed by return or a certificate of destruction.</li>
 </ul>
-<p>Rates and minimums are on <a href="{{ '/rates/' | relative_url }}">rates</a>. The report format is on <a href="{{ '/specimen-report/' | relative_url }}">specimen report</a>.</p>
+<p>Examination is <span class="v">$425/hr</span> against a written ceiling; the scoping call is no charge. Full schedule on <a href="{{ '/rates/' | relative_url }}">rates</a>, report format on <a href="{{ '/specimen-report/' | relative_url }}">specimen report</a>.</p>
 </section>
 
 <section>
 <h2>The four things that make it hold</h2>
 <p><b>Authority first.</b> Before a device is connected to anything, I record who authorises access, to what, on what basis. Where that is unclear I decline — a credential that works is not authority to use it.</p>
 <p><b>Write blocking, and proof of it.</b> The source is presented read-only through a hardware blocker where the interface permits, and I confirm and record the blocked state before imaging starts. A blocker on the bench is not a blocker in line.</p>
-<p><b>Two digests, two tools.</b> One over the bytes as read, in the pass that writes the image; a second over the stored image afterwards, with a different tool. Only the comparison means anything.</p>
-<p><b>A custody record written as it happens.</b> Receipt, every custodian, every transfer, storage, disposal. One reassembled afterwards reads like one reassembled afterwards.</p>
+<p><b>Two digests, two tools.</b> One over the bytes as read, in the pass that writes the image; a second over the stored image afterwards, preferably with a different tool. Only the comparison means anything.</p>
+<p><b>A custody record written as it happens.</b> Receipt, every custodian, every transfer, storage, disposal.</p>
 </section>
 
 <section>
@@ -56,17 +56,17 @@ $ <b>sudo dc3dd if=/dev/sdb hof=/evi/WW-S-0000/001.raw \
 <i># Separate pass, separate tool, source detached.</i>
 $ <b>sha256sum /evi/WW-S-0000/001.raw</b>
 9d2a35b6a225ec122410d86b12cf875bf04215e5608dea39034cbb8bfa192e3a  /evi/WW-S-0000/001.raw</pre>
-<p><span class="v">SHA-256</span> is the primary algorithm; MD5 appears only where a tool emits it, never as a security claim. Analysis runs on a working copy, verified against the master the same way. A match proves the image corresponds to the source as read — not that the source was unaltered before I arrived, and nothing about authorship or content.</p>
+<p><span class="v">SHA-256</span> is the primary algorithm; MD5 appears only where a tool emits it, never as a security claim. Analysis runs on a working copy, verified against the master the same way. A match proves the image corresponds to the source as read — nothing about the source before I arrived, nor about content or authorship.</p>
 </section>
 
 <section>
 <h2>When a digest does not match</h2>
-<p>Work stops. Nothing is analysed from that image, and the failure goes into the report with both digests, the tools and the time, resolved or not. Then I narrow it: per-segment digests to localise it, a fresh acquisition where the source is still readable, enumerated bad sectors where the medium is failing. A failing drive does not destroy the evidence. A quiet second attempt that replaces the first with no record does.</p>
+<p>Work stops. Nothing is analysed from that image, and the failure goes into the report with both digests, the tools and the time, resolved or not. Then I narrow it: per-segment digests, a fresh acquisition where the source is still readable, enumerated bad sectors where the medium is failing. A failing drive does not destroy the evidence. A quiet second attempt that replaces the first with no record does.</p>
 </section>
 
 <section>
 <h2>Where write blocking cannot be used</h2>
-<p>Live memory, a production system that cannot be taken down, most mobile extractions, cloud collected over an authenticated session. Each alters something. Soundness then comes from the record: method, tool version, a digest at the earliest point one means anything, and a plain statement of what was altered. Memory is usually worth the cost — it holds running processes and injected code, and an unlocked encrypted volume is ciphertext once the machine is shut down.</p>
+<p>Live memory, a production system that cannot be taken down, most mobile extractions, cloud collected over an authenticated session. Each alters something. Soundness then comes from the record: method, tool version, a digest at the earliest useful point, and a plain statement of what was altered.</p>
 </section>
 
 <section>
@@ -78,21 +78,22 @@ $ <b>sha256sum /evi/WW-S-0000/001.raw</b>
 <tbody>
 <tr><td>Authority and scope</td><td>Who authorised access to what, recorded before anything was connected.</td><td class="not">That the authority was validly held.</td></tr>
 <tr><td>Write-blocked acquisition</td><td>The source was read-only and the image corresponds to the source as read.</td><td class="not">Anything before my custody began.</td></tr>
-<tr><td>Live acquisition</td><td>The state of a running system at a stated moment, memory and encryption state included.</td><td class="not">A clean capture; it writes to the system.</td></tr>
+<tr><td>Live acquisition</td><td>The state of a running system at a stated moment, memory and encryption included.</td><td class="not">A clean capture; it writes to the system.</td></tr>
 <tr><td>Hash verification<br><span class="cond">SHA-256 primary</span></td><td>Image and working copies are byte-identical to what was read.</td><td class="not">Content, authorship or truth.</td></tr>
-<tr><td>Mobile and cloud collection</td><td>What was obtainable at that patch level, or retained by that tenant, on that date.</td><td class="not">Completeness; both are partial by construction.</td></tr>
+<tr><td>Mobile and cloud collection</td><td>What was obtainable at that patch level, or retained by that tenant, that day.</td><td class="not">Completeness; both are partial by construction.</td></tr>
 <tr><td>Chain of custody</td><td>Where the item was, in whose hands, from receipt to disposal.</td><td class="not">Integrity before receipt; it is not a substitute for the hash.</td></tr>
 <tr><td>Examination</td><td>What the artefacts show: what existed, what changed, when, by what mechanism.</td><td class="not">Who was at the keyboard.</td></tr>
+<tr><td>Return or destruction</td><td>Re-verified on withdrawal, disposed of on written instruction, certificate issued.</td><td class="not">Nothing about copies held by anyone else.</td></tr>
 <tr><td>Reporting</td><td>The opinions, their bases, the data considered and the method applied.</td><td class="not">Admissibility; that is the court's decision.</td></tr>
 </tbody>
 </table>
 </div>
-<p class="small">The image and its logs are the material FRE 902(14) and 902(13) contemplate, with a certification. That removes the need for live foundation testimony on authenticity and nothing else.</p>
+<p class="small">The image and its logs are what FRE 902(14) and 902(13) contemplate, with a certification: that removes the need for live foundation testimony on authenticity, and nothing else.</p>
 </section>
 
 <section>
 <h2>Standards worked to</h2>
-<p>NIST SP 800-86 for the collection-to-reporting sequence and order of volatility; ISO/IEC 27037 for auditability, repeatability, reproducibility and justifiability; SWGDE practice documents, cited by version. Guidance I work to, not certificates I hold — I do not call work "ISO 27037 compliant". Where a matter requires a certified examiner, an accredited laboratory or a licence, that is identified at scoping and stated in the engagement letter, or I decline the matter.</p>
+<p>NIST SP 800-86 for sequence and order of volatility; ISO/IEC 27037 for auditability, repeatability, reproducibility and justifiability; SWGDE practice documents, cited by version. Guidance I work to, not certificates I hold — I do not call work "ISO 27037 compliant". Where a matter requires a certified examiner, an accredited laboratory or a licence, that is identified at scoping and stated in the engagement letter, or I decline the matter.</p>
 </section>
 
 <section>

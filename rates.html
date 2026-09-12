@@ -10,7 +10,7 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "Published fees and price classes"
 authority: Principal
-content_sha256: 384672d9ac32e09d26b0d4d6fef4ed4b31afe9f72d06c057ec2dcc3a55f32ce7
+content_sha256: 8f21933ba3c6d6c0ebb8b6459fb01b03c6373225f4c9d797339fdca7e722ae2d
 ---
 
 <section>
@@ -20,37 +20,36 @@ content_sha256: 384672d9ac32e09d26b0d4d6fef4ed4b31afe9f72d06c057ec2dcc3a55f32ce7
   <caption>Effective 2026-09-11</caption>
   <thead><tr><th style="width:62%">Line</th><th>Rate</th></tr></thead>
   <tbody>
-    <tr><td>Principal &mdash; examination, analysis, opinion, strategy</td><td class="val">$425/hr</td></tr>
-    <tr><td>Associate examiner, under my direction<span class="cond">only where one is engaged, which is stated in the engagement letter before work begins. I remain the signing examiner</span></td><td class="val">$275/hr</td></tr>
-    <tr><td>Collection and processing technician<span class="cond">as above. Opinion work is never billed at this rate</span></td><td class="val">$175/hr</td></tr>
+    <tr><td>Principal &mdash; examination, analysis, opinion</td><td class="val">$425/hr</td></tr>
+    <tr><td>Associate examiner, under my direction<span class="cond">only where one is engaged; the letter says so. I sign either way</span></td><td class="val">$275/hr</td></tr>
+    <tr><td>Collection and processing technician<span class="cond">as above, and never opinion work</span></td><td class="val">$175/hr</td></tr>
     <tr><td>eDiscovery project management</td><td class="val">$180/hr</td></tr>
-    <tr><td>Travel time, capped at 5 hours a day</td><td class="val">$210/hr</td></tr>
-    <tr><td>Billing increment, one task per entry</td><td class="val">0.1 hr</td></tr>
+    <tr><td>Travel, capped at 5 hours daily</td><td class="val">$210/hr</td></tr>
+    <tr><td>Billing increment, one task an entry</td><td class="val">0.1 hr</td></tr>
   </tbody>
 </table>
 </div>
-<p><b>Examination is hourly against a written ceiling.</b> I propose the opening authorisation before starting, stop and report at 80% of it, and bill no hour above it. Expenses at cost, receipts, no mark-up.</p>
-<p><b>Out of hours: one uplift, <span class="v">+35%</span>, on a clock trigger.</b> Hours outside <span class="v">08:00&ndash;18:00</span> Eastern weekdays, weekends and federal holidays, or out-of-hours work on an engagement starting within <span class="v">24 hours</span> of signature. Those hours only, never the whole matter. It is not an undertaking that I can be staffed at night.</p>
-<p><b>Your rate is the one on your engagement letter</b> &mdash; held <span class="v">12 months</span>, changed only on <span class="v">60 days</span>' notice. Old schedules stay at <a href="{{ '/versions/' | relative_url }}">versions</a>.</p>
+<p><b>Examination is hourly against a written ceiling:</b> I stop and report at 80%, and bill no hour above it. Expenses at cost, no mark-up.</p>
+<p><b>One uplift, <span class="v">+35%</span>:</b> hours outside <span class="v">08:00&ndash;18:00</span> Eastern weekdays, weekends and federal holidays, or out-of-hours work starting within <span class="v">24 hours</span> of signature. Those hours only, not the matter.</p>
+<p><b>Your rate is the one on your engagement letter</b> &mdash; held <span class="v">12 months</span>, changed on <span class="v">60 days</span>' notice. Old schedules at <a href="{{ '/versions/' | relative_url }}">versions</a>.</p>
 </section>
 
 <section>
 <h2>Acquisition and collection</h2>
-<p>Fixed. You end up holding the image or collection set, its hashes, the worksheet and a signed chain of custody.</p>
+<p>You hold the image, its hashes, the worksheet and a signed chain of custody. Write-blocked, SHA-256 verified twice.</p>
 <div class="tw">
 <table class="ledger">
-  <caption>Fixed prices</caption>
-  <thead><tr><th style="width:34%">Service</th><th style="width:14%">Unit</th><th style="width:20%">Price</th><th>What it does not establish</th></tr></thead>
+  <thead><tr><th style="width:32%">Service</th><th style="width:14%">Unit</th><th style="width:24%">Price</th><th>Does not establish</th></tr></thead>
   <tbody>
-    <tr><td>Scoping and preservation call, up to 45 minutes</td><td>per matter</td><td>No charge</td><td class="not">Nothing is examined, so nothing said is a finding.</td></tr>
-    <tr><td>Forensic image of a computer, drive or external media &mdash; write-blocked, SHA-256 verified twice, 90 days storage</td><td>per device</td><td class="val">$950 &le;2 TB<br>$1,450 2&ndash;8 TB<br>$650 each further device, same site and day<br>above 8 TB quoted</td><td class="not">A hash speaks to the copy, not to the source before I reached it.</td></tr>
-    <tr><td>Targeted collection &mdash; hashed container, manifest, written note of what I did not collect</td><td>per endpoint</td><td class="val">$475</td><td class="not">Nothing outside the profile: no unallocated space, no deleted content.</td></tr>
-    <tr><td>On-site collection, up to 8 hours within 60 miles</td><td>per examiner-day</td><td class="val">$2,900<br>$1,700 half-day</td><td class="not">Access and encryption state decide what proves collectable.</td></tr>
-    <tr><td>Remote custodian collection &mdash; kit or supervised agent, attestation, session log</td><td>per custodian</td><td class="val">$900</td><td class="not">Plus shipping. It records what the custodian says they gave me.</td></tr>
-    <tr><td>Mobile extraction, logical or advanced logical, with the level reached stated in writing</td><td>per device, per attempt</td><td class="val">$850<br>$600 each further device</td><td class="not">Buys the attempt, not a successful extraction.</td></tr>
-    <tr><td>Mobile, full file system attempt, quoted after I inspect the handset. Reach only logical and the logical price applies</td><td>per device</td><td class="val">$1,800</td><td class="not">A before-first-unlock handset may be unobtainable at any price.</td></tr>
-    <tr><td>Cloud account collection &mdash; mailbox and drive, hashed export, manifest, authority recorded</td><td>per custodian</td><td class="val">$1,100<br>$450 each further custodian, same tenant</td><td class="not">Nothing that was never logged.</td></tr>
-    <tr><td>Cloud tenant preservation &mdash; holds, retention and licence review, audit log export, confirmation report<span class="cond">indicative; confirmed at scoping</span></td><td>per tenant, per platform</td><td class="val">$2,400</td><td class="not">A hold preserves forward. Nothing aged out comes back.</td></tr>
+    <tr><td>Scoping and preservation call, 45 minutes</td><td>per matter</td><td>No charge</td><td class="not">Nothing examined, nothing found.</td></tr>
+    <tr><td>Forensic image: computer, drive or external media</td><td>per device</td><td class="val">$950 &le;2 TB<br>$1,450 2&ndash;8 TB<br>$650 further device, same site and day<br>above 8 TB quoted</td><td class="not">Speaks to the copy, not the source.</td></tr>
+    <tr><td>Targeted collection, with a note of what I did not take</td><td>per endpoint</td><td class="val">$475</td><td class="not">No unallocated space, no deleted content.</td></tr>
+    <tr><td>On-site collection, up to 8 hours within 60 miles</td><td>per examiner-day</td><td class="val">$2,900<br>$1,700 half-day</td><td class="not">Access and encryption decide what is collectable.</td></tr>
+    <tr><td>Remote custodian collection, with attestation</td><td>per custodian</td><td class="val">$900</td><td class="not">Plus shipping. Records what they handed me.</td></tr>
+    <tr><td>Mobile extraction, logical or advanced logical</td><td>per device, per attempt</td><td class="val">$850<br>$600 further device</td><td class="not">Buys the attempt, not the result.</td></tr>
+    <tr><td>Mobile, full file system attempt</td><td>per device</td><td class="val">$1,800, quoted after inspection</td><td class="not">Logical level, logical price. A handset may be unreachable.</td></tr>
+    <tr><td>Cloud collection: mailbox and drive</td><td>per custodian</td><td class="val">$1,100<br>$450 further custodian, same tenant</td><td class="not">Nothing that was never logged.</td></tr>
+    <tr><td>Cloud tenant preservation: holds and log export<span class="cond">indicative</span></td><td>per tenant, per platform</td><td class="val">$2,400</td><td class="not">Preserves forward, restores nothing.</td></tr>
   </tbody>
 </table>
 </div>
@@ -60,17 +59,16 @@ content_sha256: 384672d9ac32e09d26b0d4d6fef4ed4b31afe9f72d06c057ec2dcc3a55f32ce7
 <h2>Copies, opinions and advisory</h2>
 <div class="tw">
 <table class="ledger">
-  <caption>Fixed prices</caption>
-  <thead><tr><th style="width:34%">Service</th><th style="width:16%">Unit</th><th style="width:16%">Price</th><th>What it does not establish</th></tr></thead>
+  <thead><tr><th style="width:32%">Service</th><th style="width:16%">Unit</th><th style="width:18%">Price</th><th>Does not establish</th></tr></thead>
   <tbody>
-    <tr><td>Verified forensic copy for production or the opposing party, with verification report</td><td>per copy</td><td class="val">$350</td><td class="not">Plus media. Correspondence with what I hold, not admissibility.</td></tr>
-    <tr><td>Second opinion on an internal IT finding &mdash; the original artefacts, not the summary</td><td>per finding</td><td class="val">$2,600</td><td class="not">Where internal activity destroyed the evidence, it says so and stops.</td></tr>
-    <tr><td>Review of an opposing examiner's report &mdash; every finding marked supported, partly, unsupported or untestable, with the questions to put</td><td>flat</td><td class="val">$3,250</td><td class="not">Untestable is not wrong.</td></tr>
-    <tr><td>Declaration or affidavit restating completed work, with exhibits</td><td>per document</td><td class="val">$1,800</td><td class="not">Any new testing is hourly against a ceiling.</td></tr>
-    <tr><td>Cloud logging and evidence-readiness review &mdash; retention, what each source would answer, prioritised changes with licence cost<span class="cond">indicative; confirmed at scoping</span></td><td>per M365 or Google tenant</td><td class="val">$4,200<br>$1,800 per AWS account added</td><td class="not">Only the sources in scope, and auditing switched on logs forward only.</td></tr>
-    <tr><td>Tabletop exercise and plan review &mdash; half-day, decision log, marked-up plan<span class="cond">indicative; confirmed at scoping</span></td><td>per exercise</td><td class="val">$6,500</td><td class="not">How your people decide, not that the plan works.</td></tr>
-    <tr><td>Evidence storage after close &mdash; encrypted, hash re-verified on withdrawal</td><td>per matter per month, &le;4 TB</td><td class="val">$75</td><td class="not"><span class="v">$15/TB/month</span> above 4 TB, first 90 days included. Not archival.</td></tr>
-    <tr><td>Certified destruction, certificate issued</td><td>per matter</td><td class="val">$150</td><td class="not">Nothing about copies held by anyone else.</td></tr>
+    <tr><td>Verified forensic copy for production</td><td>per copy</td><td class="val">$350</td><td class="not">Plus media.</td></tr>
+    <tr><td>Second opinion on an internal IT finding</td><td>per finding</td><td class="val">$2,600</td><td class="not">Where internal activity destroyed it, it says so.</td></tr>
+    <tr><td>Review of an opposing report, finding by finding, with questions to put</td><td>flat</td><td class="val">$3,250</td><td class="not">Untestable is not wrong.</td></tr>
+    <tr><td>Declaration or affidavit restating completed work</td><td>per document</td><td class="val">$1,800</td><td class="not">New testing is hourly.</td></tr>
+    <tr><td>Cloud logging review: retention and coverage<span class="cond">indicative</span></td><td>per M365 or Google tenant</td><td class="val">$4,200<br>$1,800 per AWS account</td><td class="not">Auditing logs forward only.</td></tr>
+    <tr><td>Tabletop exercise, half-day<span class="cond">indicative</span></td><td>per exercise</td><td class="val">$6,500</td><td class="not">How people decide, not that the plan works.</td></tr>
+    <tr><td>Evidence storage after close</td><td>per matter per month, &le;4 TB</td><td class="val">$75</td><td class="not"><span class="v">$15/TB/month</span> above 4 TB, first 90 days included. Not archival.</td></tr>
+    <tr><td>Certified destruction, certificate issued</td><td>per matter</td><td class="val">$150</td><td class="not">Nothing about copies others hold.</td></tr>
   </tbody>
 </table>
 </div>
@@ -80,101 +78,83 @@ content_sha256: 384672d9ac32e09d26b0d4d6fef4ed4b31afe9f72d06c057ec2dcc3a55f32ce7
 <h2>Testimony</h2>
 <div class="tw">
 <table class="ledger">
-  <caption>Testimony and cancellation</caption>
+  <caption>A held day cannot be resold</caption>
   <thead><tr><th style="width:48%">Line</th><th>Price</th></tr></thead>
   <tbody>
     <tr><td>Deposition, remote</td><td><span class="v">$550/hr</span>, <span class="v">4</span>-hour minimum</td></tr>
     <tr><td>Deposition, in person</td><td><span class="v">$4,800</span> a day or part, plus travel</td></tr>
     <tr><td>Trial, hearing or arbitration</td><td><span class="v">$5,600</span> a day or part, plus travel</td></tr>
     <tr><td>Preparation</td><td>Principal rate</td></tr>
-    <tr><td>Standby, reserved and not called</td><td>Applicable day rate</td></tr>
-    <tr><td>Prepayment, reconciled after the date, unearned balance refunded in full</td><td>Estimated fee</td></tr>
+    <tr><td>Standby, reserved, not called</td><td>Applicable day rate</td></tr>
+    <tr><td>Prepayment, reconciled after, balance refunded</td><td>Estimated fee</td></tr>
     <tr><td>Released more than <span class="v">3</span> business days ahead</td><td>No charge</td></tr>
     <tr><td>Released inside <span class="v">3</span> days / inside <span class="v">1</span> day</td><td class="val">50% / 100%</td></tr>
   </tbody>
 </table>
 </div>
-<p>A held day is closed to everything else, and inside a day it cannot be sold to anyone. Same reason for the four-hour remote minimum, which is the only minimum on this page.</p>
-<p><b>Testimony is never capped.</b> The schedule belongs to the court, and an examiner who has promised a not-to-exceed has a reason to want the day over.</p>
-<p>It is billed to the retaining party whatever the outcome, and it is whatever the completed work supports. Where the opposing party notices the deposition, <span class="v">FRCP 26(b)(4)(E)</span> ordinarily puts the fee on them. Where a matter requires a previously qualified testifying expert, that is stated in the engagement letter; I bring one in or decline.</p>
+<p><b>Testimony is never capped</b> &mdash; the schedule belongs to the court. Billed to the retaining party whatever the outcome. Where the opposing party notices the deposition, <span class="v">FRCP 26(b)(4)(E)</span> ordinarily puts the fee on them. Where a matter needs a previously qualified testifying expert, the letter says so; I bring one in or decline.</p>
 </section>
 
 <section>
 <h2>Incident response</h2>
 <div class="tw">
 <table class="ledger">
-  <caption>Mobilisation and standby</caption>
-  <thead><tr><th style="width:40%">Line</th><th style="width:12%">Unit</th><th style="width:12%">Price</th><th>What it does not establish</th></tr></thead>
+  <thead><tr><th style="width:42%">Line</th><th style="width:12%">Unit</th><th style="width:12%">Price</th><th>Does not establish</th></tr></thead>
   <tbody>
-    <tr><td>Emergency mobilisation, a time-boxed first block &mdash; preservation direction, triage collection from up to five systems, written preliminary position, scoped proposal with a ceiling. Inclusive of the uplift, credited in full against what follows<span class="cond">indicative; confirmed at scoping</span></td><td>per incident</td><td class="val">$6,000</td><td class="not">Not how the intrusion happened or what must be notified. Scope is discovered, not declared.</td></tr>
-    <tr><td>Standby &mdash; conflicts pre-run against named adversaries, rate fixed for the year, MSA pre-agreed, out-of-hours authorisation pre-signed. Credited against the first engagement; converts to a tabletop if unused</td><td>per year</td><td class="val">$7,500</td><td class="not">Retained rate is the card less <span class="v">15%</span>, uplift waived 48 hours. A conflict against an unnamed party still stops me.</td></tr>
+    <tr><td>Emergency mobilisation, time-boxed: preservation direction, triage of up to five systems, preliminary position, scoped proposal with a ceiling. Uplift included, credited in full<span class="cond">indicative</span></td><td>per incident</td><td class="val">$6,000</td><td class="not">Not how the intrusion happened, or what must be notified.</td></tr>
+    <tr><td>Standby: conflicts pre-run against named adversaries, rate fixed for the year, MSA and out-of-hours authorisation pre-signed. Credited against the first engagement, or converts to a tabletop</td><td>per year</td><td class="val">$7,500</td><td class="not">Card less <span class="v">15%</span>, uplift waived 48 hours. A conflict against an unnamed party still stops me.</td></tr>
   </tbody>
 </table>
 </div>
-<p><b>A response commitment exists only under a signed standby agreement.</b> Without one there is no service level. What happens when an unretained caller reaches me is on the <a href="{{ '/emergency/' | relative_url }}">emergency page</a>.</p>
-<p><b>No overage, no surge rate.</b> Hours beyond a standby credit bill at the retained rate, not above it.</p>
+<p><b>A response commitment exists only under a signed standby agreement;</b> without one there is no service level. No overage, no surge rate: hours beyond a standby credit bill at the retained rate, not above it. Unretained callers, read the <a href="{{ '/emergency/' | relative_url }}">emergency page</a>.</p>
 </section>
 
 <section>
 <h2>eDiscovery</h2>
 <div class="tw">
 <table class="ledger">
-  <caption>Units &middot; reviewed 2026-09-11 &middot; next review 2027-03-11</caption>
-  <thead><tr><th style="width:30%">Line</th><th style="width:28%">Unit</th><th style="width:12%">Price</th><th>Note</th></tr></thead>
+  <caption>Reviewed 2026-09-11 &middot; next review 2027-03-11</caption>
+  <thead><tr><th style="width:30%">Line</th><th style="width:32%">Unit</th><th style="width:12%">Price</th><th>Note</th></tr></thead>
   <tbody>
-    <tr><td>Processing and ingest<span class="cond">indicative; confirmed against current metering</span></td><td>per GB of source volume <b>as collected</b>, pre-expansion, pre-deduplication</td><td class="val">$22/GB</td><td class="not">I do not bill expanded volume.</td></tr>
-    <tr><td>Review hosting, no analytics</td><td>per GB per month</td><td class="val">$9</td><td class="not">I tell you when volume can come down.</td></tr>
-    <tr><td>Review hosting, with analytics</td><td>per GB per month</td><td class="val">$14</td><td class="not">Responsiveness and privilege stay a lawyer's call.</td></tr>
+    <tr><td>Processing and ingest<span class="cond">indicative</span></td><td>per GB <b>as collected</b>, pre-expansion, pre-deduplication</td><td class="val">$22/GB</td><td class="not">I do not bill expanded volume.</td></tr>
+    <tr><td>Review hosting, no analytics</td><td>per GB per month</td><td class="val">$9</td><td class="not">I say when volume can come down.</td></tr>
+    <tr><td>Review hosting, with analytics</td><td>per GB per month</td><td class="val">$14</td><td class="not">Privilege stays a lawyer's call.</td></tr>
     <tr><td>Review platform user licence</td><td>per user per month, at cost</td><td class="val">$75</td><td class="not">Pass-through, no commission.</td></tr>
-    <tr><td>Imaged production<span class="cond">indicative</span></td><td>per page</td><td class="val">$0.05</td><td class="not">Where a format would degrade usability, I say so first.</td></tr>
-    <tr><td>TAR protocol design and validation<span class="cond">indicative</span></td><td>per project, fixed</td><td class="val">$6,500</td><td class="not">Performance against a measured sample, not proof every responsive document was found.</td></tr>
+    <tr><td>Imaged production<span class="cond">indicative</span></td><td>per page</td><td class="val">$0.05</td><td class="not">I flag a format that degrades usability.</td></tr>
+    <tr><td>TAR protocol design and validation<span class="cond">indicative</span></td><td>per project</td><td class="val">$6,500</td><td class="not">Measured performance, not completeness.</td></tr>
   </tbody>
 </table>
 </div>
-<p>The unit is publishable; the quantity is not, because nobody knows it before collection. Culling can take a bill from five figures to four and my per-GB revenue with it. I will still tell you when it applies.</p>
 </section>
 
 <section>
 <h2>Quoted, not published</h2>
-<div class="tw">
-<table class="ledger">
-  <caption>No honest published price</caption>
-  <thead><tr><th style="width:34%">Service</th><th>What happens instead</th></tr></thead>
-  <tbody>
-    <tr><td>Any examination or analysis</td><td class="not">The deliverable is an answer, not an artefact: hourly against a written ceiling.</td></tr>
-    <tr><td>Server, RAID, NAS or virtualised host imaging</td><td class="not">A ceiling quoted after a short technical call. Treat a flat number for this, from anyone, with suspicion.</td></tr>
-    <tr><td>Mobile physical, before-first-unlock, chip-off, ISP</td><td class="not">Quoted per device after inspection, or referred out. A locked handset may be unreachable at any price, and I say so before you spend.</td></tr>
-    <tr><td>Rule 26(a)(2)(B) expert report</td><td class="not">An estimated band with a stop-and-confer point, after the examination.</td></tr>
-    <tr><td>Ransomware or intrusion response</td><td class="not">Staged: the mobilisation block prices everything after it.</td></tr>
-    <tr><td>Breach data mining and notification lists</td><td class="not">Quoted on record count once the at-risk set is known.</td></tr>
-  </tbody>
-</table>
-</div>
+<p><b>Any examination or analysis</b> is hourly against a written ceiling. <b>Server, RAID, NAS or virtual host imaging</b> is a ceiling quoted after a technical call. <b>Mobile physical, before-first-unlock, chip-off and ISP</b> are quoted after inspection or referred out. A <b>Rule 26(a)(2)(B) report</b> is an estimated band with a stop-and-confer point. <b>Intrusion response</b> is staged from the mobilisation block; <b>breach notification lists</b> are priced on record count.</p>
 </section>
 
 <section>
 <h2>Conditions</h2>
-<p><b>No discounts, promotions or volume tiers.</b> Two things lower your bill, both published in advance: the <a href="{{ '/standby/' | relative_url }}">standby</a> retained rate, and the bank-transfer discount on <a href="{{ '/engagement/' | relative_url }}">engagement</a>.</p>
-<p><b>No minimum hours on examination or collection.</b> Ten per drive and six per phone are published elsewhere in this field; a minimum that turns a two-hour job into a ten-hour invoice reads badly when the invoice becomes an exhibit.</p>
-<p><b>Nothing starts before conflicts clear and the letter is signed.</b> Money paid earlier is held unapplied and refunded in full, nothing deducted for card processing.</p>
-<p><b>Where a matter requires a certified examiner, an accredited laboratory or a licence,</b> that is stated in the engagement letter and satisfied before work begins. I check your venue before I quote.</p>
+<p><b>No discounts, promotions or volume tiers.</b> Two things lower it: the <a href="{{ '/standby/' | relative_url }}">standby</a> retained rate and the bank-transfer discount on <a href="{{ '/engagement/' | relative_url }}">engagement</a>.</p>
+<p><b>No minimum hours on examination or collection.</b></p>
+<p><b>Nothing starts before conflicts clear and the letter is signed;</b> money paid earlier is held unapplied, refunded in full.</p>
+<p><b>Where a matter requires a certified examiner, an accredited laboratory or a licence,</b> the engagement letter states it and it is satisfied before work begins. I check your venue first.</p>
 </section>
 
 <section>
 <div class="refuse">
   <h2>I will not</h2>
   <ol>
-    <li>Take a fee that depends on what I find, on the outcome, or on which side retains me.</li>
+    <li>Take a fee that depends on what I find or which side retains me.</li>
     <li>Take or pay a referral fee, in either direction.</li>
-    <li>Take a vendor commission, or sell you the remediation I was paid to investigate.</li>
-    <li>Bill an hour above the ceiling you authorised in writing.</li>
+    <li>Take a vendor commission, or sell you the remediation I investigated.</li>
+    <li>Bill an hour above the ceiling you authorised.</li>
     <li>Image a whole disk where a targeted collection answers the question.</li>
-    <li>Keep quiet about culling that would take your bill from five figures to four.</li>
+    <li>Keep quiet about culling that cuts your bill from five figures to four.</li>
     <li>Carry an overage or surge rate.</li>
-    <li>Deduct card fees from money I am returning to you.</li>
+    <li>Deduct card fees from money I return to you.</li>
   </ol>
 </div>
-<p>Ring me on <span class="v">917-217-7975</span> and I will tell you whether this is even a forensics problem. The call is free, including the one that ends with you not needing me.</p>
+<p>Ring me on <span class="v">917-217-7975</span> and I will tell you whether this is even a forensics problem. The call is free, including the one where you don't need me.</p>
 <div class="acts">
   <a class="btn" href="{{ '/scope/' | relative_url }}">The service ledger</a>
   <a class="btn" href="{{ '/engagement/' | relative_url }}">Engagement terms</a>

@@ -10,36 +10,36 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "Document integrity and version index"
 authority: Principal
-content_sha256: 15c2024e950af3d41fa38cb34046773942353aad8c21cb843a80fb8c8c99b275
+content_sha256: c6e4e004eeef2abb39884f63ea17246b5d23a4373cb10de18a242e34ae2dfd85
 ---
 
 <section>
 <h2>What the footer means</h2>
-<p>Four values at the bottom of every page. Where a page has not been stamped, the digest row is missing rather than filled with a number nobody computed.</p>
+<p>Four values at the foot of every page; an unstamped page shows no digest row. Prices are stamped the same way: Principal examination <span class="v">$425/hr</span>, full <a href="/rates/">schedule</a>.</p>
 <div class="tw">
 <table class="ledger">
-  <caption>Chain-of-custody footer &mdash; field by field</caption>
+  <caption>Footer fields</caption>
   <thead><tr><th>Field</th><th>What it is</th><th>What this does not establish</th></tr></thead>
   <tbody>
     <tr>
       <td><span class="v">PAGE</span></td>
-      <td>The canonical path of the document, as published.</td>
+      <td>The document's canonical path.</td>
       <td class="not">Not that an intermediary left the delivered page unaltered.</td>
     </tr>
     <tr>
       <td><span class="v">REVISED</span></td>
-      <td>Date of the last substantive revision, written in the source file.</td>
-      <td class="not">Not that no edit followed it; the commit history is what can contradict me.</td>
+      <td>Last substantive revision.</td>
+      <td class="not">Not that no edit followed it; the history can contradict me.</td>
     </tr>
     <tr>
       <td><span class="v">SHA-256 (SOURCE)</span></td>
-      <td>A digest over the page source below the front matter, computed by a tool in the public repository and committed beside the file.</td>
+      <td>Digest over the source below the front matter, from a tool in the public repository.</td>
       <td class="not">Not who wrote the text, when, or whether it is true.</td>
     </tr>
     <tr>
       <td><span class="v">prior versions</span></td>
-      <td>The commit history of that one file.</td>
-      <td class="not">Not that the history is complete; I control the repository.</td>
+      <td>Commit history of that one file.</td>
+      <td class="not">Not that the history is complete; I hold the repository.</td>
     </tr>
   </tbody>
 </table>
@@ -47,26 +47,25 @@ content_sha256: 15c2024e950af3d41fa38cb34046773942353aad8c21cb843a80fb8c8c99b275
 </section>
 
 <section>
-<h2>Checking it without asking me</h2>
+<h2>Checking it yourself</h2>
 <ol>
   <li><code>git clone https://github.com/wirewalktech/forensics-wirewalk</code></li>
-  <li>Every page at once: <code>python3 tools/stamp.py --check</code>, which exits non-zero and names any file whose digest does not match its body.</li>
-  <li>One page, using none of my code:<br>
+  <li>Every page: <code>python3 tools/stamp.py --check</code> names any file whose digest does not match.</li>
+  <li>One page, none of my code:<br>
   <code>awk 'f{print} /^---$/{n++; if(n==2) f=1}' versions.html | shasum -a 256</code></li>
 </ol>
-<p>Compare the result with the digest in that page's footer and with <span class="v">content_sha256</span> in its front matter. All three are the same string or something is wrong.</p>
-<p><b>A match proves one thing.</b> The text you are reading is byte for byte the source that was stamped.</p>
-<p><b>A mismatch is usually dull.</b> A page edited and published without the stamping run &mdash; my process failure, and the one this check exists to catch. It does establish that this is not the text that was stamped, and that someone should ask why.</p>
+<p>Must equal the footer digest and front-matter <span class="v">content_sha256</span>.</p>
+<p><b>A match proves one thing:</b> this text is byte for byte the source that was stamped. <b>A mismatch</b> usually means I published without stamping &mdash; my failure, what this check catches. It does establish this is not the stamped text.</p>
 </section>
 
 <section>
 <h2>What it is not</h2>
-<p>Not a timestamping authority, not notarisation, and no evidence at all about any examination or opinion of mine &mdash; those are tested by reading the <a href="/method/">method</a> and the <a href="/limits/">limits</a> and putting questions to me. It does not protect you against me either: I compute the digest and I hold the repository. So if the wording of a published term may matter to you later, print the page or take your own clone. That is the ordinary advice about anybody's terms.</p>
+<p>Not a timestamping authority, not notarisation, and no evidence about any examination or opinion of mine &mdash; test those against the <a href="/method/">method</a> and the <a href="/limits/">limits</a>. Nor does it protect you against me: I compute the digest and hold the repository. Clone any term that may matter later.</p>
 </section>
 
 <section>
-<h2>Index of published documents</h2>
-<p>An identifier is stable for the life of a document and is never handed on. A withdrawn page leaves this table; the document stays in the history.</p>
+<h2>Index</h2>
+<p>An identifier is never reused. A withdrawn page leaves this table, not the history.</p>
 <div class="tw">
 <table class="ledger">
   <caption>Published documents &mdash; index at 2026-09-11</caption>
@@ -96,5 +95,5 @@ content_sha256: 15c2024e950af3d41fa38cb34046773942353aad8c21cb843a80fb8c8c99b275
 
 <section>
 <h2>If something does not match</h2>
-<p>A digest that fails, a version that did not move when a price did, a page with no row above: tell me. Ring <a class="v" href="tel:+19172177975">917-217-7975</a> or use the form on <a href="/contact/">contact</a>. Reporting a defect creates no engagement &mdash; and if you rang about the work rather than the plumbing, it is the same number.</p>
+<p>A digest that fails, a version that did not move when a price did, a page with no row above: tell me. Ring <a class="v" href="tel:+19172177975">917-217-7975</a> or use the form on <a href="/contact/">contact</a>. Reporting a defect creates no engagement. Same number for the work.</p>
 </section>

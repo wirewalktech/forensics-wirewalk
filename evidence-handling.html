@@ -10,33 +10,35 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "Custody, storage, retention, destruction"
 authority: Principal
-content_sha256: d47d5a032425a0a9a0ae6bd57af172e404a8961b0d03c823043d75c1c62af15e
+content_sha256: c7fa8aab7a6623ce2767360cbf22f2a6a4f6eb01cdc2ed8267b42d29675222df
 ---
 
 <div class="note seal">
-  <b>These are the terms in the engagement letter</b>, and they govern from signature. If your own
-  policy needs something else &mdash; shorter retention, your own key, media that never leaves your
-  building &mdash; say so at scoping. It gets written in, or I decline the matter.
+  <b>These are the terms in the engagement letter</b>; they govern from signature. If your policy
+  needs something else &mdash; shorter retention, your own key &mdash; say so at scoping.
+  It gets written in, or I decline.
 </div>
 
 <section>
 <h2>What it costs</h2>
-<p><b>Storage after the matter closes</b> &mdash; <span class="v">$75</span> per matter per month up
+<p><b>Storage after close</b> &mdash; <span class="v">$75</span> per matter per month up
 to 4 TB, <span class="v">$15/TB/month</span> above that. The first <span class="v">90 days</span>
 after the final invoice are included.</p>
 <p><b>Certified destruction</b> &mdash; <span class="v">$150</span> per matter, certificate
 included.</p>
-<p><b>A subpoena served on me</b> &mdash; published hourly rate, written ceiling.</p>
+<p><b>A subpoena served on me</b> &mdash; published hourly rate, written ceiling. Where notice is
+lawful you hear at once; whether to object or quash is counsel's call
+(<span class="v">Fed. R. Civ. P. 45(d)(2)(B)</span> gives fourteen days).</p>
 </section>
 
 <section>
-<h2>What you end up holding</h2>
+<h2>What you get</h2>
 <p>A written chain of custody, delivered with the report. Analysis runs on a working copy; nobody
 works from the master image.</p>
 
 <div class="tw">
 <table class="ledger">
-  <caption>What the custody record contains</caption>
+  <caption>The custody record</caption>
   <thead><tr>
     <th scope="col">Recorded</th>
     <th scope="col">What it fixes</th>
@@ -45,13 +47,13 @@ works from the master image.</p>
   <tbody>
     <tr>
       <td>Item, serial, condition; from whom and when</td>
-      <td>The item in the report is the item received</td>
+      <td>The item reported is the item received</td>
       <td class="not">That it is the only relevant device</td>
     </tr>
     <tr>
       <td>Acquisition digest: tool, version, source and image hashes
         <span class="cond"><span class="v">SHA-256</span></span></td>
-      <td>The image matches the source, and has not changed</td>
+      <td>The image matches the source, unchanged since</td>
       <td class="not">Who created or deleted anything; integrity is not attribution</td>
     </tr>
     <tr>
@@ -69,15 +71,14 @@ works from the master image.</p>
 <h2>Custody rules</h2>
 <ul>
   <li><b>Authority first.</b> Nothing enters custody until the authority to access it is written
-  down. Where it is contested &mdash; a BYOD handset, a spouse's offered password &mdash; I ask
-  counsel.</li>
+  down. Where it is contested, I ask counsel.</li>
   <li><b>At rest.</b> Encrypted, access-controlled, separate from other matters; I hold the keys.
-  Access only for the people named in the letter, every access logged. No third-party cloud without
+  Access only for people named in the letter, every access logged. No third-party cloud without
   your written consent.</li>
   <li><b>Withdrawal.</b> Re-hashed every time it leaves the store. On a mismatch nothing is used or
   produced: work stops and you hear at once.</li>
-  <li><b>Subcontracting.</b> None by default. A capability I do not hold means I name the provider
-  and get your written consent first.</li>
+  <li><b>Subcontracting.</b> None by default. A capability I do not hold means naming the provider
+  and getting your written consent first.</li>
 </ul>
 </section>
 
@@ -101,7 +102,7 @@ works from the master image.</p>
     <tr>
       <td>Retention before destruction is proposed</td>
       <td class="val">12 months</td>
-      <td class="not">Advice on what your matter needs</td>
+      <td class="not">Advice on your matter</td>
     </tr>
     <tr>
       <td>Notice before any destruction</td>
@@ -111,17 +112,15 @@ works from the master image.</p>
     <tr>
       <td>Unearned balance returned</td>
       <td class="val">10 business days</td>
-      <td class="not">Any lien on evidence for an unpaid invoice</td>
+      <td class="not">A lien for an unpaid invoice</td>
     </tr>
   </tbody>
 </table>
 </div>
 <p>Extension on written instruction at the storage rate; under a litigation hold I keep holding.
-Nothing is destroyed without written instruction naming the items, and the signed certificate
-&mdash; items, digests, method, date &mdash; follows whether or not you ask. It covers the copies I
-held, no more.</p>
-<p>On a subpoena served on me, where notice is lawful you hear at once; whether to object or quash
-is counsel's call (<span class="v">Fed. R. Civ. P. 45(d)(2)(B)</span> gives fourteen days).</p>
+Nothing is destroyed without written instruction naming the items. The signed certificate &mdash;
+items, digests, method, date &mdash; follows whether or not you ask, covering only the copies I
+held.</p>
 </section>
 
 <section>
@@ -136,23 +135,23 @@ is counsel's call (<span class="v">Fed. R. Civ. P. 45(d)(2)(B)</span> gives four
   image or container already in my custody is isolated and secured in place. I then contact the
   retaining party's counsel and, on counsel's instruction and without avoidable delay, law
   enforcement.</p>
-  <p>This is not squeamishness and it is not house policy. Knowing possession is itself an offence
-  under <span class="v">18 U.S.C. &sect; 2252</span> and <span class="v">&sect; 2252A</span>, and
-  there is no forensic exception for a private examiner. Copying it to preserve it. Viewing more of
+  <p>Knowing possession is itself an offence under <span class="v">18 U.S.C. &sect; 2252</span>
+  and <span class="v">&sect; 2252A</span>, and there is no forensic exception for a private
+  examiner. Copying it to preserve it. Viewing more of
   it to be sure. Carrying it to another facility to look at it properly. Each of those is an
   independently unlawful act.</p>
   <p>In federal criminal matters, <span class="v">18 U.S.C. &sect; 3509(m)</span> keeps such material
   with the Government or the court, inspected at a Government facility. The route runs through
-  counsel and the court, not a copy in my store. If the rule engages mid-matter, work stops and the
-  engagement may end there.</p>
+  counsel and the court, not a copy in my store. If the rule engages mid-matter, work stops and
+  the engagement may end there.</p>
 </div>
 </section>
 
 <section>
 <h2>Where these terms sit</h2>
-<p>Where these terms and a signed engagement letter differ, the letter governs.</p>
+<p>Where these terms and a signed letter differ, the letter governs.</p>
 <p>Ring me on <span class="v">917-217-7975</span> and I will tell you whether this is even a
-forensics problem, and what holding your material would cost.</p>
+forensics problem, and what holding your material costs.</p>
 <div class="acts">
   <a class="btn" href="/method/">The method</a>
   <a class="btn" href="/engagement/">Engagement terms</a>

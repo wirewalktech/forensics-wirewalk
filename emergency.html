@@ -11,63 +11,52 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "First-hour incident instructions"
 authority: Principal
-content_sha256: 8d2b76799b5ff72d8927b1caec5aa5b55d6aa9c2a3d31206693463efc3a4c21e
+content_sha256: e8b9a0b9a9c61685dee5e68d4c58e073e410eb734dff2173e6bdc456becfde60
 ---
 
 <section>
   <h1>Emergency: the first hour</h1>
   <a class="tel" href="tel:+19172177975">917-217-7975</a>
-  <p><b>Scoping call, free.</b> Emergency mobilisation, <span class="v">$6,000</span> fixed and
+  <p><b>Scoping call, free.</b> Emergency mobilisation, <span class="v">$6,000</span> fixed,
   credited in full against whatever follows.</p>
   <p>No staffed hours and no published response time, because I will not promise one I cannot
-  staff. I answer when I can. You will know quickly whether I can take it, and a no comes straight
-  away rather than being held. If I know someone better placed, you get the name.</p>
-  <p><b>If you do nothing else here, do the six steps below.</b> They are the same whichever
-  examiner you end up calling, and the same if you never call one. Most avoidable loss in the first
-  hour comes from containing and destroying in the same motion.</p>
+  staff. I answer when I can, and a no comes straight away rather than being held.</p>
+  <p><b>If you do nothing else here, do the six steps below.</b> They are the same whether or not
+  you call an examiner. Most avoidable loss comes from containing and destroying in the same
+  motion.</p>
 </section>
 
 <section>
   <h2 id="preserve">Six things to do first, in this order</h2>
   <ol class="proc">
     <li><b>Do not re-image, rebuild, &ldquo;clean&rdquo; or restore over an affected system.</b>
-      This is the most complete destruction of evidence available to you tonight, and it is almost
-      always done by good IT staff doing the job they were trained to do, fast, before anyone says
-      the word evidence. If a system must be rebuilt to keep trading, image it first &mdash; or
-      rebuild onto new hardware and set the original aside, powered down and labelled.</li>
+      It is the most complete destruction of evidence available to you tonight. If a system must
+      be rebuilt to keep trading, image it first, or rebuild onto new hardware and set the original
+      aside, powered down and labelled.</li>
 
     <li><b>Do not reboot. Isolate instead.</b>
-      Pull the network cable, shut the switch port, or use your EDR&rsquo;s host isolation. If the
-      product couples isolation to automatic remediation, switch the remediation off. Leave the
-      machine powered on and unlocked. Power off only if you cannot isolate and cannot otherwise
-      stop the spread. Memory dies with the power. Before powering off an encrypted machine, check
-      the recovery key is escrowed somewhere you can reach: a running unlocked BitLocker or FileVault
-      machine is readable, a powered-off one with no key is a block of ciphertext.</li>
+      Pull the cable, shut the switch port, or use your EDR&rsquo;s host isolation; if that
+      triggers automatic remediation, switch the remediation off. Leave the machine powered on and
+      unlocked, and power off only if you cannot isolate: memory dies with the power. Before
+      powering off an encrypted machine, check the recovery key is escrowed; without it the disk
+      is ciphertext.</li>
 
     <li><b>Do not reflexively pull a domain controller, storage head, industrial controller or
       clinical device off the network.</b>
-      Isolating in the wrong order can do more harm than the intrusion. Take the order from someone
-      who knows what depends on what, then write down what was decided and why &mdash; one line in a
-      notebook will do.</li>
+      Take the order from someone who knows what depends on what, and write down what was decided
+      and why.</li>
 
     <li><b>Suspend backup retention, expiry, garbage collection and replication now.</b>
-      A routine retention cycle can delete your last clean restore point tonight, and replication can
-      overwrite good copies with encrypted ones. Do not mount or restore from backups until someone
-      has established whether the backup system itself is compromised &mdash; mounting an infected
-      backup on a clean network puts the attacker back inside. The backup console&rsquo;s own logs
-      are often the best evidence of how long the attacker was in.</li>
+      Do not mount or restore until someone has established whether the backup system itself is
+      compromised.</li>
 
     <li><b>Preserve the logs that expire, today.</b>
-      Raise local log sizes first: it costs nothing and buys days. Then export the relevant window
-      <em>out of</em> the affected tenant, because an attacker with administrative access can turn
-      logging off going forward. Defaults below. Turning auditing on tonight logs forward only; it
-      recovers nothing.</li>
+      Raise local log sizes first, then export the relevant window <em>out of</em> the affected
+      tenant. Turning auditing on tonight logs forward only. It recovers nothing.</li>
 
     <li><b>Start a log at minute one.</b>
-      UTC timestamps, who did what, on which system, and why. Include the reboots. Include the
-      mistakes made before anyone was thinking about evidence &mdash; an honest log is worth far more
-      to you than a tidy one. Move the conversation off the email and chat you think may be
-      compromised.</li>
+      UTC timestamps, who did what, on which system, why. Include the reboots and the mistakes.
+      Move it off the email and chat you think may be compromised.</li>
   </ol>
 </section>
 
@@ -85,128 +74,114 @@ content_sha256: 8d2b76799b5ff72d8927b1caec5aa5b55d6aa9c2a3d31206693463efc3a4c21e
       <tr>
         <td>Microsoft 365 Audit, Standard</td>
         <td class="val">180 days<br>records since 2023-10-17</td>
-        <td class="not">Not who was at the keyboard, and nothing before the earliest surviving record.</td>
+        <td class="not">Not who was at the keyboard; nothing before the earliest surviving record.</td>
       </tr>
       <tr>
         <td><span class="v">MailItemsAccessed</span></td>
         <td class="val">Premium licence only</td>
-        <td class="not">If never licensed, no export brings it back. Silence is not evidence that nothing was read.</td>
+        <td class="not">Never licensed, never recoverable. Silence is not evidence nothing was read.</td>
       </tr>
       <tr>
         <td>Exchange mailbox audit</td>
         <td class="val">90 days</td>
-        <td class="not">Actions on the mailbox, not content read or sent, not the person behind the session.</td>
+        <td class="not">Actions on the mailbox, not content, not the person behind the session.</td>
       </tr>
       <tr>
         <td>Entra ID sign-in logs</td>
         <td class="val">7 days free<br>30 days P1 / P2</td>
-        <td class="not">An address is not a location and an account is not a person.</td>
+        <td class="not">An address is not a location; an account is not a person.</td>
       </tr>
     </tbody>
   </table>
   </div>
-  <p class="small">Exporting the window you still have is the only step on this page that cannot be
-  done later.</p>
+  <p class="small">Exporting the window you still have is the only step here that cannot be done
+  later.</p>
 </section>
 
 <section>
   <h2>Then find your situation</h2>
-  <p>If two apply, do both. A fraudulent wire and a departing employee are very often the same
-  matter seen from two directions.</p>
+  <p>If two apply, do both.</p>
 
   <div class="sit">
     <h3 id="ransomware">Ransomware</h3>
     <ol>
-      <li>Isolate in one coordinated sweep, not one machine at a time across an afternoon.</li>
-      <li>Preserve the note, its filename, and a sample of encrypted files with their extensions.
-        That is often what identifies the family.</li>
+      <li>Isolate in one coordinated sweep, not machine by machine across an afternoon.</li>
+      <li>Preserve the note, its filename, and a sample of encrypted files with their extensions.</li>
       <li>Keep one fully encrypted machine untouched as the reference.</li>
-      <li>Suspend anything scheduled for tonight: patching, imaging, backup expiry, log rotation.</li>
+      <li>Suspend tonight&rsquo;s patching, imaging, backup expiry and log rotation.</li>
       <li>Do not delete the note, rename or &ldquo;try&rdquo; encrypted files, run a full anti-virus
-        clean, or plug a technician&rsquo;s own USB drive into anything.</li>
+        clean, or plug a technician&rsquo;s USB drive into anything.</li>
     </ol>
-    <p>I do not advise on whether to pay, do not negotiate, and will not contact a threat actor.
-    That question runs through sanctions screening, your carrier and law enforcement, and belongs
-    with counsel.</p>
+    <p>I do not advise on paying, do not negotiate, and will not contact a threat actor.</p>
   </div>
 
   <div class="sit">
     <h3 id="wire">Fraudulent wire, or a compromised mailbox</h3>
     <ol>
-      <li>Call the originating bank&rsquo;s fraud desk <em>by phone</em>, within the hour, and ask
-        for a recall or hold. Call the receiving bank too if you can identify it. Do this first: the
-        money clock is shorter than the forensic clock.</li>
-      <li>File at <a href="https://www.ic3.gov">ic3.gov</a> immediately, so the FBI&rsquo;s Recovery
-        Asset Team can consider the Financial Fraud Kill Chain. Do not work out first whether you
-        qualify; IC3 applies its own conditions and they change.</li>
-      <li>Capture inbox and transport rules <em>before deleting any of them</em>, and look for the
-        rule with a blank or single-character name. Capture forwarding addresses at mailbox and
-        tenant level, delegate permissions, registered MFA methods, OAuth consents and registered
-        devices. Deleting a rule deletes the evidence it existed.</li>
+      <li>Call the originating bank&rsquo;s fraud desk <em>by phone</em> within the hour for a recall
+        or hold, and the receiving bank if you can identify it: the money clock is shorter than the
+        forensic clock.</li>
+      <li>File at <a href="https://www.ic3.gov">ic3.gov</a> immediately. Do not work out first
+        whether you qualify.</li>
+      <li>Capture inbox and transport rules <em>before deleting any</em>, including blank- or
+        single-character-named ones, plus forwarding addresses at mailbox and tenant level,
+        delegate permissions, registered MFA methods, OAuth consents and devices.</li>
       <li>Revoke sessions and tokens, remove attacker-registered MFA methods and app passwords, then
-        reset the password &mdash; in that order. A password reset alone does not evict an attacker
-        holding a valid refresh token.</li>
+        reset the password, in that order. A reset alone does not evict an attacker holding a valid
+        refresh token.</li>
       <li>Sweep every mailbox, not only the one somebody noticed.</li>
       <li>Do not delete the fraudulent emails. Preserve full headers, not forwarded copies.</li>
-      <li>Tell accounts payable to verify every pending payment-detail change by calling back on a
-        number you already held, never one taken from the email.</li>
+      <li>Have accounts payable verify every pending payment-detail change by calling a number you
+        already held, never one from the email.</li>
     </ol>
   </div>
 
   <div class="sit">
     <h3 id="insider">Departing employee</h3>
     <ol>
-      <li>Get the laptop out of the return-and-reimage queue first. Physically out, labelled,
-        logged.</li>
-      <li>Do not boot it, and do not let anyone have a quick look. Booting alters thousands of
-        timestamps and can trigger a cloud sync that deletes the copied files, or an MDM wipe. Write
-        down the state you found it in.</li>
-      <li>Hold the mailbox, the cloud drive and the home directory. Offboarding scripts delete all
-        three on a timer.</li>
-      <li>Never log into the individual&rsquo;s personal email, cloud account or device &mdash; even
-        from a session already open on the company laptop, and even if they used it for work. It
-        carries real legal exposure and can taint everything else you do.</li>
-      <li>Do not tip off the subject, and recognise what does the tipping: an abrupt account disable,
-        a device recall, a new DLP block, a conspicuous meeting.</li>
+      <li>Get the laptop out of the return-and-reimage queue. Physically out, labelled, logged.</li>
+      <li>Do not boot it. Booting alters thousands of timestamps and can trigger a cloud sync or
+        an MDM wipe.</li>
+      <li>Hold the mailbox, the cloud drive and the home directory, before offboarding scripts
+        delete them.</li>
+      <li>Never log into the individual&rsquo;s personal email, cloud account or device, even from a
+        session already open on the company laptop. It carries real legal exposure.</li>
+      <li>Do not tip off the subject: an abrupt account disable, a device recall, a new DLP block,
+        a conspicuous meeting.</li>
     </ol>
-    <p>When and how the individual is told depends on the employment agreement and applicable law.
-    That is counsel&rsquo;s decision, not IT&rsquo;s.</p>
+    <p>When and how the individual is told depends on the employment agreement and applicable law
+    &mdash; counsel&rsquo;s decision, not IT&rsquo;s.</p>
   </div>
 
   <div class="sit">
     <h3 id="device">Lost or stolen device</h3>
     <ol>
-      <li>Document the encryption state from the management console <em>before</em> you send the
-        wipe. Once the device drops out of the console, the record that it was encrypted may not
-        exist anywhere &mdash; and that record is often the difference between a notifiable event and
-        a documented non-event.</li>
-      <li>Record the identifiers, last check-in time, reported address and location, compliance
-        state, and what was stored locally as against reachable only through a session.</li>
-      <li>Revoke sessions, tokens and device trust. That contains the account risk without destroying
-        the record.</li>
-      <li>Record whether the wipe was queued, acknowledged or completed. A wipe runs only when the
-        device next checks in, so treat an unacknowledged wipe as a device still at large.</li>
+      <li>Document the encryption state from the console <em>before</em> you send the wipe.</li>
+      <li>Record the identifiers, last check-in, reported location, compliance state, and what was
+        stored locally as against reachable only through a session.</li>
+      <li>Revoke sessions, tokens and device trust.</li>
+      <li>Record whether the wipe was queued, acknowledged or completed, and treat an
+        unacknowledged wipe as a device still at large.</li>
       <li>File the police report and keep the report number.</li>
     </ol>
-    <p>Under a litigation hold the analysis changes entirely, and nothing is wiped until counsel says
-    so.</p>
+    <p>Under a litigation hold nothing is wiped until counsel says so.</p>
   </div>
 </section>
 
 <section>
   <h2>What the first call costs</h2>
-  <p><b>The scoping call is free</b>, up to 45 minutes &mdash; including the call that ends with me
-  telling you the data cannot answer your question, or that you do not need a forensic examiner at
-  all. If a written preservation instruction is needed, you get one out of it.</p>
+  <p><b>The scoping call is free</b>, up to 45 minutes &mdash; including the one that ends with me
+  saying the data cannot answer your question, or that you do not need a forensic examiner. If a
+  written preservation instruction is needed, you get one out of it.</p>
   <p><b>Emergency mobilisation is <span class="v">$6,000</span></b>, a fixed time-boxed first block
   with the out-of-hours uplift already in it. You end up holding a preservation direction, volatile
   and triage collection from up to five systems, a written preliminary position, and a scoped
-  proposal with a ceiling. The whole of it is credited against whatever follows. Card, because a
-  bank transfer does not clear at 02:00.</p>
+  proposal with a ceiling. All of it is credited against whatever follows. Card, because a bank
+  transfer does not clear at 02:00.</p>
   <p>Conflicts are checked against the named parties at once. Nothing is touched before that clears
-  and the engagement letter is signed; pay before then and the payment is an offer, held unapplied
-  and refunded in full if I cannot act. If a conflict surfaces later I withdraw, return or destroy
-  the material on your instruction, and refund the unearned balance.</p>
+  and the engagement letter is signed; pay earlier and the payment is an offer, held unapplied and
+  refunded in full if I cannot act. If a conflict surfaces later I withdraw, return or destroy the
+  material on your instruction, and refund the unearned balance.</p>
 </section>
 
 <section>
@@ -220,8 +195,8 @@ content_sha256: 8d2b76799b5ff72d8927b1caec5aa5b55d6aa9c2a3d31206693463efc3a4c21e
       <li>Touch a device, mailbox or account without documented authority from someone entitled to
         give it, whatever the story about ownership.</li>
       <li>Opine on who was at the keyboard from device evidence alone. A device is not a person.</li>
-      <li>Opine that a party intended to destroy evidence. I report what existed, what was deleted,
-        when, by what mechanism, and whether it survives elsewhere. Intent is for the court.</li>
+      <li>Opine that a party intended to destroy evidence. I report what was deleted, when, by what
+        mechanism, and whether it survives elsewhere. Intent is for the court.</li>
       <li>Take a matter I cannot finish inside your deadline. You hear that on the first call.</li>
       <li>Take a matter requiring a certification, licence or qualification I do not hold.</li>
       <li>Promise a finding, a recovered file, an unlocked handset, or that anything I produce will
@@ -232,26 +207,20 @@ content_sha256: 8d2b76799b5ff72d8927b1caec5aa5b55d6aa9c2a3d31206693463efc3a4c21e
 
 <section>
   <h2>Who you are calling</h2>
-  <p>Wirewalk Forensics and Security is a digital forensics, incident response and litigation
-  support practice in the New York area. I do the work &mdash; acquisition, examination, written
-  findings &mdash; for either side, at the same published rate whichever side retains me. It is a
-  small practice, which is why the line about deadlines is on this page rather than something you
-  find out in week three.</p>
+  <p>Wirewalk Forensics and Security is a digital forensics and incident response practice in the
+  New York area. I work either side at the same published rate.</p>
   <p>Where a matter requires a certified examiner, an accredited laboratory, or a qualification I do
-  not hold, that is identified at scoping and stated in the engagement letter, and satisfied before
-  work begins or the matter is declined. Where a venue regulates this work under a
-  private-investigator or comparable licence, I check that position first and take the matter only
-  where the required licence is held, or the work is performed under someone who holds it.
-  Enterprise-scale, multi-jurisdiction response belongs with the panel consultancies; I will work
-  alongside them or tell you on the first call that I am the wrong firm.</p>
+  not hold, that is stated in the engagement letter and satisfied before work begins, or the matter
+  is declined. Where a venue regulates this work under a private-investigator or comparable licence,
+  I check the position for your venue and take the matter only where that licence is held, or the
+  work is performed under someone who holds it. Enterprise-scale, multi-jurisdiction response
+  belongs with the panel consultancies.</p>
   <div class="note">
-    <p>Ring me and I will tell you whether this is even a forensics problem, and whether the hour
-    you are in needs anyone beyond your own people:
+    <p>Ring me and I will tell you whether this is even a forensics problem:
     <a href="tel:+19172177975">917-217-7975</a>.</p>
   </div>
   <p class="small">Document <span class="v">WW-F-002</span>, version <span class="v">1.0</span>.
-  Issued <span class="v">2026-09-11</span>. Revised <span class="v">2026-09-11</span>. Retention
-  figures and IC3 conditions change with product, licence and policy &mdash; check both against your
-  own tenant and the current published guidance. If a figure here has moved, tell me and I will
-  revise it and date the revision.</p>
+  Issued <span class="v">2026-09-11</span>, revised <span class="v">2026-09-11</span>. Retention
+  figures and IC3 conditions change &mdash; check yours. If a figure here has moved, tell me and I
+  will revise it.</p>
 </section>

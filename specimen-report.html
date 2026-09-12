@@ -10,30 +10,30 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "Specimen report format"
 authority: Principal
-content_sha256: ccebf0fe5eec708b8da0eb761f083e3dbf126ef807fa8aba830b0f3b25bac2ba
+content_sha256: b8e0037194d8c3bb338ae8ccffaf86f260571982c4d2805ef125e1724d3b07b3
 ---
 
 <section>
-<p><b>What you end up holding</b> is a document in this shape: the question as asked, the material with identifiers and digests, the method to tool and version, each finding tied to the artefacts behind it, a stated confidence, and the limits.</p>
-<p><b>What it costs.</b> Billed at the <a href="{{ '/rates/' | relative_url }}">published rate schedule</a>, quoted before I open anything, identical whichever side retains me.</p>
-<p><b>Reading the report served against you</b> is separate, faster work: I mark each finding supported, partly supported, unsupported, or untestable on the material provided, and give you the questions to put.</p>
+<p><b>What you end up holding:</b> the question asked, the material with its digests, the method to tool and version, each finding tied to its artefacts, a confidence, and the limits.</p>
+<p><b>What it costs.</b> Examination is <span class="v">$425/hr</span> against a written ceiling, on a <a href="{{ '/rates/' | relative_url }}">published schedule</a>, quoted before I open anything and identical whichever side retains me.</p>
+<p><b>Reading the report served against you</b> is separate work, flat <span class="v">$3,250</span>: I mark each finding supported, partly, unsupported or untestable, and give you the questions to put.</p>
 </section>
 
 <section>
 <h2>Specimen report</h2>
 <p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
 <div class="note seal">
-<p><b>A form, not an account.</b> Every value is invented, no court is named, and the digests contain <span class="v">P</span>, <span class="v">M</span> and <span class="v">N</span>, which cannot appear in a SHA-256 value. Nothing here implies I have been retained in any matter, or that any report has been served, admitted or tested.</p>
+<p><b>A form, not an account.</b> Every value is invented, no court is named, and the digests contain <span class="v">P</span>, <span class="v">M</span> and <span class="v">N</span>, impossible in SHA-256. Nothing here implies I have been retained in any matter, or that any report has been served, admitted or tested.</p>
 </div>
 <div class="spec"><dl>
   <div><dt>Matter</dt><dd>Larkhill Fastenings Inc. [FICTITIOUS]</dd></div>
   <div><dt>Matter reference</dt><dd>SPEC-0000</dd></div>
   <div><dt>Report reference</dt><dd>SPEC-0000-R01</dd></div>
-  <div><dt>Retaining party</dt><dd>Counsel for Larkhill Fastenings Inc. [FICTITIOUS]</dd></div>
+  <div><dt>Retaining party</dt><dd>Counsel [FICTITIOUS]</dd></div>
   <div><dt>Role</dt><dd>Testifying expert</dd></div>
   <div><dt>Venue</dt><dd>[NO COURT NAMED]</dd></div>
-  <div><dt>Examination dates</dt><dd>2026-03-02 &rarr; 2026-03-06</dd></div>
-  <div><dt>Report issued</dt><dd>2026-03-11</dd></div>
+  <div><dt>Examination</dt><dd>2026-03-02 &rarr; 2026-03-06</dd></div>
+  <div><dt>Issued</dt><dd>2026-03-11</dd></div>
   <div><dt>Version</dt><dd>1.0, supersedes none</dd></div>
 </dl></div>
 </section>
@@ -41,11 +41,11 @@ content_sha256: ccebf0fe5eec708b8da0eb761f083e3dbf126ef807fa8aba830b0f3b25bac2ba
 <section>
 <h3>The question asked</h3>
 <p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
-<p>Instructed in writing on <span class="v">2026-02-24</span>:</p>
+<p>Instructed in writing, <span class="v">2026-02-24</span>:</p>
 <div class="note">
-<p><em>Whether the nine documents in Schedule A were transferred from the laptop issued to Custodian A to any removable device or non-corporate account between <span class="v">2026-01-15</span> and <span class="v">2026-02-20</span>, and if so by what mechanism and when.</em></p>
+<p><em>Whether the nine Schedule A documents left the laptop issued to Custodian A for any removable device or non-corporate account between <span class="v">2026-01-15</span> and <span class="v">2026-02-20</span>, and if so how and when.</em></p>
 </div>
-<p>Outside the instruction: the content of those documents, and the custodian's authority to hold them. Outside it by nature: who was at the keyboard.</p>
+<p>Outside it: the content of those documents, the custodian's authority, and &mdash; by nature &mdash; who was at the keyboard.</p>
 </section>
 
 <section>
@@ -53,132 +53,116 @@ content_sha256: ccebf0fe5eec708b8da0eb761f083e3dbf126ef807fa8aba830b0f3b25bac2ba
 <p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
 <div class="tw">
 <table class="ledger">
-  <caption>Material examined &mdash; identifiers and acquisition digests</caption>
   <thead><tr>
-    <th>Item</th><th>Identifier</th><th>Digest (illustrative)</th><th>What this does not establish</th>
+    <th>Item</th><th>Identifier</th><th>Digest (illustrative)</th><th>Does not establish</th>
   </tr></thead>
   <tbody>
     <tr>
-      <td>Laptop, Vantor 14 [FICTITIOUS], internal NVMe, acquired write-blocked <span class="v">2026-02-26</span></td>
+      <td>Laptop NVMe, acquired write-blocked <span class="v">2026-02-26</span></td>
       <td class="val">SPEC-0000-D1</td>
       <td class="val">5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC0001</td>
-      <td class="not">That the drive was unaltered before it reached me; custody is at E-2.</td>
+      <td class="not">That it was unaltered before it reached me.</td>
     </tr>
     <tr>
-      <td>Tenant audit log export, <span class="v">2026-01-01</span> to <span class="v">2026-02-20</span></td>
+      <td>Tenant audit log export, <span class="v">2026-01-01</span>&ndash;<span class="v">2026-02-20</span></td>
       <td class="val">SPEC-0000-C1</td>
       <td class="val">5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC0002</td>
-      <td class="not">That the log is complete; it holds what the tenant's retention tier recorded.</td>
+      <td class="not">That the log is complete.</td>
     </tr>
     <tr>
-      <td>File server, targeted collection of two directories</td>
+      <td>File server, two directories collected</td>
       <td class="val">SPEC-0000-S1</td>
       <td class="val">5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC1MEN5PEC0003</td>
-      <td class="not">That the rest of the server was examined; the manifest lists what was not.</td>
+      <td class="not">That the rest of the server was examined.</td>
     </tr>
     <tr>
       <td>Removable device at Finding 1</td>
       <td class="val">not produced</td>
       <td class="val">&mdash;</td>
-      <td class="not">Anything. It never reached me; statements about it are statements about records on the laptop.</td>
+      <td class="not">Anything. It never reached me.</td>
     </tr>
   </tbody>
 </table>
 </div>
-<p>Each item was verified at acquisition, before analysis and before production. Analysis ran on a working copy; masters are held under access control.</p>
+<p>Verified at acquisition and before production.</p>
 </section>
 
 <section>
 <h3>Method applied</h3>
 <p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
-<p>The published procedure at <a href="{{ '/method/' | relative_url }}">/method</a>, in the version current at the engagement date: <span class="v">ISO/IEC 27037:2012</span> principles, <span class="v">NIST SP 800-86</span> phases. Guidance I work to, not accreditation I hold.</p>
-<p>The served version names each tool and version, the steps in order with timestamps, and the hypotheses discarded, because <span class="v">FRCP 26(a)(2)(B)(ii)</span> reaches data <em>considered</em>, not only relied upon. Write blocking cannot be used on a cloud source; there, soundness rests on documenting the export, hashing early, and stating what could not be preserved.</p>
+<p>The published procedure at <a href="{{ '/method/' | relative_url }}">/method</a>: <span class="v">ISO/IEC 27037:2012</span> principles, <span class="v">NIST SP 800-86</span> phases. Guidance I work to, not accreditation I hold. The served version names every tool, version and discarded hypothesis: <span class="v">FRCP 26(a)(2)(B)(ii)</span> reaches data <em>considered</em>, not only relied on.</p>
 <p><span class="cond">Where a matter requires a certified examiner, an accredited laboratory or a licence, that is stated in the engagement letter and satisfied before work begins.</span></p>
-</section>
-
-<section>
-<h3>Confidence words, fixed meanings</h3>
-<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
-<p><b>Observed</b> — readable in the artefacts. <b>Supported</b> — inferred from two or more independent artefact classes that agree. <b>Consistent with</b> — not contradicted, not established; other explanations named. <b>Not established</b> — the material does not answer it, and this one is used as freely as the rest.</p>
 </section>
 
 <section>
 <h3>Findings</h3>
 <p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<p>Four words, fixed: <b>observed</b> (in the artefacts), <b>supported</b> (independent classes agree), <b>consistent with</b> (not contradicted), <b>not established</b>.</p>
 <div class="tw">
 <table class="ledger">
-  <caption>Findings &mdash; basis, confidence and limits</caption>
   <thead><tr>
-    <th>Finding</th><th>Basis</th><th>Confidence</th><th>What this does not establish</th>
+    <th>Finding</th><th>Basis</th><th>Confidence</th><th>Does not establish</th>
   </tr></thead>
   <tbody>
     <tr>
       <td><b>1.</b> USB device <span class="v">SPECIMEN-USB-0001</span> connected twice, <span class="v">2026-02-04T18:41:07-05:00</span> and <span class="v">2026-02-05T07:12:22-05:00</span></td>
-      <td>Registry enumeration, driver log, event log &mdash; three artefact classes agree</td>
+      <td>Registry, driver log and event log agree</td>
       <td class="val">Observed</td>
-      <td class="not">Who connected it, or that any file was written to it.</td>
+      <td class="not">Who connected it, or that a file was written to it.</td>
     </tr>
     <tr>
-      <td><b>2.</b> Seven of the nine Schedule A filenames accessed from a volume bearing that identifier</td>
-      <td>Shortcut and recent-item artefacts; behaviour tested on a matching build (E-4)</td>
+      <td><b>2.</b> Seven of the nine filenames accessed from a volume with that identifier</td>
+      <td>Shortcut and recent-item artefacts, tested on a matching build (E-4)</td>
       <td class="val">Supported</td>
-      <td class="not">That the files were copied there. These artefacts record a filename, not content, and opening a file already present creates them.</td>
+      <td class="not">That they were copied there; the artefacts record a filename, not content.</td>
     </tr>
     <tr>
-      <td><b>3.</b> One message to a non-tenant address at <span class="v">2026-02-18T22:06:41-05:00</span>, three attachments</td>
-      <td>Send record in the audit log export, verified against the container digest</td>
+      <td><b>3.</b> One message to a non-tenant address, <span class="v">2026-02-18T22:06:41-05:00</span>, three attachments</td>
+      <td>Send record in the audit log</td>
       <td class="val">Observed</td>
-      <td class="not">What the attachments held, or who composed it. The record evidences a session, not a person.</td>
+      <td class="not">What the attachments held, or who composed it.</td>
     </tr>
     <tr>
-      <td><b>4.</b> Whether the two remaining documents left the laptop by any mechanism</td>
-      <td>Searched by filename, content fragment and the artefact classes above</td>
+      <td><b>4.</b> Whether the other two documents left the laptop</td>
+      <td>Searched by filename, fragment and the classes above</td>
       <td class="val">Not established</td>
-      <td class="not">That they did not leave. Absence of a record is not evidence of absence.</td>
+      <td class="not">That they did not leave; absence of a record is not evidence of absence.</td>
     </tr>
     <tr>
-      <td><b>5.</b> No wiping utility identified as installed or executed in the period</td>
-      <td>Application inventory, execution artefacts, file-system journal</td>
+      <td><b>5.</b> No wiping utility installed or run in the period</td>
+      <td>Application inventory, execution artefacts, journal</td>
       <td class="val">Supported</td>
-      <td class="not">That nothing was deleted. Retention and cache behaviour remove data with no tool and no intent.</td>
+      <td class="not">That nothing was deleted; retention and caches remove data with no intent.</td>
     </tr>
   </tbody>
 </table>
 </div>
-<p>Findings 4 and 5 are in the table for the same reason the unproduced device is in the inventory: silence about what an examination could not reach gets read as a negative answer. Intent to destroy evidence is the court's finding under <span class="v">FRCP 37(e)(2)</span>; I do not offer it.</p>
+<p>Intent to destroy evidence is the court's finding under <span class="v">FRCP 37(e)(2)</span>, not mine.</p>
 </section>
 
 <section>
-<h3>Exhibits</h3>
+<h3>Exhibits and limitations</h3>
 <p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
-<p><span class="v">E-1</span> acquisition worksheets and collection manifest. <span class="v">E-2</span> chain of custody, supporting authentication under <span class="v">FRE 901(a)</span>, not admissibility. <span class="v">E-3</span> timeline chart, an illustrative aid under <span class="v">FRE 107</span> and not evidence; removing it removes no finding. <span class="v">E-4</span> the artefact test behind Finding 2. <span class="v">E-5</span> log summary under <span class="v">FRE 1006</span>. <span class="v">E-6</span> certification for the hash-verified copies, <span class="v">FRE 902(14)</span>.</p>
-</section>
-
-<section>
-<h3>Limitations</h3>
-<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<p><span class="v">E-1</span> acquisition worksheets and manifest. <span class="v">E-2</span> chain of custody, authentication under <span class="v">FRE 901(a)</span>, not admissibility. <span class="v">E-3</span> timeline chart, an aid under <span class="v">FRE 107</span>, not evidence. <span class="v">E-4</span> the test behind Finding 2. <span class="v">E-5</span> log summary, <span class="v">FRE 1006</span>. <span class="v">E-6</span> certification, <span class="v">FRE 902(14)</span>.</p>
 <div class="refuse">
 <h2>Limitations</h2>
 <ol>
-  <li>Timestamps are as recorded by the source system. Where artefacts disagree, the disagreement is reported.</li>
-  <li>The examination reaches what was collected; the manifest lists what was not.</li>
-  <li>Nothing predates the earliest surviving log entry, and read receipts were unavailable at that licence tier.</li>
-  <li>The removable device was not produced.</li>
-  <li>No attribution to a person. A device is not a person.</li>
-  <li>Recovery of deleted data depends on medium, filesystem and encryption. Failed attempts are recorded, not omitted.</li>
+  <li>Timestamps are as the source recorded them; disagreement is reported, not reconciled.</li>
+  <li>The examination reaches what was collected, and nothing predates the earliest log entry.</li>
+  <li>The removable device was not produced. No finding attributes anything to a person: a device is not a person.</li>
+  <li>Recovery of deleted data depends on medium, filesystem and encryption; failed attempts are recorded, not omitted.</li>
   <li>If further material arrives, findings may change, and I will say so in writing.</li>
 </ol>
 </div>
-<p class="small">What digital evidence cannot establish, in full, is at <a href="{{ '/limits/' | relative_url }}">/limits</a>.</p>
+<p class="small">The full list is at <a href="{{ '/limits/' | relative_url }}">/limits</a>.</p>
 </section>
 
 <section>
 <h3>Statement of the examiner</h3>
 <p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
 <div class="note seal">
-<p>I performed this examination and prepared and signed the report myself. The opinions are my own, formed on the material listed above.</p>
-<p>My compensation is the published rate schedule in force at the engagement-letter date. It does not depend on my findings, on the outcome, or on which party retained me.</p>
-<p>Facts or assumptions supplied by counsel are identified as such and logged on receipt.</p>
+<p>I performed this examination and signed the report myself; the opinions are my own.</p>
+<p>My compensation is the rate schedule in force at the engagement-letter date. It does not move with my findings, the outcome, or which side retained me.</p>
 <p>I do not opine on who was at the keyboard, on intent, or on admissibility.</p>
 </div>
 </section>
@@ -187,12 +171,12 @@ content_sha256: ccebf0fe5eec708b8da0eb761f083e3dbf126ef807fa8aba830b0f3b25bac2ba
 <h3>Left blank on purpose</h3>
 <p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
 <div class="spec"><dl>
-  <div><dt>Qualifications, incl. publications 10 yrs</dt><dd>[HEADING ONLY &mdash; NOT COMPLETED]</dd></div>
-  <div><dt>Testimony list, previous 4 yrs</dt><dd>[HEADING ONLY &mdash; NOT COMPLETED]</dd></div>
-  <div><dt>Compensation</dt><dd>Rate schedule in force at the engagement-letter date</dd></div>
+  <div><dt>Qualifications, publications 10 yrs</dt><dd>[HEADING ONLY]</dd></div>
+  <div><dt>Testimony list, 4 yrs</dt><dd>[HEADING ONLY]</dd></div>
+  <div><dt>Compensation</dt><dd>Rate schedule at the engagement-letter date</dd></div>
 </dl></div>
 <div class="note">
-<p>A report served under <span class="v">FRCP 26(a)(2)(B)</span> carries these three. Compensation I publish in advance; the other two belong to the examiner in a particular engagement. Where a matter requires a previously qualified testifying expert, that is named in the engagement letter and either met by associating a qualified examiner or the matter is declined. Nothing on this site asserts a history of testimony, deposition or qualification.</p>
+<p>Where a matter requires a previously qualified testifying expert, that is named in the engagement letter; I bring one in or decline. Nothing on this site asserts a history of testimony, deposition or qualification.</p>
 </div>
 </section>
 
@@ -201,15 +185,14 @@ content_sha256: ccebf0fe5eec708b8da0eb761f083e3dbf126ef807fa8aba830b0f3b25bac2ba
 <h2>In any report I produce, I will not</h2>
 <ol>
   <li>Write to a conclusion supplied in advance.</li>
-  <li>State a finding without the artefacts behind it.</li>
-  <li>Leave out a limit because it weakens the report.</li>
+  <li>State a finding without its artefacts, or drop an inconvenient limit.</li>
   <li>Opine on who was at the keyboard from device evidence alone, or on intent.</li>
-  <li>Promise a recovered file, an unlocked handset, or that anything I produce will be admitted.</li>
+  <li>Promise a recovered file, an unlocked handset, or that anything will be admitted.</li>
 </ol>
 </div>
-<p>Ring me on <span class="v">917-217-7975</span> and I will tell you whether this is even a forensics problem. If it is, you will have the fee before I open anything.</p>
+<p>Ring me on <span class="v">917-217-7975</span> and I will tell you whether this is even a forensics problem. If it is, you get the fee before I open anything.</p>
 <div class="acts">
-  <a class="btn" href="{{ '/method/' | relative_url }}">The method this applies</a>
+  <a class="btn" href="{{ '/method/' | relative_url }}">The method</a>
   <a class="btn" href="{{ '/rates/' | relative_url }}">Rates</a>
   <a class="btn k" href="{{ '/contact/' | relative_url }}">Start a conflicts check</a>
 </div>

@@ -15,28 +15,32 @@ issued: 2026-09-12
 revised: 2026-09-12
 scope: Matter types and what evidence can answer
 authority: Principal
-content_sha256: c12873a0d7384d0881cd252d62fb2644ec37d9b16e92008fdbf7a45af48c8b32
+content_sha256: d392c950a5e145612cfb4f20b182a0ac60ce646ce5bd99a405aab8b600651cc9
 ---
 
 <section>
 <h2>Start from the situation</h2>
 <p>Nobody wakes up needing "targeted artefact collection". They wake up because a laptop goes back
 to IT tomorrow, or a server is encrypted. If no row fits, ring me: the call is free, including the
-one where I say this is not a forensics problem.</p>
+one where I say you do not need an examiner.</p>
+
+<p><b>What it costs:</b> the scoping call is free, examination <span class="v">$425/hr</span>
+against a ceiling you authorise, a first device image <span class="v">$950</span>
+(&le;2 TB). Full schedule on <a href="/rates/">rates</a>.</p>
 
 <div class="sos">
   <a class="call" href="tel:+19172177975"><b>917-217-7975</b>
-    <span>If something is happening right now, call. Otherwise read on.</span></a>
+    <span>If it is happening now, call. Otherwise read on.</span></a>
   <a href="/emergency/"><b>Something is happening now</b>
-    <span>Ransomware, an intruder, money already gone, a device about to be wiped.</span></a>
+    <span>Ransomware, an intruder, money gone, a device about to be wiped.</span></a>
   <a href="#matrimonial"><b>Matrimonial and family</b>
-    <span>Divorce, custody, asset tracing. Where the authority question decides everything.</span></a>
+    <span>Divorce, custody, asset tracing. Authority decides everything here.</span></a>
   <a href="#employee"><b>An employee is leaving, or has left</b>
     <span>Suspected data taken, a laptop in the return queue, a competitor set up.</span></a>
   <a href="#employment"><b>An employment dispute</b>
-    <span>Termination, discrimination, harassment at work, a grievance turning into a claim.</span></a>
+    <span>Termination, discrimination, harassment at work, a grievance becoming a claim.</span></a>
   <a href="#partners"><b>A business or partnership dispute</b>
-    <span>A partner, a co-founder, a shareholder. Records on shared systems.</span></a>
+    <span>A partner, a co-founder, a shareholder. Shared systems.</span></a>
   <a href="#threats"><b>Harassment, threats or stalking</b>
     <span>Anonymous messages, a fake account, someone who knows too much.</span></a>
   <a href="#estate"><b>An estate or probate dispute</b>
@@ -48,12 +52,11 @@ one where I say this is not a forensics problem.</p>
 <h2 id="matrimonial">Matrimonial and family</h2>
 <p><b>Authority first, and it protects you more than me.</b> I touch no device, account or mailbox
 without documented authority from someone entitled to give it. A saved session on a shared laptop is
-not authority. A password your spouse once told you is not authority. Being married is not
-authority.</p>
+not authority. A password your spouse once told you is not authority. Marriage is not authority.</p>
 
-<p>Unlawfully obtained material is not merely excluded. It can taint the case, create a
+<p>Unlawfully obtained material is not merely excluded: it can taint the case, create a
 counterclaim, and in some circumstances accessing an account you are not entitled to access is a
-federal offence. What is left is usually what matters:</p>
+federal offence. What is left usually covers it:</p>
 
 <div class="tw"><table class="ledger">
 <caption>Matrimonial work</caption>
@@ -62,7 +65,7 @@ federal offence. What is left is usually what matters:</p>
 <tr><td>Whether assets have been moved or hidden</td>
     <td>Dated documents, statements and communications on devices and accounts you are entitled
         to; deleted and superseded versions where the medium allows.</td>
-    <td class="not">An account nobody has disclosed. That is what subpoenas are for.</td></tr>
+    <td class="not">An account nobody disclosed. That is what subpoenas are for.</td></tr>
 <tr><td>What was said, and when</td>
     <td>Messages, mail and call records from lawfully held devices, built into a timeline the
         other side can test.</td>
@@ -90,11 +93,11 @@ stated. Instructed through counsel wherever possible: the work is more useful un
 <h2 id="employee">An employee is leaving, or has already gone</h2>
 <p><b>Take the laptop out of the return queue today, and do not boot it.</b> Booting alters
 thousands of timestamps, can trigger a cloud sync that deletes the files you are asking about, and
-on a managed device can trigger a remote wipe. Label it, log who has it, put it in a drawer. Hold
-the mailbox, cloud drive and home directory too &mdash; all three delete on a timer.</p>
+on a managed device can trigger a remote wipe. Label it, log who holds it, leave it off. Hold the
+mailbox, cloud drive and home directory too &mdash; all three delete on a timer.</p>
 
-<p>None of that loss is anyone's fault. IT reimages on Thursday because that is the process, the
-offboarding script runs on day thirty, and all of it is irreversible.</p>
+<p>Nobody's fault: IT reimages on Thursday, the offboarding script runs on day thirty, and none of
+it reverses.</p>
 
 <div class="tw"><table class="ledger">
 <caption>Departing-employee work</caption>
@@ -104,43 +107,40 @@ offboarding script runs on day thirty, and all of it is irreversible.</p>
     <td>Registry device keys and setup logs: make, serial, first and last connection.</td>
     <td class="not">That anything was copied to it. Connection is not copying.</td></tr>
 <tr><td>Were files copied to removable media</td>
-    <td>The change journal, link files, recent items and shellbags, read together rather than
-        alone.</td>
-    <td class="not">Certainty from one artefact. A copy finding is several artefacts agreeing.</td></tr>
+    <td>The change journal, link files, recent items and shellbags, read together.</td>
+    <td class="not">Certainty from one artefact. A copy finding needs several.</td></tr>
 <tr><td>Were files sent to personal mail or cloud</td>
     <td>Mail logs, browser history, download records, and sync client logs where one was
         installed.</td>
     <td class="not">What was inside an attachment the mail system no longer holds.</td></tr>
 <tr><td>Was anything deleted before handover</td>
-    <td>Deletion artefacts, recycle bin records, shadow copies where they survive.</td>
+    <td>Deletion artefacts, recycle bin records, and shadow copies where they survive.</td>
     <td class="not">Whether it was deliberate.</td></tr>
 <tr><td>Did they take the client list</td>
     <td>Access and export events in CRM or file server logs &mdash; the better evidence, usually
         forgotten.</td>
-    <td class="not">What they remember. No disk reaches what is in somebody's head.</td></tr>
+    <td class="not">What they remember. No disk reaches what is in a head.</td></tr>
 </tbody>
 </table></div>
 
 <div class="note seal">
 <p style="margin:0"><b>Do not tip them off, and know what does the tipping.</b> An abrupt account
-disable, a device recall, a new block on something they use daily. When the person is told is a
-decision for counsel and HR, not for IT and not for me.</p>
+disable, a device recall, a new block on something they use daily. When the person is told is for
+counsel and HR, not for me.</p>
 </div>
 
-<p>The unwelcome thing, said early because it saves money: often the artefacts show ordinary
-behaviour that looks alarming because you went looking for alarm. People email themselves documents.
-If that is what it is, I tell you, and the engagement ends there.</p>
+<p>Often the artefacts show ordinary behaviour that looks alarming only because you went looking.
+If so, I say so and the engagement ends.</p>
 </section>
 
 <section>
 <h2 id="employment">Employment disputes</h2>
-<p>Termination, discrimination, harassment at work, a grievance that has become a claim. The
-evidence is mail, chat and access logs on systems the employer controls, so the question is not "can
-it be recovered" but "was it preserved, and can it be produced defensibly".</p>
+<p>The evidence is mail, chat and access logs on systems the employer controls, so the question is
+not recovery but "was it preserved, and can it be produced defensibly".</p>
 
 <p>For an employer, the risk is deleting something after a duty to preserve attached. For an
-individual, it is material ageing out on a system you do not control. Either way the first step is a
-preservation letter and a hold, not an examination.</p>
+individual, it is material ageing out on a system you do not control. Either way the first step is
+a preservation letter and a hold, not an examination.</p>
 
 <p class="cond">Where a matter requires a certification, an accreditation or a licence I do not
 hold, I say so at scoping, name it in the engagement letter, and either bring in someone who holds
@@ -149,45 +149,42 @@ it or decline.</p>
 
 <section>
 <h2 id="partners">Business and partnership disputes</h2>
-<p>A co-founder, a partner, a departing shareholder. The systems are shared, so "who can authorise
-an examination of this mailbox" is a live question rather than a formality, and getting it wrong
-contaminates the work.</p>
+<p>The systems are shared, so "who can authorise an examination of this mailbox" is a live
+question, and getting it wrong contaminates the work.</p>
 
-<p>I want it settled in writing before I touch anything, and I would rather lose the instruction
+<p>I want it settled in writing before I touch anything, and would rather lose the instruction
 than proceed on an assurance. Where the entity is the client, that is usually clean. Where one
 individual instructs about a system the entity controls, it usually is not.</p>
 </section>
 
 <section>
 <h2 id="threats">Harassment, threats and stalking</h2>
-<p>Anonymous messages, a fake profile, somebody who knows things they should not. Attribution from
-content alone is often impossible; what breaks these cases is a subpoena to a platform or a carrier,
-which your lawyer obtains.</p>
+<p>Attribution from content alone is often impossible; what breaks these cases is a subpoena to a
+platform or a carrier, which your lawyer obtains.</p>
 
 <p>I preserve the material so the subpoena has something to point at, in a form the police or a
-court will accept, and tell you which routes have any chance of working. <b>If you are in danger,
+court will accept, and tell you which routes have a chance of working. <b>If you are in danger,
 police first and me second.</b></p>
 </section>
 
 <section>
 <h2 id="estate">Estate and probate disputes</h2>
-<p>A device nobody can open, a will that may have been altered, transfers in the months before a
-death. The work is the same as anywhere else; the authority question differs, because the person who
-could have authorised access is the one who died. The executor or administrator is usually the only
-right source.</p>
+<p>A will that may have been altered, transfers in the months before a death. The work is the same
+as anywhere else; authority differs, because the person who could have authorised access is dead.
+The executor or administrator is usually the only right source.</p>
 
 <p><b>Ask me before the family tries the passcode.</b> Repeated guesses lock some devices
-permanently, and a small number wipe.</p>
+permanently, and a few wipe.</p>
 </section>
 
 <section>
 <h2>What holds in all of them</h2>
-<p>Authority before access. Preserve before you examine. The limits of a finding stated alongside
-the finding. And sometimes the evidence cannot settle the question &mdash; a real answer, better
-given in week one than week six.</p>
+<p>Authority before access. Preserve before you examine. Limits stated alongside the finding. And
+sometimes the evidence cannot settle the question &mdash; a real answer, better in week one than
+week six.</p>
 
-<p>Ring me on <a class="v" href="tel:+19172177975">917-217-7975</a> and I will tell you whether this
-is even a forensics problem, what it would cost, and what to preserve today.</p>
+<p>Ring me on <a class="v" href="tel:+19172177975">917-217-7975</a> and I will tell you whether
+this is even a forensics problem, what it would cost, and what to preserve today.</p>
 
 <div class="acts">
   <a class="btn k" href="/emergency/">If it is happening now</a>
