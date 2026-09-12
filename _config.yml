@@ -1,0 +1,35 @@
+title: Wirewalk Forensics
+tagline: Digital forensics, incident response and litigation support
+description: >-
+  Computer and mobile forensics, incident response, and expert support for
+  litigation. Forensically sound acquisition, documented chain of custody,
+  and findings that hold up under examination.
+author: Wirewalk Forensics
+
+# Change both together if the repository is renamed.
+url: https://forensics.wirewalk.com
+# Served at the root of forensics.wirewalk.com (see CNAME). A non-empty baseurl
+# makes every Liquid-generated link 404 on the live domain -- this has bitten
+# every other site in this estate.
+baseurl: ""
+
+permalink: /writing/:title/
+timezone: America/New_York
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: article }
+
+# Generates /sitemap.xml at build time. On the GitHub Pages allowlist.
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
