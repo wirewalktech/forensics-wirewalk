@@ -36,31 +36,15 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
 
 <section>
 <h2>Telephone <span class="v"><a href="tel:+19172177975">917-217-7975</a></span></h2>
-<p><b>The first call is free</b> — up to 45 minutes of scoping and preservation triage, with a written preservation instruction where one is needed. No charge either for the call that ends with me saying you do not need a forensic examiner. Rates are published in full at <a href="{{ '/rates/' | relative_url }}">/rates</a>.</p>
-
-<div class="tw">
-<table class="ledger">
-  <caption>Channels</caption>
-  <thead><tr><th style="width:22%">Channel</th><th style="width:26%">Detail</th><th style="width:26%">For</th><th>Not for</th></tr></thead>
-  <tbody>
-    <tr><td>Telephone</td><td class="val"><a href="tel:+19172177975">917-217-7975</a></td>
-      <td>Anything time-sensitive, and the free scoping call.</td>
-      <td class="not">Case detail on a voicemail. Your name, a number and <i>urgent</i> is plenty.</td></tr>
-    <tr><td>Email</td><td class="val"><a href="mailto:sales@wirewalk.com">sales@wirewalk.com</a></td>
-      <td>Scheduling, purchase orders, onboarding, invoices.</td>
-      <td class="not">Case facts, credentials or attachments. Email is not a secure channel.</td></tr>
-    <tr><td>Incident in progress</td><td class="val"><a href="{{ '/emergency/' | relative_url }}">/emergency</a></td>
-      <td>What to do in the first hour, before anyone is instructed.</td>
-      <td class="not">A substitute for ringing. If it is moving, call.</td></tr>
-  </tbody>
-</table>
-</div>
-<p><span class="cond">Where a matter requires a licence, a certification or a qualification, that condition is named in the engagement letter and either met or the matter is declined.</span></p>
+<p><b>The first call is free</b> — up to 45 minutes of scoping and preservation triage, with a written preservation instruction where one is needed. Rates in full at <a href="{{ '/rates/' | relative_url }}">/rates</a>.</p>
+<p><b>Email <span class="v"><a href="mailto:sales@wirewalk.com">sales@wirewalk.com</a></span></b> for scheduling, purchase orders and invoices. Not for case facts, credentials or attachments: email is not a secure channel.</p>
+<p><b>Happening right now?</b> Ring me, and open <a href="{{ '/emergency/' | relative_url }}">the first-hour page</a> while it connects.</p>
+<p><span class="cond">Where a matter requires a licence or a certification, that condition is named in the engagement letter and either met or the matter is declined.</span></p>
 </section>
 
 <section>
 <h2>The enquiry form</h2>
-<p>Five fields, each with its reason beside it. There is no box for case detail: an enquiry reaches me before the conflicts check has run and before any engagement letter exists, so nothing yet protects what you type. Keep the facts for the call.</p>
+<p>Five fields, each with its reason beside it. There is no box for case detail: until the conflicts check clears, nothing protects what you type.</p>
 
 <form class="enq" method="POST" action="https://wirewalk-portal.wirewalk-upload.workers.dev/api/enquiry">
   <input type="hidden" name="_subject" value="Forensics enquiry — forensics.wirewalk.com">
@@ -79,15 +63,15 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
   <div class="fld">
     <label class="lab" for="f-role">Your role in the matter</label>
     <input id="f-role" type="text" name="role" placeholder="outside counsel, in-house, IT, HR, individual, other" autocomplete="organization-title" required>
-    <span class="why">It decides who the client is and who the report belongs to — see <a href="{{ '/roles/' | relative_url }}">/roles</a>.</span>
+    <span class="why">It decides who the client is and who owns the report. See <a href="{{ '/roles/' | relative_url }}">/roles</a>.</span>
   </div>
 
   <div class="fld">
     <label class="lab" for="f-counsel">Is counsel already engaged?</label>
     <select id="f-counsel" name="counsel" required>
       <option value="">Select one</option>
-      <option value="yes">Yes — counsel is engaged</option>
-      <option value="no">No — not yet</option>
+      <option value="yes">Yes</option>
+      <option value="no">Not yet</option>
       <option value="unsure">Not sure</option>
     </select>
     <span class="why">It decides who the first call should be with.</span>
@@ -102,25 +86,25 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
   <div class="fld">
     <label class="lab" for="f-email">Email address</label>
     <input id="f-email" type="email" name="email" autocomplete="email" required>
-    <span class="why">To confirm the enquiry and send the engagement letter if it gets that far.</span>
+    <span class="why">To confirm the enquiry and send the engagement letter.</span>
   </div>
 
   <div class="act">
     <button type="submit">Send</button>
-    <span class="why">Please keep case detail, custodian names and credentials out of every field above.</span>
+    <span class="why">Keep case detail, custodian names and credentials out of every field above.</span>
   </div>
 </form>
 
 <div class="tw">
 <table class="ledger">
-  <caption>The enquiry, and its limits</caption>
-  <thead><tr><th style="width:42%">What sending it does</th><th>What this does not establish</th></tr></thead>
+  <caption>Limits</caption>
+  <thead><tr><th style="width:44%">What sending it does</th><th>What this does not establish</th></tr></thead>
   <tbody>
-    <tr><td>Puts your name in front of a person. I read enquiries myself.</td>
+    <tr><td>Puts your name in front of a person; I read enquiries myself.</td>
       <td class="not">A response time. There is none outside a signed standby agreement.</td></tr>
-    <tr><td>Starts the conflicts check, then a callback if it clears.</td>
+    <tr><td>Starts the conflicts check, and a callback if it clears.</td>
       <td class="not">That I am free to act.</td></tr>
-    <tr><td>Logs a preliminary approach, confidential whether or not I am instructed.</td>
+    <tr><td>Logs a preliminary approach, confidential either way.</td>
       <td class="not">Privilege, an engagement, or a held date.</td></tr>
   </tbody>
 </table>
@@ -131,15 +115,15 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
 <div class="refuse">
 <h2>I will not</h2>
 <ol>
-  <li>Start work, hold a date or accept a file before the conflicts check clears and the engagement letter is signed. Money paid earlier is held unapplied and refunded in full.</li>
-  <li>Sell, rent or market to anything you send, or tell anyone that you approached me.</li>
-  <li>Take or pay a referral fee when I send you to someone better suited.</li>
+  <li>Start work, hold a date or accept a file before the conflicts check clears and the engagement letter is signed. Money paid earlier is refunded in full.</li>
+  <li>Sell or share anything you send, or tell anyone that you approached me.</li>
+  <li>Take or pay a referral fee when I send you elsewhere.</li>
   <li>Put a chat widget or a live-availability indicator on this site.</li>
   <li>Promise you a finding, a recovered file, an unlocked handset, or that anything I produce will be admitted.</li>
 </ol>
 </div>
-<p class="small">The full list is on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a> and repeated word for word in the engagement letter.</p>
-<p><b>Ring me on <span class="v"><a href="tel:+19172177975">917-217-7975</a></span> and I will tell you whether this is even a forensics problem.</b> If it is happening right now, call and open <a href="{{ '/emergency/' | relative_url }}">the first-hour page</a> while it connects.</p>
+<p class="small">The full list is on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a> and in the engagement letter.</p>
+<p><b>Ring me on <span class="v"><a href="tel:+19172177975">917-217-7975</a></span> and I will tell you whether this is even a forensics problem.</b></p>
 <div class="acts">
   <a class="btn" href="{{ '/rates/' | relative_url }}">Rate schedule</a>
   <a class="btn" href="{{ '/engagement/' | relative_url }}">Engagement terms</a>

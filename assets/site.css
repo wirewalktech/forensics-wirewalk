@@ -130,6 +130,11 @@ footer.coc{margin-top:52px;border-top:1px solid var(--rule);background:var(--lab
 footer.coc .wrap{padding-top:14px;padding-bottom:16px}
 footer.coc .fields{display:flex;flex-wrap:wrap;gap:6px 26px;font-family:var(--mono);
   font-size:12px;color:var(--ink-2)}
+/* The hash is 64 unbreakable characters: 461px of monospace on a 390px phone,
+   which pushed EVERY page into horizontal scroll. It is a value people copy, so
+   it wraps rather than truncating -- a half-printed hash is worse than none. */
+footer.coc .fields span{min-width:0;max-width:100%}
+footer.coc .fields span span{overflow-wrap:anywhere;word-break:break-all}
 footer.coc .fields b{font-weight:500;color:var(--ink-2)}
 footer.coc .fields span{color:var(--ink)}
 footer.coc .links{margin-top:12px;padding-top:12px;border-top:1px solid var(--hairline);
