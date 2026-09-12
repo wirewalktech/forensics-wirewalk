@@ -10,13 +10,13 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "Services, price class, limits"
 authority: Principal
-content_sha256: f3afda5b61469716fcb001a13ec873c9264902419161db34061d490d9b36fac9
+content_sha256: e8f91835cd9cc45fdd16aad7cf230084b511f7d11e81eb78277e2b3541bcdc81
 ---
 
 <section>
 <h2>How the prices work</h2>
 <p><span class="v">FIXED</span> buys a stated artefact. <span class="v">HOURLY &middot; CEILING</span> is the <a href="/rates/">published rate</a> against a written stop-point: nothing above it is billed, and at 80% I stop and report. <span class="v">TRIAGE</span> is a fixed first block, credited against what follows. <span class="v">FIXED UNIT</span> publishes the unit, not the total.</p>
-<p>Everything below I <span class="v">TAKE</span>. Refer-outs and declines are listed last.</p>
+<p>Everything below I <span class="v">TAKE</span>; refer-outs and declines last.</p>
 </section>
 
 <section>
@@ -25,19 +25,19 @@ content_sha256: f3afda5b61469716fcb001a13ec873c9264902419161db34061d490d9b36fac9
 <div class="tw"><table class="ledger">
   <thead><tr><th>Service</th><th>Price</th><th>Not established</th></tr></thead>
   <tbody>
-    <tr><td>Acquisition &mdash; computer, drive, media</td><td class="val">$950 / $1,450 / Quoted<span class="cond">to 2 TB &middot; 2&ndash;8 TB &middot; 8 TB+; media at cost; $650 per further device</span></td><td class="not">Who created or deleted it.</td></tr>
+    <tr><td>Acquisition &mdash; computer, drive, media</td><td class="val">$950 / $1,450 / Quoted<span class="cond">to 2 TB, 2&ndash;8 TB, 8 TB+; media at cost above 2 TB; 90 days storage; $650 each further device, same matter, site and day</span></td><td class="not">Who created or deleted it.</td></tr>
     <tr><td>Targeted artefact collection</td><td class="val">$475<span class="cond">manifest of what was left</span></td><td class="not">Anything outside the collected set.</td></tr>
-    <tr><td>On-site collection</td><td class="val">$2,900<span class="cond">per examiner-day; 8 hours, 60 miles</span></td><td class="not">That every device was disclosed.</td></tr>
-    <tr><td>Remote or custodian-kit collection</td><td class="val">$900<span class="cond">plus shipping</span></td><td class="not">That the custodian collected it all.</td></tr>
+    <tr><td>On-site collection</td><td class="val">$2,900<span class="cond">per examiner-day; to 8 hours within 60 miles, travel beyond at cost</span></td><td class="not">That every device was disclosed.</td></tr>
+    <tr><td>Remote or custodian-kit collection</td><td class="val">$900<span class="cond">plus shipping</span></td><td class="not">That the custodian collected everything.</td></tr>
     <tr><td>Server, RAID, NAS, hypervisor imaging</td><td class="val">Quoted<span class="cond">HOURLY &middot; CEILING</span></td><td class="not">Deleted content, on a live export.</td></tr>
     <tr><td>Verified copy for production</td><td class="val">$350<span class="cond">plus media</span></td><td class="not">Admissibility. FRE 902(14) needs a 902(11) certificate.</td></tr>
-    <tr><td>Evidence storage after closing</td><td class="val">$75<span class="cond">per month to 4 TB; 90 days free</span></td><td class="not">Any retention duty of yours.</td></tr>
+    <tr><td>Evidence storage after closing</td><td class="val">$75<span class="cond">per matter per month, to 4 TB; 90 days after final invoice free</span></td><td class="not">Any retention duty of yours.</td></tr>
     <tr><td>Certified destruction<span class="cond">on written instruction</span></td><td class="val">$150</td><td class="not">That no other copy exists.</td></tr>
     <tr><td>Filesystem, artefact, timeline examination</td><td class="val">Hourly, capped</td><td class="not">Who was at the keyboard.</td></tr>
     <tr><td>Deleted-data recovery and carving</td><td class="val">Hourly, capped</td><td class="not">That anything is recoverable.</td></tr>
     <tr><td>Data-theft and exfiltration examination</td><td class="val">Hourly, capped</td><td class="not">Intent. Copying looks like sync.</td></tr>
     <tr><td>Deletion and wiping examination</td><td class="val">Hourly, capped</td><td class="not">Intent to deprive: FRCP 37(e)(2).</td></tr>
-    <tr><td>Password and encrypted-volume attack</td><td class="val">Hourly, capped<span class="cond">cap agreed first</span></td><td class="not">Success. No key, no volume.</td></tr>
+    <tr><td>Password and encrypted-volume attack</td><td class="val">Hourly, capped<span class="cond">written cap agreed first</span></td><td class="not">Success. No key, no volume.</td></tr>
     <tr><td>Second opinion on an IT finding</td><td class="val">$2,600<span class="cond">per finding</span></td><td class="not">The state before IT arrived.</td></tr>
   </tbody>
 </table></div>
@@ -45,28 +45,28 @@ content_sha256: f3afda5b61469716fcb001a13ec873c9264902419161db34061d490d9b36fac9
 
 <section>
 <h2>Mobile devices</h2>
-<p>Priced per attempt, not per result: you hold a hashed set and, in writing, the level reached.</p>
+<p>Priced per attempt, not per result.</p>
 <div class="tw"><table class="ledger">
   <thead><tr><th>Service</th><th>Price</th><th>Not established</th></tr></thead>
   <tbody>
-    <tr><td>Extraction &mdash; logical or advanced logical</td><td class="val">$850<span class="cond">per attempt; $600 each further device</span></td><td class="not">A complete handset; logical gets what is offered.</td></tr>
+    <tr><td>Extraction &mdash; logical or advanced logical</td><td class="val">$850<span class="cond">per device, per attempt; $600 each further device, same matter</span></td><td class="not">A complete handset; logical gets what is offered.</td></tr>
     <tr><td>Extraction &mdash; full file system attempt</td><td class="val">$1,800<span class="cond">logical price if only logical</span></td><td class="not">That the deeper level is reachable.</td></tr>
     <tr><td>Examination &mdash; messaging, call, location, apps</td><td class="val">Hourly, capped</td><td class="not">Who held the phone.</td></tr>
-    <tr><td>Physical, before-first-unlock, advanced unlock</td><td class="val">Not published<span class="cond">quoted after inspection</span></td><td class="not">That it can be done.</td></tr>
+    <tr><td>Physical, before-first-unlock, advanced unlock</td><td class="val">Not published<span class="cond">quoted after inspection; TAKE or REFER OUT</span></td><td class="not">That it can be done.</td></tr>
   </tbody>
 </table></div>
 </section>
 
 <section>
 <h2>Cloud and SaaS</h2>
-<p>No one can write-block a cloud account, so the record is the method: tool, version, hash, authority, retention.</p>
+<p>Nothing write-blocks a cloud account; the record is the method: tool, version, hash, authority, retention.</p>
 <div class="tw"><table class="ledger">
   <thead><tr><th>Service</th><th>Price</th><th>Not established</th></tr></thead>
   <tbody>
-    <tr><td>Cloud account collection<span class="cond">one mailbox, one drive</span></td><td class="val">$1,100<span class="cond">per custodian; $450 each further</span></td><td class="not">Anything outside the retention window.</td></tr>
+    <tr><td>Cloud account collection<span class="cond">one mailbox, one drive</span></td><td class="val">$1,100<span class="cond">per custodian; $450 each further, same tenant and export</span></td><td class="not">Anything outside the retention window.</td></tr>
     <tr><td>Tenant preservation<span class="cond">holds applied, log exported</span></td><td class="val">$2,400<span class="cond">per tenant, per platform</span></td><td class="not">That a hold caught what preceded.</td></tr>
     <tr><td>Audit log and sign-in examination</td><td class="val">Hourly, capped</td><td class="not">That an action did not occur; <span class="v">MailItemsAccessed</span> is often off.</td></tr>
-    <tr><td>Logging and evidence-readiness review</td><td class="val">$4,200<span class="cond">per M365/Google tenant; $1,800 per AWS account</span></td><td class="not">The elapsed period; auditing logs forward.</td></tr>
+    <tr><td>Logging and evidence-readiness review</td><td class="val">$4,200<span class="cond">per M365/Google tenant; $1,800 per AWS account</span></td><td class="not">That a future incident is answerable; auditing logs forward.</td></tr>
     <tr><td>SaaS with no export or audit facility</td><td class="val">Triage first</td><td class="not">That a defensible collection exists.</td></tr>
   </tbody>
 </table></div>
@@ -77,7 +77,7 @@ content_sha256: f3afda5b61469716fcb001a13ec873c9264902419161db34061d490d9b36fac9
 <div class="tw"><table class="ledger">
   <thead><tr><th>Service</th><th>Price</th><th>Not established</th></tr></thead>
   <tbody>
-    <tr><td>Volatile memory capture and examination<span class="cond">five systems included below</span></td><td class="val">Hourly, capped</td><td class="not">The machine before capture.</td></tr>
+    <tr><td>Volatile memory capture and examination<span class="cond">up to five systems inside emergency mobilisation</span></td><td class="val">Hourly, capped</td><td class="not">The machine before capture.</td></tr>
     <tr><td>Network, proxy and EDR telemetry; malware triage</td><td class="val">Hourly, capped</td><td class="not">The person behind an address; behaviour is not authorship.</td></tr>
   </tbody>
 </table></div>
@@ -85,11 +85,11 @@ content_sha256: f3afda5b61469716fcb001a13ec873c9264902419161db34061d490d9b36fac9
 
 <section>
 <h2>Incident response</h2>
-<p>Scope is discovered, not declared, so the work is staged. <a href="/emergency/">What to do in the first hour</a> is free to read.</p>
+<p><a href="/emergency/">What to do in the first hour</a> is free to read.</p>
 <div class="tw"><table class="ledger">
   <thead><tr><th>Service</th><th>Price</th><th>Not established</th></tr></thead>
   <tbody>
-    <tr><td>Emergency mobilisation<span class="cond">preservation, triage of five systems, a written position, a priced plan; credited</span></td><td class="val">$6,000<span class="cond">per incident</span></td><td class="not">A conclusion. It buys a position and a plan.</td></tr>
+    <tr><td>Emergency mobilisation<span class="cond">preservation, triage of up to five systems, a written position and priced plan; credited</span></td><td class="val">$6,000<span class="cond">per incident</span></td><td class="not">A conclusion. It buys a position and a plan.</td></tr>
     <tr><td>Intrusion and ransomware examination</td><td class="val">Hourly, capped</td><td class="not">That nothing was exfiltrated.</td></tr>
     <tr><td>Business email compromise</td><td class="val">Triage first</td><td class="not">The money back: banks and <span class="v">ic3.gov</span>.</td></tr>
     <tr><td>Breach data mining, notification list</td><td class="val">Quoted<span class="cond">on record count</span></td><td class="not">Whether notification is required.</td></tr>
@@ -106,7 +106,7 @@ content_sha256: f3afda5b61469716fcb001a13ec873c9264902419161db34061d490d9b36fac9
   <thead><tr><th>Service</th><th>Price</th><th>Not established</th></tr></thead>
   <tbody>
     <tr><td>Identification, preservation, legal hold</td><td class="val">Hourly, capped</td><td class="not">When your duty attached.</td></tr>
-    <tr><td>Processing and ingest</td><td class="val">$22/GB<span class="cond">on source volume &middot; FIXED UNIT</span></td><td class="not">A total; quantity is unknown beforehand.</td></tr>
+    <tr><td>Processing and ingest</td><td class="val">$22/GB<span class="cond">on source volume as collected, pre-deduplication; FIXED UNIT</span></td><td class="not">A total; quantity is unknown beforehand.</td></tr>
     <tr><td>Review hosting</td><td class="val">$9&ndash;$14<span class="cond">per GB/month; $9 plain, $14 with analytics</span></td><td class="not">The duration; often the largest line.</td></tr>
     <tr><td>Review platform user licences</td><td class="val">$75<span class="cond">per user/month, passed through</span></td><td class="not">Any margin to me.</td></tr>
     <tr><td>Production</td><td class="val">$0.05<span class="cond">per imaged page</span></td><td class="not">That a specified format serves you.</td></tr>
@@ -115,12 +115,12 @@ content_sha256: f3afda5b61469716fcb001a13ec873c9264902419161db34061d490d9b36fac9
     <tr><td>Project management; Rule 26(f) conference</td><td class="val">$180/hr</td><td class="not">Agreement; counsel negotiates that.</td></tr>
   </tbody>
 </table></div>
-<div class="note"><p><b>Against my own interest:</b> culling early moves a bill from five figures to four, and the larger bill is mine. Ask what a set costs to host before collecting it.</p></div>
+<div class="note"><p><b>Against my own interest:</b> culling early moves a bill from five figures to four, and the larger bill is mine. Ask what hosting costs first.</p></div>
 </section>
 
 <section>
 <h2>Expert support and testimony</h2>
-<p>Testimony is billed whatever the outcome, and is never capped: the schedule belongs to the court.</p>
+<p>Testimony is billed whatever the outcome, never capped: the court sets the schedule.</p>
 <div class="tw"><table class="ledger">
   <thead><tr><th>Service</th><th>Price</th><th>Not established</th></tr></thead>
   <tbody>
@@ -141,12 +141,12 @@ content_sha256: f3afda5b61469716fcb001a13ec873c9264902419161db34061d490d9b36fac9
 <div class="tw"><table class="ledger">
   <thead><tr><th>Work</th><th>Position</th><th>Why</th></tr></thead>
   <tbody>
-    <tr><td>Chip-off, ISP, JTAG; implant reverse engineering</td><td class="val">REFER OUT</td><td class="not">I name the lab, set the question, read its output.</td></tr>
+    <tr><td>Chip-off, ISP, JTAG; implant reverse engineering</td><td class="val">REFER OUT</td><td class="not">Board-level work; I read the output.</td></tr>
     <tr><td>Enterprise or multi-jurisdiction response</td><td class="val">REFER OUT</td><td class="not">Panel-consultancy tier; I work alongside.</td></tr>
-    <tr><td>Managed review; information governance</td><td class="val">REFER OUT</td><td class="not">A programme, not an engagement; review puts me both sides of culling.</td></tr>
+    <tr><td>Managed review; information governance</td><td class="val">REFER OUT</td><td class="not">Puts me both sides of culling.</td></tr>
     <tr><td>Matters needing a certification or licence I lack</td><td class="val">REFER OUT / DECLINE</td><td class="not">Named in the engagement letter, or declined.</td></tr>
     <tr><td>Handset repair or unlocking for convenience</td><td class="val">DECLINE</td><td class="not">Not forensic work.</td></tr>
-    <tr><td>Monitoring, managed detection, SOC</td><td class="val">DECLINE</td><td class="not">Staffed, and I cannot staff it.</td></tr>
+    <tr><td>Monitoring, managed detection, SOC</td><td class="val">DECLINE</td><td class="not">I cannot staff it.</td></tr>
     <tr><td>Collection without the holder's authority</td><td class="val">DECLINE</td><td class="not">18 U.S.C. &sect; 2702.</td></tr>
     <tr><td>Ransom negotiation, payment, actor contact</td><td class="val">DECLINE</td><td class="not">Sanctions and your carrier: counsel's.</td></tr>
     <tr><td>Remediation on systems I examined</td><td class="val">DECLINE</td><td class="not">I will not sell what I investigated.</td></tr>
@@ -157,9 +157,9 @@ content_sha256: f3afda5b61469716fcb001a13ec873c9264902419161db34061d490d9b36fac9
 
 <section>
 <h2>What is never charged</h2>
-<p>No minimum-hours charge here; the only minimums are for testimony.</p>
-<p>Free: the scoping and preservation call, up to 45 minutes; the call where the data cannot answer your question; the call where you do not need me.</p>
-<div class="note seal"><p><span class="cond">Where a matter requires a certified examiner, an accredited laboratory or a licence, that is stated in the engagement letter, or I decline.</span> Method follows ISO/IEC 27037:2012 and NIST SP 800-86 &mdash; guidance, not accreditation. Not an ISO/IEC 17025 laboratory; nothing here promises a finding.</p></div>
+<p>No minimum-hours charge; the only minimums are for testimony.</p>
+<p>Free: the scoping and preservation call, up to 45 minutes; the call where data cannot answer you; the call where you do not need me.</p>
+<div class="note seal"><p><span class="cond">Where a matter requires a certified examiner, an accredited laboratory or a licence, that is stated in the engagement letter, or I decline.</span> Method follows ISO/IEC 27037:2012 and NIST SP 800-86: guidance, not accreditation. Not an ISO/IEC 17025 laboratory; nothing here promises a finding.</p></div>
 <p>One of those free calls is probably yours. Ring me on <a class="v" href="tel:+19172177975">917-217-7975</a> and I will tell you whether this is even a forensics problem.</p>
 <div class="acts">
   <a class="btn" href="/rates/">The rate schedule</a>

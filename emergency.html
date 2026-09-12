@@ -11,7 +11,7 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "First-hour incident instructions"
 authority: Principal
-content_sha256: e8b9a0b9a9c61685dee5e68d4c58e073e410eb734dff2173e6bdc456becfde60
+content_sha256: f398df9410af958ae33e463a5250e3aa97e4755afa73fac9a2f4ce989b6ac855
 ---
 
 <section>
@@ -30,13 +30,13 @@ content_sha256: e8b9a0b9a9c61685dee5e68d4c58e073e410eb734dff2173e6bdc456becfde60
   <h2 id="preserve">Six things to do first, in this order</h2>
   <ol class="proc">
     <li><b>Do not re-image, rebuild, &ldquo;clean&rdquo; or restore over an affected system.</b>
-      It is the most complete destruction of evidence available to you tonight. If a system must
+      It is the most complete destruction of evidence available tonight. If a system must
       be rebuilt to keep trading, image it first, or rebuild onto new hardware and set the original
       aside, powered down and labelled.</li>
 
     <li><b>Do not reboot. Isolate instead.</b>
       Pull the cable, shut the switch port, or use your EDR&rsquo;s host isolation; if that
-      triggers automatic remediation, switch the remediation off. Leave the machine powered on and
+      triggers automatic remediation, switch it off. Leave the machine powered on and
       unlocked, and power off only if you cannot isolate: memory dies with the power. Before
       powering off an encrypted machine, check the recovery key is escrowed; without it the disk
       is ciphertext.</li>
@@ -61,7 +61,7 @@ content_sha256: e8b9a0b9a9c61685dee5e68d4c58e073e410eb734dff2173e6bdc456becfde60
 </section>
 
 <section>
-  <h3>The retention clocks running while you read this</h3>
+  <h3>Retention clocks running now</h3>
   <div class="tw">
   <table class="ledger">
     <caption>As published by Microsoft, current at the date on this page. Defaults, not your tenant. Check yours.</caption>
@@ -94,8 +94,7 @@ content_sha256: e8b9a0b9a9c61685dee5e68d4c58e073e410eb734dff2173e6bdc456becfde60
     </tbody>
   </table>
   </div>
-  <p class="small">Exporting the window you still have is the only step here that cannot be done
-  later.</p>
+  <p class="small">Exporting that window is the only step here that cannot be done later.</p>
 </section>
 
 <section>
@@ -105,7 +104,7 @@ content_sha256: e8b9a0b9a9c61685dee5e68d4c58e073e410eb734dff2173e6bdc456becfde60
   <div class="sit">
     <h3 id="ransomware">Ransomware</h3>
     <ol>
-      <li>Isolate in one coordinated sweep, not machine by machine across an afternoon.</li>
+      <li>Isolate in one coordinated sweep, not machine by machine.</li>
       <li>Preserve the note, its filename, and a sample of encrypted files with their extensions.</li>
       <li>Keep one fully encrypted machine untouched as the reference.</li>
       <li>Suspend tonight&rsquo;s patching, imaging, backup expiry and log rotation.</li>
@@ -140,8 +139,7 @@ content_sha256: e8b9a0b9a9c61685dee5e68d4c58e073e410eb734dff2173e6bdc456becfde60
     <h3 id="insider">Departing employee</h3>
     <ol>
       <li>Get the laptop out of the return-and-reimage queue. Physically out, labelled, logged.</li>
-      <li>Do not boot it. Booting alters thousands of timestamps and can trigger a cloud sync or
-        an MDM wipe.</li>
+      <li>Do not boot it. Booting alters timestamps and can trigger a cloud sync or MDM wipe.</li>
       <li>Hold the mailbox, the cloud drive and the home directory, before offboarding scripts
         delete them.</li>
       <li>Never log into the individual&rsquo;s personal email, cloud account or device, even from a
@@ -195,8 +193,8 @@ content_sha256: e8b9a0b9a9c61685dee5e68d4c58e073e410eb734dff2173e6bdc456becfde60
       <li>Touch a device, mailbox or account without documented authority from someone entitled to
         give it, whatever the story about ownership.</li>
       <li>Opine on who was at the keyboard from device evidence alone. A device is not a person.</li>
-      <li>Opine that a party intended to destroy evidence. I report what was deleted, when, by what
-        mechanism, and whether it survives elsewhere. Intent is for the court.</li>
+      <li>Opine that a party intended to destroy evidence. I report what existed, what was deleted,
+        when, by what mechanism, and whether it survives elsewhere. Intent is for the court.</li>
       <li>Take a matter I cannot finish inside your deadline. You hear that on the first call.</li>
       <li>Take a matter requiring a certification, licence or qualification I do not hold.</li>
       <li>Promise a finding, a recovered file, an unlocked handset, or that anything I produce will
@@ -207,8 +205,8 @@ content_sha256: e8b9a0b9a9c61685dee5e68d4c58e073e410eb734dff2173e6bdc456becfde60
 
 <section>
   <h2>Who you are calling</h2>
-  <p>Wirewalk Forensics and Security is a digital forensics and incident response practice in the
-  New York area. I work either side at the same published rate.</p>
+  <p>Wirewalk Forensics and Security is a digital forensics, incident response and litigation
+  support practice in the New York area. I work either side at the same published rate.</p>
   <p>Where a matter requires a certified examiner, an accredited laboratory, or a qualification I do
   not hold, that is stated in the engagement letter and satisfied before work begins, or the matter
   is declined. Where a venue regulates this work under a private-investigator or comparable licence,
