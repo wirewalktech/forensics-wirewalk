@@ -145,6 +145,22 @@ footer.coc .house i{display:inline-block;width:9px;height:9px;background:var(--t
 .btn.k{background:var(--kraft)}
 .acts{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 0}
 
+/* ---- emergency actions -------------------------------------------------
+   Four buttons, because a person in trouble does not arrive thinking "I need
+   a digital forensic examiner". They arrive thinking one of these four things,
+   in these words. Each lands on the part of /emergency that answers it, so the
+   button is a route into the procedure rather than a form to fill in. */
+.sos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0 8px}
+.sos a{display:block;border:1px solid var(--rule);background:var(--label-stock);
+  border-radius:3px;padding:15px 17px;text-decoration:none;color:var(--ink)}
+.sos a:hover{border-color:var(--seal);background:#fff}
+.sos a b{display:block;font-size:16.5px;font-weight:650;margin-bottom:4px}
+.sos a span{display:block;font-size:14px;color:var(--ink-2);line-height:1.45}
+.sos a.call{background:var(--kraft);border-color:var(--seal)}
+.sos a.call b{font-family:var(--mono);font-size:19px;letter-spacing:-.01em}
+@media(max-width:640px){.sos{grid-template-columns:1fr}}
+@media print{.sos{display:none}}
+
 /* NO animation of any kind, including scroll reveals — an element that appears
    as you scroll implies the document changed while you were reading it. */
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
