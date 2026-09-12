@@ -1,161 +1,129 @@
 ---
 layout: default
-title: Securing the business before anything happens
+title: Security
 lede: >-
-  I spend my working life reading the aftermath. This is the short list of
-  things that, had they been in place beforehand, would have changed the
-  outcome — and what it costs to put them there.
+  Most security reviews tell you whether somebody could get in. I tell you
+  something more useful: whether, if they did, you could prove what they took.
 description: >-
-  Preventive security work from a forensics practice: evidence readiness,
-  insider risk and IP protection, tenant hardening, and incident rehearsal.
-  Priced in the open, with the conflict boundary stated first.
+  Security work from a forensics practice — evidence readiness, insider risk and
+  IP protection, tenant and identity hardening, and incident rehearsal. Priced
+  in the open at the same rate as investigative work.
 permalink: /security/
 doc_id: WW-F-017
-version: "1.0"
+version: "2.0"
 issued: 2026-09-12
 revised: 2026-09-12
-scope: Preventive and detective security work
+scope: Security engagements
 authority: Principal
-content_sha256: 463f40a8e3b144be13c4cc7156671e2480992ed37864b68be52451644ade3304
+content_sha256: e20f0c15b23abe1d44cab1313cd7da55a81494b173752795bc46570cb5850386
 ---
 
 <section class="cl"><span class="n">1</span>
-<h2>One rule</h2>
-<p>I do not sell the remediation for an incident I investigated. You get the findings in writing,
-in enough detail for anyone competent to act on, and someone else acts on them.</p>
-<p>The work below is for the other case: nothing has happened, or what happened is closed.</p>
+<h2>I get called after it happens. This is what I wish had been in place</h2>
+
+<p>Every incident I work has a moment where somebody asks a reasonable question and the answer is
+"we don't know, and we can't find out". Which files did they actually open. Whether the mailbox was
+read before or after the wire went. What the leaver copied on their last Friday. How long they had
+been inside.</p>
+
+<p>Those questions are answerable, cheaply, if a handful of settings were right beforehand. They
+are unanswerable at any price afterwards. That gap is the whole of this page.</p>
+
+<p>A penetration test tells you where the doors are. It does not tell you that your audit log keeps
+thirty days against an intruder who sat inside for ninety, or that the setting recording which
+emails were actually read sits one licence tier above the one you bought — so after a compromise
+you are guessing at your notification obligation instead of bounding it. I see those two things
+constantly, and neither shows up in a security assessment.</p>
 </section>
 
 <section class="cl"><span class="n">2</span>
-<h2>What a forensics practice can tell you that a security review cannot</h2>
-<p>Most security assessments answer one question: could somebody get in. It is a good question and
-plenty of people answer it well.</p>
+<h2>What you get</h2>
 
-<p>I answer a different one, because it is the one I watch organisations fail. <b>If something
-happened here on a Tuesday, could you prove what?</b></p>
+<h3>Evidence readiness</h3>
+<p>I go through every log source you have and tell you what it records, how long it keeps it, what
+question it could actually answer, and what changing it costs. Mailbox and tenant auditing,
+endpoint telemetry, firewall and VPN, backup logs, and the licence tiers that quietly decide what
+exists at all.</p>
+<p>You end up with a short list of changes — most of them free, some of them a licence line — and
+a clear statement of what you would be able to establish if something happened tomorrow. It is the
+best-value thing on this page and the one people put off, because nothing is visibly broken until
+the day it matters.</p>
+<p class="cond">Usually 8&ndash;12 hours per tenant.</p>
 
-<p>That failure is quiet and it is nearly universal. The logs that would have shown the intrusion
-were retained for thirty days and the intruder was inside for ninety. The mailbox audit setting
-that records which messages were actually read is a licence tier above the one you bought, so
-after a compromise you cannot establish what was exposed, and the notification decision gets made
-on assumption instead. Backups are excellent and nobody has ever restored from them. The departing
-employee's laptop is reimaged by a process that works exactly as designed.</p>
+<h3>Insider risk and IP protection</h3>
+<p>The departing-employee problem, solved before there is a departing employee. What a leaver can
+currently take and by which routes. Where access reviews have quietly stopped happening. What your
+offboarding deletes, and on what timer — because the mailbox that auto-deletes on day thirty is
+usually the evidence you most wanted on day forty.</p>
+<p>It ends with a written hold procedure: the one-page thing HR or IT follows that keeps a laptop
+out of the reimage queue when it matters. Most of the fixes cost nothing.</p>
+<p class="cond">Usually 6&ndash;16 hours, starting with a bounded first block.</p>
 
-<p>None of that shows up in a penetration test. All of it decides whether you have a case, a
-notification obligation you can bound, or an insurance claim you can evidence.</p>
+<h3>Tenant and identity hardening</h3>
+<p>Microsoft 365 or Google Workspace read against the configurations that actually turn up in
+incidents, rather than against a generic checklist. MFA coverage and the accounts that slipped
+through it. Legacy authentication still enabled. Conditional access. Mail forwarding and transport
+rules. OAuth applications somebody consented to in 2023. Privileged roles nobody has reviewed.
+Guest accounts from a project that ended.</p>
+<p>Nearly every business email compromise I see traces back to something on that list.</p>
+<p class="cond">Usually 8&ndash;14 hours per tenant.</p>
+
+<h3>Incident rehearsal</h3>
+<p>Half a day, your people, a scenario built around your business rather than a generic one. The
+value is not the exercise. It is the decision log, the list of things nobody could find, and the
+three phone numbers that turned out to be wrong — discovered on a Tuesday afternoon rather than at
+two in the morning.</p>
+<p class="cond">$6,500, including the marked-up plan.</p>
+
+<h3>Standby</h3>
+<p>Conflicts cleared in advance against a named list, rates and terms fixed for the year,
+out-of-hours authorisation pre-signed, and a named contact who already knows your environment.
+Everything that is slow to arrange while something is on fire, arranged while nothing is.</p>
+<p class="cond">$7,500 a year, credited in full against your first engagement.</p>
 </section>
 
 <section class="cl"><span class="n">3</span>
 <h2>Rates</h2>
 
 <div class="tw"><table class="ledger">
-<caption>Hourly</caption>
-<tr><th>Work</th><th>Rate</th><th>What this does not establish</th></tr>
-<tr><td>Review, analysis, findings and anything I put my name to</td>
-    <td class="val">$425/hr<span class="cond">the same rate as an examination &mdash; it is the same work</span></td>
-    <td class="not">A fixed total. Hourly work runs against a ceiling you authorise in writing, and
-        I stop and report at 80% of it.</td></tr>
-<tr><td>Configuration review, log and setting inventory, evidence collection, documentation</td>
-    <td class="val">$175/hr<span class="cond">routine work, done under direction</span></td>
-    <td class="not">That the lower rate applies to the conclusions. Anything I sign is at the
-        full rate, whoever gathered the material.</td></tr>
+<tr><th>Work</th><th>Rate</th><th>Scope</th></tr>
+<tr><td>Review, analysis, findings, anything I put my name to</td>
+    <td class="val">$425/hr</td>
+    <td class="not">The same rate as investigative work, because it is the same work. Quoted as an
+        estimate against a ceiling you authorise, and I stop and report at 80% of it.</td></tr>
+<tr><td>Configuration review, log inventory, collection, documentation</td>
+    <td class="val">$175/hr</td>
+    <td class="not">Routine work done under direction. The conclusions are still at the full rate,
+        whoever gathered the material.</td></tr>
 <tr><td>Out of hours and expedited</td>
-    <td class="val">+35%<span class="cond">outside 08:00&ndash;18:00 Eastern Mon&ndash;Fri, weekends and US federal holidays, or a start within 24 hours</span></td>
-    <td class="not">A different scope. The uplift applies only to the hours actually worked out
-        of hours, not to the whole matter.</td></tr>
+    <td class="val">+35%</td>
+    <td class="not">Outside 08:00&ndash;18:00 Eastern Mon&ndash;Fri, weekends and federal holidays,
+        or a start inside 24 hours. Applies only to the hours actually worked out of hours.</td></tr>
 </table></div>
 
-<p>Most security engagements are quoted as an estimate against a ceiling rather than a fixed
-price, because the work varies with what I find in the first day. Two exceptions, where the scope
-genuinely is fixed:</p>
-
-<div class="tw"><table class="ledger">
-<caption>Fixed</caption>
-<tr><th>Engagement</th><th>Price</th><th>What this does not establish</th></tr>
-<tr><td><b>Incident rehearsal</b> &mdash; half a day, your people, a scenario that fits your
-        business. The output is the decision log, the list of things nobody could find, and the
-        three phone numbers that turned out to be wrong.</td>
-    <td class="val">$6,500<span class="cond">including the marked-up plan</span></td>
-    <td class="not">Readiness. It shows where the plan breaks under a little pressure, which is
-        not the same as holding under a lot.</td></tr>
-<tr><td><b>Standby agreement</b> &mdash; conflicts cleared in advance against a named list, rates
-        and terms fixed for the year, out-of-hours authorisation pre-signed, a named contact.</td>
-    <td class="val">$7,500<span class="cond">per year, credited in full against the first engagement</span></td>
-    <td class="not">A response-time commitment unless it is written into the agreement. Without one
-        signed, I publish no interval and will not imply one.</td></tr>
-</table></div>
-
-<h3>The engagements</h3>
-
-<div class="tw"><table class="ledger">
-<caption>Typical scopes and what they usually run to</caption>
-<tr><th>Engagement</th><th>What it covers</th><th>Usual range</th><th>What this does not establish</th></tr>
-
-<tr><td><b>Evidence-readiness review</b></td>
-    <td>Per log source: what it records, how long it keeps it, what question it could actually
-        answer, what changing it costs. Mailbox and tenant audit settings, endpoint telemetry,
-        firewall and backup logs, and the licence tiers that silently decide what exists at all.</td>
-    <td class="val">8&ndash;12 hrs<span class="cond">per tenant; more with several log sources</span></td>
-    <td class="not">That you will not be breached. It establishes what you could prove, not what
-        you can prevent.</td></tr>
-
-<tr><td><b>Insider risk and IP protection</b></td>
-    <td>What a leaver can currently take and by which routes, where access reviews are not
-        happening, what offboarding deletes and on what timer, and a written hold procedure that
-        keeps a laptop out of the reimage queue.</td>
-    <td class="val">6&ndash;16 hrs<span class="cond">starts with a bounded first block</span></td>
-    <td class="not">Loyalty. It reduces the routes and improves the record. It does not tell you
-        who intends to use them.</td></tr>
-
-<tr><td><b>Tenant and identity hardening review</b></td>
-    <td>Microsoft 365 or Google Workspace read against the configurations that actually turn up in
-        incidents: MFA coverage and its gaps, legacy authentication, conditional access, mail
-        forwarding and transport rules, OAuth consent, privileged roles, and guest access nobody
-        has looked at since it was granted.</td>
-    <td class="val">8&ndash;14 hrs<span class="cond">per tenant</span></td>
-    <td class="not">That the tenant is secure afterwards. I read the configuration and write down
-        what I found. This is not monitoring and it is not continuous.</td></tr>
-</table></div>
-
-<p class="cond">Ranges are what these usually take, not a quote. You get a written estimate and a
-ceiling before I start, and I do not bill an hour above it.</p>
+<p>You get a written estimate and a ceiling before anything starts. I publish the usual hour
+ranges above so the estimate can be checked against something rather than taken on trust.</p>
 </section>
 
 <section class="cl"><span class="n">4</span>
-<h2>What I do not do</h2>
-<p>Worth being blunt, because the category is full of people who will say yes to all of it.</p>
+<h2>Why a forensics practice and not a security firm</h2>
 
-<ul>
-  <li><b>I do not sell or resell security products</b>, and I take no commission from anyone whose
-      software or hardware I might mention. If a tool is the right answer I will name it and tell
-      you I have no interest in whether you buy it.</li>
-  <li><b>I do not run a monitored service.</b> Nobody here is watching your network at three in
-      the morning. If you need that, you need a provider who does it, and I will say so.</li>
-  <li><b>I do not do penetration testing</b> or offensive security. Different discipline,
-      different qualifications, and there are people who do it properly.</li>
-  <li><b>I do not remediate what I investigated</b>, for the reason in section 1.</li>
-  <li><b>I do not certify anyone as compliant</b> with anything. I am not an auditor and this work
-      carries no opinion.</li>
-</ul>
+<p>Because I am the person who gets called when it has already gone wrong, and that changes what I
+look for.</p>
 
-<p>Where a matter needs a certification, an accreditation or a licence I do not hold, I say so at
-scoping, name it in the engagement letter, and either bring in someone who holds it or decline.</p>
-</section>
+<p>A consultancy reviewing your tenant is working from a hardening guide. I am working from a
+memory of sitting in front of a client explaining that the answer to their question no longer
+exists anywhere, and watching them absorb what that means for their notification, their insurance
+claim and their case.</p>
 
-<section class="cl"><span class="n">5</span>
-<h2>Where to start</h2>
-<p>The evidence-readiness review, if you have no particular worry. It is the one that fails
-silently: you do not discover a thirty-day retention window is too short until the ninetieth day,
-and every other engagement here is better for knowing what your systems can actually tell you.</p>
-
-<p>The insider-risk work, if the worry is specifically that somebody walks out with the client
-list. It starts with a bounded first block, and it usually ends with three or four changes that
-cost nothing.</p>
+<p>I also sell you nothing else. No product, no licence, no managed service, no commission from
+anyone whose software I might recommend. If a tool is the right answer I will name it and tell you
+I have no interest in whether you buy it — which is worth saying in a market where most advice
+arrives attached to a reseller agreement.</p>
 
 <div class="acts">
-  <a class="btn k" href="/contact/">Ask about a review</a>
-  <a class="btn" href="/rates/">The full rate schedule</a>
-  <a class="btn" href="/matters/">If something has already happened</a>
-  <a class="btn" href="/standby/">The standby agreement</a>
+  <a class="btn k" href="/contact/">Start with an evidence-readiness review</a>
+  <a class="btn" href="/standby/">Standby agreement</a>
+  <a class="btn" href="/matters/">Something has already happened</a>
 </div>
 </section>
