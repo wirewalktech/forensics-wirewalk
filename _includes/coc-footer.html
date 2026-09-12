@@ -1,0 +1,29 @@
+{% comment %} DEVICE 4 — the chain-of-custody footer.
+   Built for real or not at all. `content_sha256` is computed by tools/stamp.py
+   over the page SOURCE (front matter excluded) and committed; anyone can verify
+   it against the public repo. "Prior versions" links to that file's real git
+   history, which is the genuine version record — not a fabricated archive.
+   If a page has no stamp, the hash row is omitted rather than faked. {% endcomment %}
+<footer class="coc"><div class="wrap">
+  <div class="fields">
+    <span><b>PAGE</b> <span>{{ page.url }}</span></span>
+    <span><b>REVISED</b> <span>{{ page.revised | default: page.issued | default: '2026-09-11' }}T00:00:00-04:00</span></span>
+    {% if page.content_sha256 %}
+    <span><b>SHA-256 (SOURCE)</b> <span>{{ page.content_sha256 }}</span></span>
+    {% endif %}
+    {% if page.path %}
+    <span><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/{{ page.path }}">prior versions</a></span>
+    {% endif %}
+  </div>
+  <div class="links">
+    <a href="{{ '/scope/' | relative_url }}">Scope</a><a href="{{ '/rates/' | relative_url }}">Rates</a>
+    <a href="{{ '/method/' | relative_url }}">Method</a><a href="{{ '/limits/' | relative_url }}">Limits</a>
+    <a href="{{ '/roles/' | relative_url }}">Roles</a><a href="{{ '/engagement/' | relative_url }}">Engagement</a>
+    <a href="{{ '/emergency/' | relative_url }}">Emergency</a><a href="{{ '/contact/' | relative_url }}">Contact</a>
+  </div>
+  <p class="house"><i></i>Wirewalk Forensics is part of Wirewalk.
+    <a href="https://www.wirewalk.com/">Advisory</a> &middot;
+    <a href="https://ai.wirewalk.com/">The Operating Review</a></p>
+  <p class="house">Nothing on this site is legal advice, and reading it creates no engagement.
+    An engagement begins when a conflicts check has cleared and an engagement letter is signed.</p>
+</div></footer>

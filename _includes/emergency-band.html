@@ -1,0 +1,9 @@
+{% comment %} Renders identically at the top of every considered-lane page.
+   Never renders on /emergency itself — that page is self-contained. {% endcomment %}
+{% unless page.lane == 'emergency' %}
+<div class="eband"><div class="wrap">
+  <b>Incident in progress</b>
+  <a class="num" href="{{ '/emergency/' | relative_url }}">What to do in the first hour &rarr;</a>
+  <span>Preserve first. Several ordinary responses destroy the evidence permanently.</span>
+</div></div>
+{% endunless %}

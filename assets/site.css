@@ -1,0 +1,162 @@
+/* forensics.wirewalk.com — a controlled document, not a brochure about rigour.
+   The design rules below are constraints, not preferences. Read the comments
+   before changing any of them. */
+
+:root{
+  --paper:#F6F6F3; --label-stock:#FDFDFC;
+  --ink:#14161A; --ink-2:#5A6068;
+  --hairline:#DEDFDA; --rule:#B4B7B0;
+  --annotation:#2A4A66;       /* identifiers, clause numbers, links — 8.5:1 */
+  --terracotta:#D97757;       /* HOUSE mark. Provenance ONLY — 2.9:1, never text */
+  --seal:#A14A2C;             /* stamp impressions — 5.5:1, usable as text */
+  --kraft:#E8E2D2;            /* emergency band, specimen headers */
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,'Helvetica Neue',Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+}
+/* NO dark mode. One look. A dark theme drags this toward the SOC-console
+   cliché through the back door. NO red anywhere on the marketing site, so that
+   a red line in a delivered report means something. */
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:74rem;margin:0 auto;padding:0 clamp(18px,4vw,34px)}
+.doc{max-width:68ch}
+
+/* ---- monospace is a CLAIM, not a texture -------------------------------
+   Reserved for any value that could be copied into another document and
+   checked: hashes, paths, ISO timestamps, engagement numbers, prices, clause
+   numbers, the emergency number. NEVER headings. NEVER body. NEVER atmosphere. */
+.v,code,kbd,samp{font-family:var(--mono);font-size:.875em;font-variant-numeric:tabular-nums}
+.v.id,.v.hash{color:var(--annotation)}
+
+a{color:var(--annotation);text-decoration:underline;text-underline-offset:2px}
+a:hover{text-decoration-thickness:2px}
+
+h1,h2,h3{font-weight:600;letter-spacing:-.011em;text-wrap:balance}
+h1{font-size:28px;line-height:1.2;margin:0 0 14px}
+h2{font-size:20px;line-height:1.3;margin:38px 0 10px}
+h3{font-size:17px;margin:26px 0 8px}
+p{margin:0 0 14px}
+.lede{font-size:17.5px;line-height:1.5;color:var(--ink-2);margin:0 0 24px;max-width:64ch}
+.small{font-size:14px;color:var(--ink-2)}
+
+/* ---- emergency band: identical at the top of every considered-lane page --- */
+.eband{background:var(--kraft);border-bottom:1px solid var(--rule)}
+.eband .wrap{display:flex;gap:10px 22px;align-items:baseline;flex-wrap:wrap;padding-top:9px;padding-bottom:9px}
+.eband b{font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.eband .num{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--ink)}
+.eband span{font-size:13.5px;color:var(--ink-2)}
+
+/* ---- masthead ----------------------------------------------------------- */
+header.top{border-bottom:1px solid var(--rule);padding:16px 0}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:600}
+.mark{width:19px;height:19px;flex:0 0 19px;display:grid;grid-template:repeat(2,1fr)/repeat(2,1fr);gap:2.4px}
+.mark i{background:var(--terracotta);border-radius:1.4px;transform:scale(.84)}
+.mark i:nth-child(4){background:transparent;box-shadow:inset 0 0 0 1.7px var(--terracotta)}
+.brand s{text-decoration:none;color:var(--ink-2);font-weight:500}
+nav.top a{margin-left:17px;font-size:14px;text-decoration:none;color:var(--ink-2)}
+nav.top a:hover,nav.top a[aria-current]{color:var(--ink);text-decoration:underline}
+
+/* ---- DEVICE 1 — the specimen header -------------------------------------
+   Every page opens ruled like a form. A visible LAST REVISED is a stronger
+   honesty signal than any sentence about honesty. */
+.spec{border:1px solid var(--rule);background:var(--label-stock);margin:26px 0 30px}
+.spec dl{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:0}
+.spec dl>div{padding:11px 15px;border-right:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.spec dl>div:nth-child(3n){border-right:0}
+.spec dl>div:nth-last-child(-n+3){border-bottom:0}
+.spec dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:3px}
+.spec dd{margin:0;font-family:var(--mono);font-size:13.5px;color:var(--ink)}
+
+/* ---- DEVICE 2 — continuous clause numbering ------------------------------
+   Counsel can say "your section 3.2 says". The number column is also the
+   layout spine, which gives the page exactness with no ornament. */
+.cl{position:relative;padding-left:4.5rem;margin:34px 0 0}
+.cl>.n{position:absolute;left:0;top:.24em;font-family:var(--mono);font-size:13px;color:var(--annotation)}
+.cl>h2,.cl>h3{margin-top:0}
+@media(max-width:760px){
+  .cl{padding-left:0}
+  .cl>.n{position:static;display:block;margin-bottom:4px}
+}
+
+/* ---- DEVICE 3 — the ledger, with the limits column built in --------------
+   Every capability row carries WHAT THIS DOES NOT ESTABLISH. The cell cannot
+   be left empty, so an overclaim requires a visible blank. This is the
+   constraint enforced by the template rather than by discipline, which is how
+   it survives the third round of copy edits. */
+table.ledger{width:100%;border-collapse:collapse;margin:14px 0 8px;font-size:15px}
+table.ledger caption{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-2);padding-bottom:7px}
+table.ledger th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-2);font-weight:600;border-bottom:1px solid var(--rule);padding:0 14px 7px 0;vertical-align:bottom}
+table.ledger td{padding:12px 14px 12px 0;border-bottom:1px solid var(--hairline);vertical-align:top}
+table.ledger td:last-child,table.ledger th:last-child{padding-right:0}
+table.ledger td.val{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+table.ledger td.not{color:var(--ink-2);font-size:14px}
+table.ledger tr.tot td{border-bottom:0;border-top:2px solid var(--ink);font-weight:650}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* a condition attached to one line, not to a disclaimer page */
+.cond{display:block;margin-top:5px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+
+/* ---- refusal / note blocks ---------------------------------------------- */
+.refuse{border:1px solid var(--rule);background:var(--label-stock);padding:0;margin:18px 0 26px}
+.refuse h2{margin:0;padding:14px 18px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  border-bottom:1px solid var(--rule);background:var(--kraft)}
+.refuse ol{margin:0;padding:0;list-style:none;counter-reset:r}
+.refuse li{counter-increment:r;position:relative;padding:14px 18px 14px 4.2rem;
+  border-bottom:1px solid var(--hairline);font-size:15px}
+.refuse li:last-child{border-bottom:0}
+.refuse li::before{content:counter(r);position:absolute;left:18px;top:15px;
+  font-family:var(--mono);font-size:12.5px;color:var(--annotation)}
+
+.note{border-left:3px solid var(--rule);background:var(--label-stock);padding:13px 17px;margin:18px 0;font-size:15px}
+.note.seal{border-left-color:var(--seal)}
+.note b{font-weight:650}
+
+/* ---- specimen marking — can never drift into being read as a case study --- */
+.specimen-mark{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--seal);
+  border:1px solid var(--seal);border-radius:2px;padding:3px 8px;display:inline-block}
+
+/* ---- DEVICE 4 — chain-of-custody footer ---------------------------------
+   Built for real: the hash is computed at build over the page text and the
+   archived versions exist. An uncomputed hash on a forensics site is exactly
+   the costume this design exists to avoid — ship without it rather than fake it. */
+footer.coc{margin-top:52px;border-top:1px solid var(--rule);background:var(--label-stock)}
+footer.coc .wrap{padding-top:14px;padding-bottom:16px}
+footer.coc .fields{display:flex;flex-wrap:wrap;gap:6px 26px;font-family:var(--mono);
+  font-size:12px;color:var(--ink-2)}
+footer.coc .fields b{font-weight:500;color:var(--ink-2)}
+footer.coc .fields span{color:var(--ink)}
+footer.coc .links{margin-top:12px;padding-top:12px;border-top:1px solid var(--hairline);
+  display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13.5px}
+footer.coc .links a{color:var(--ink-2)}
+footer.coc .house{margin-top:11px;font-size:12.5px;color:var(--ink-2)}
+footer.coc .house i{display:inline-block;width:9px;height:9px;background:var(--terracotta);
+  border-radius:1.5px;margin-right:6px;vertical-align:baseline}
+
+.btn{display:inline-block;padding:11px 18px;border:1px solid var(--rule);background:var(--label-stock);
+  color:var(--ink);text-decoration:none;font-size:15px;font-weight:600;border-radius:2px}
+.btn:hover{border-color:var(--annotation);color:var(--annotation)}
+.btn.k{background:var(--kraft)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 0}
+
+/* NO animation of any kind, including scroll reveals — an element that appears
+   as you scroll implies the document changed while you were reading it. */
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---- print: the thing on the table at a meeting is a print-out ----------- */
+@media print{
+  @page{margin:16mm}
+  html,body{background:#fff;color:#000;font-size:10.5pt}
+  .eband,header.top,nav.top,.acts,.noprint{display:none!important}
+  .wrap{max-width:none;padding:0}
+  .spec,.refuse,.note,table.ledger{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+  .doc a[href^="http"]::after{content:" <" attr(href) ">";font-family:var(--mono);font-size:8.5pt}
+  footer.coc{border-top:1.5pt solid #000;background:#fff}
+}

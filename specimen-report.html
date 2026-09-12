@@ -1,0 +1,346 @@
+---
+layout: default
+title: "Specimen examination report"
+lede: "Buyer-side guidance tells a lawyer to ask an examiner for a sample report before instructing them. This is ours, published before the question is asked, with every value on it fabricated and every block marked. Above it is what to look for in any examiner's report, including the one filed against you."
+description: "A specimen digital forensic examination report — marked [SPECIMEN — NOT A REAL MATTER] on every block, with every value fabricated. The instruction, material examined, method, findings with their basis, confidence and limits, and the examiner's statement. Not a case study."
+permalink: /specimen-report/
+doc_id: WW-F-013
+version: "1.0"
+issued: 2026-09-11
+revised: 2026-09-11
+scope: "Specimen report format"
+authority: Principal
+content_sha256: 56bb4b5a552033f1c7c70b8957596efffa6873793362cee70bf807686e0ad2de
+---
+
+<section class="cl"><span class="n">1</span>
+<h2>Why this page exists</h2>
+<p>Guidance written for lawyers buying forensic services says the same thing in every version of it: before you instruct an examiner, ask to see a report. Not a brochure, not a list of tools, not a case study — a report, in the format that would be served in your matter, so you can see whether the findings are traceable to evidence or merely asserted over it.</p>
+<p>It is a good instruction and it is rarely satisfied, because a real report belongs to a client and cannot be sent to a stranger, and because a redacted one usually loses the very structure the question was asking about. So the format is published instead, filled in with values that are obviously invented, and marked on every block so that it can never drift into being read as an account of work we have done.</p>
+<p>This is deliberately not a case study. We publish no case studies, name no client, matter, court or party, and keep no testimonial slot in the template for anyone to fill in later. What we can show is the shape of the work product. A reader who knows what a sound report looks like does not need a story about one.</p>
+</section>
+
+<section class="cl"><span class="n">2</span>
+<h2>What to look for in any examination report</h2>
+<p>The test is not whether the report sounds confident. It is whether a competent examiner who was given the same material could follow the document to the same place, and whether the places the author could not get to are visible on the page. Six things carry most of that weight, and in each case the absence tells you more than the presence.</p>
+<div class="tw">
+<table class="ledger">
+  <caption>Reading an examination report — the six load-bearing parts</caption>
+  <thead><tr>
+    <th>What to look for</th><th>Why it carries weight</th><th>What its absence tells you</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>The question, stated as it was asked</td>
+      <td>An examination answers an instruction. Written down at the front, it fixes the scope and makes it visible when a finding wanders outside it</td>
+      <td class="not">That scope is being set retrospectively by what happened to be found. A report with no stated question cannot be off-topic, which is not a virtue.</td>
+    </tr>
+    <tr>
+      <td>An inventory of material with identifiers and digests</td>
+      <td>It says exactly what was examined, distinguishes it from what was merely mentioned, and lets a second examiner verify they hold the same thing</td>
+      <td class="not">That the examined material can be identified at all. Without identifiers and digests, a later challenge to what was analysed cannot be answered, only re-asserted.</td>
+    </tr>
+    <tr>
+      <td>A method described to the level of tool and version</td>
+      <td>Repeatability is not a slogan; it is whether the steps and the versions are written down while they are being performed</td>
+      <td class="not">That the work was reproducible. An unnamed tool and an undated version make a finding untestable rather than wrong, and untestable is where most of the argument happens.</td>
+    </tr>
+    <tr>
+      <td>Each finding tied to the artefacts that support it</td>
+      <td>A finding is a claim plus its evidence. Separating the two lets the reader see which parts of an opinion survive if one artefact falls</td>
+      <td class="not">That the reasoning can be checked. A narrative that reads well and cites nothing is an argument, and it will be cross-examined as one.</td>
+    </tr>
+    <tr>
+      <td>A stated confidence, in defined words</td>
+      <td>Different findings in the same report deserve different weight, and the examiner is the person best placed to say which is which</td>
+      <td class="not">That the author distinguished between what was observed and what was inferred. Uniform certainty across every paragraph is itself a finding about the report.</td>
+    </tr>
+    <tr>
+      <td>Limits, stated per finding and for the examination as a whole</td>
+      <td>The limits are what the other side will attack. Written before the engagement, they are method; written on the stand, they are a concession</td>
+      <td class="not">That the examiner has thought about what the evidence cannot carry. An examiner who has not written the limits down beforehand will be composing them under cross-examination.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="small">These are the parts that get attacked, which is why they are the parts worth publishing. None of them is a matter of house style — each corresponds to something an opponent can put to the author in a deposition.</p>
+</section>
+
+<section class="cl"><span class="n">2.1</span>
+<h3>Four sentences that should not appear, in anyone's report</h3>
+<p>A device is not a person, so a finding that a named individual did something, resting on device artefacts alone, has crossed from evidence into attribution and needs a separately stated methodology if it is going to be offered at all. Absence of an artefact is not evidence of absence, so a sentence treating a missing log entry as proof that nothing happened is unsupported on its face — retention windows, log rotation, TRIM on solid-state media and ordinary system behaviour all destroy data with no intent behind them. Intent to destroy evidence is a finding for the court, so an examiner asserting it has answered a question that was not theirs. And a promise that material will be admitted is a promise about a decision the author does not make.</p>
+<p>Those four are worth keeping in mind when reading the report served against you, because they are the sentences most likely to be there, and each of them is reachable in cross-examination without any technical rebuttal at all.</p>
+</section>
+
+<section class="cl"><span class="n">3</span>
+<h2>Reading an opposing examiner's report</h2>
+<p>The same six parts do the work in the other direction. Where a report supplies them, the argument is technical and runs on the artefacts. Where it does not, the question is simpler: what would have to be produced before any of this could be checked, and has it been?</p>
+<p>Our first-pass review marks each material finding as supported, partly supported, unsupported, or untestable on the material provided, and sets out the questions to put. The fourth category does most of the work and is the one most often misread. A finding is untestable where the underlying artefacts were not produced, where the method was not described in enough detail to reproduce, or where the examination itself altered or consumed what would be needed to check it. Untestable does not mean wrong, and we do not let it become a synonym for wrong in our own writing.</p>
+<p>It is worth reading the other side's report for what it declines to claim as well. A carefully written report from a competent opponent will already contain its own limits, and those limits are frequently the most useful paragraphs in the document for the party that did not commission it.</p>
+</section>
+
+<section class="cl"><span class="n">4</span>
+<h2>What follows, and what it is not</h2>
+<p>Below is the report format this practice uses, filled in. Every value in it is invented. The parties, the custodian, the devices, the identifiers, the dates and the digests were written for this page and correspond to nothing.</p>
+<div class="note seal">
+<p><b>Read the specimen as a form, not as an account.</b> No court or jurisdiction is named in it. The digests are not hexadecimal — they contain the letters <span class="v">P</span>, <span class="v">M</span> and <span class="v">N</span>, which cannot appear in a SHA-256 value, so no line on this page can be mistaken for a real digest. Nothing on this page states or implies that the examination described took place, that this practice has been retained in any matter, or that any report has been served, tendered, admitted, deposed on or tested in any proceeding.</p>
+</div>
+<p>The specimen runs a little long for a matter of this size, on purpose: a short report is usually short because the limits were left out. Sections are numbered continuously with this page so that a reader can refer to any part of it precisely.</p>
+</section>
+
+<section class="cl"><span class="n">5</span>
+<h2>Specimen: report header block</h2>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<div class="spec"><dl>
+  <div><dt>Matter</dt><dd>Larkhill Fastenings Inc. [FICTITIOUS] &mdash; internal</dd></div>
+  <div><dt>Matter reference</dt><dd>SPEC-0000</dd></div>
+  <div><dt>Report reference</dt><dd>SPEC-0000-R01</dd></div>
+  <div><dt>Retaining party</dt><dd>Counsel for Larkhill Fastenings Inc. [FICTITIOUS]</dd></div>
+  <div><dt>Role</dt><dd>Testifying expert</dd></div>
+  <div><dt>Venue</dt><dd>[NO COURT NAMED]</dd></div>
+  <div><dt>Examination dates</dt><dd>2026-03-02 &rarr; 2026-03-06</dd></div>
+  <div><dt>Report issued</dt><dd>2026-03-11</dd></div>
+  <div><dt>Version</dt><dd>1.0 &mdash; supersedes none</dd></div>
+</dl></div>
+<p>The header is a form because it is the part most often reconstructed afterwards. Matter reference, report reference and version are assigned when the engagement letter is signed, not when the document is drafted, so a superseded report is visible as superseded rather than quietly replaced. Where a report revises an earlier one, this block names the version it supersedes and the substantive change is described in the first clause, not buried in the findings.</p>
+<p class="small">In a served report the role line matches the engagement letter, and the disclosure obligations that follow from it are the ones described on <a href="{{ '/roles/' | relative_url }}">instruction roles</a>.</p>
+</section>
+
+<section class="cl"><span class="n">5.1</span>
+<h3>Specimen: the question asked</h3>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<p>We were instructed in writing on <span class="v">2026-02-24</span> to answer one question:</p>
+<div class="note">
+<p><em>Whether the nine documents listed in Schedule A to the instruction were transferred from the laptop issued to Custodian A &mdash; "A. N. Placeholder" &mdash; to any removable device or non-corporate account between <span class="v">2026-01-15</span> and <span class="v">2026-02-20</span>, and if so, by what mechanism and when.</em></p>
+</div>
+<p>Two things were expressly outside the instruction and were not examined: the content of the nine documents, and any question of the custodian's authority to hold them. One further thing was outside it by nature rather than by instruction, and is stated here because a reader will otherwise assume the report answers it. We were not asked, and this examination cannot say, who was physically at the keyboard at any moment described below.</p>
+<p><span class="cond">Instruction received in writing. Where an instruction changes mid-examination, the change is recorded with its date and the report states which findings were produced under which instruction.</span></p>
+</section>
+
+<section class="cl"><span class="n">5.2</span>
+<h3>Specimen: material examined</h3>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<div class="tw">
+<table class="ledger">
+  <caption>Material examined &mdash; identifiers and acquisition digests</caption>
+  <thead><tr>
+    <th>Item</th><th>Identifier</th><th>Acquisition digest (SHA-256, illustrative)</th><th>What this does not establish</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>Item 1 &mdash; laptop, Vantor 14 [FICTITIOUS MAKE AND MODEL], internal NVMe drive, acquired write-blocked <span class="v">2026-02-26</span></td>
+      <td class="val">SPEC-0000-D1<br>s/n SPECIMEN-0000-A</td>
+      <td class="val">5PEC1MEN5PEC1MEN<br>5PEC1MEN5PEC1MEN<br>5PEC1MEN5PEC1MEN<br>5PEC1MEN5PEC0001</td>
+      <td class="not">That the drive was unaltered before it reached us. The digest fixes the state as read at acquisition; it says nothing about the interval between the custodian's last use of the machine and its receipt by us, which is recorded in the chain of custody at Exhibit E-2 rather than inferred from the digest.</td>
+    </tr>
+    <tr>
+      <td>Item 2 &mdash; tenant audit log export for the custodian, <span class="v">2026-01-01</span> to <span class="v">2026-02-20</span>, exported out of the tenant <span class="v">2026-02-27</span></td>
+      <td class="val">SPEC-0000-C1</td>
+      <td class="val">5PEC1MEN5PEC1MEN<br>5PEC1MEN5PEC1MEN<br>5PEC1MEN5PEC1MEN<br>5PEC1MEN5PEC0002</td>
+      <td class="not">That the log is complete. It records what the tenant's licence tier and retention configuration caused to be recorded, and nothing before the earliest surviving entry.</td>
+    </tr>
+    <tr>
+      <td>Item 3 &mdash; corporate file server, targeted collection of two directories, <span class="v">2026-02-26</span></td>
+      <td class="val">SPEC-0000-S1</td>
+      <td class="val">5PEC1MEN5PEC1MEN<br>5PEC1MEN5PEC1MEN<br>5PEC1MEN5PEC1MEN<br>5PEC1MEN5PEC0003</td>
+      <td class="not">That the rest of the server was examined. What was deliberately not collected is listed in the collection manifest, and that list is part of this report.</td>
+    </tr>
+    <tr>
+      <td>Item 4 &mdash; removable device referenced in Finding 1</td>
+      <td class="val">not produced</td>
+      <td class="val">&mdash;</td>
+      <td class="not">Anything at all. The device was not provided to us and was not examined. Every statement below about it is a statement about records held on Item 1, not about the device.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>The inventory is where a report is most easily checked and most often thin. Item 4 is on it precisely because it was not examined: a reader who meets a removable device in the findings needs to know at that point that we never held it.</p>
+<p>Each acquired item was verified by comparing the digest computed at acquisition against the digest of the image or container received, and re-verified before analysis began and again before production. Item 1 is a forensic image; Items 2 and 3 are hashed containers rather than images, and the same verification applies to each. Analysis was performed on a working copy; the master image and the master containers are held under access control with their own integrity record. Chain of custody for each item is exhibited at CoC-1 to CoC-3.</p>
+</section>
+
+<section class="cl"><span class="n">5.3</span>
+<h3>Specimen: method applied</h3>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<p>The examination followed the published procedure at <a href="{{ '/method/' | relative_url }}">/method</a> in the version current at the engagement date, which forms part of this report. It is written against the four principles in <span class="v">ISO/IEC 27037:2012</span> — auditability, repeatability, reproducibility and justifiability — with the phase structure in <span class="v">NIST SP 800-86</span>. Those are guidance the practice works to, not accreditation it holds.</p>
+<p>In a served report this clause names each tool with its version, the acquisition and verification steps in order with their timestamps, the artefact classes parsed, the search terms and filter criteria applied, and the hypotheses tested and discarded. That material is kept contemporaneously and on the assumption it will be produced, because <span class="v">FRCP 26(a)(2)(B)(ii)</span> reaches facts and data <em>considered</em>, not merely relied upon.</p>
+<p>Two method notes belong in the body rather than an appendix, because both bear directly on the weight of what follows. First, write blocking was used for Item 1 and could not be used for Item 2, which is a cloud source; for that item soundness rests on documenting the export method, recording the tool and version, hashing the container at the earliest possible point and stating what could not be preserved. Second, the artefact classes underlying Finding 2 have known interpretation variance across operating-system builds, so the specific behaviour was tested on a matching build before the finding was written, and the test is described in the exhibit.</p>
+<p><span class="cond">Where an engagement requires a certified examiner, an accredited laboratory or a licence, that condition is stated in the engagement letter and satisfied before work begins.</span></p>
+</section>
+
+<section class="cl"><span class="n">5.4</span>
+<h3>Specimen: the confidence vocabulary used in this report</h3>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<p>Four words are used with fixed meanings, defined here so that a reader is never left to infer weight from tone. <b>Observed</b> — present in the artefacts and directly readable, with the artefact identified. <b>Supported</b> — an inference drawn from two or more independent artefact classes that agree, with the inference stated. <b>Consistent with</b> — the artefacts do not contradict the proposition and do not establish it; other explanations are named. <b>Not established</b> — the material examined does not answer the question, whether because the artefact was never created, has been overwritten, or lies outside what was collected.</p>
+<p>The fourth word is used as freely as the first three. A report in which nothing is not established is a report in which the examiner has not said where the evidence stops.</p>
+</section>
+
+<section class="cl"><span class="n">5.5</span>
+<h3>Specimen: findings</h3>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<div class="tw">
+<table class="ledger">
+  <caption>Findings &mdash; basis, confidence and limits</caption>
+  <thead><tr>
+    <th>Finding</th><th>Basis in the material</th><th>Confidence</th><th>What this does not establish</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><b>1.</b> A USB mass-storage device reporting itself as "SPECIMEN PORTABLE 32GB", serial <span class="v">SPECIMEN-USB-0001</span>, was connected to Item 1 on two occasions, at <span class="v">2026-02-04T18:41:07-05:00</span> and <span class="v">2026-02-05T07:12:22-05:00</span></td>
+      <td>Item 1: device-enumeration records in the system registry hives, the driver-installation log, and operating-system event-log entries. Three independent artefact classes agree on the identifier and on both times</td>
+      <td class="val">Observed</td>
+      <td class="not">Who connected the device. That any file was written to it. That the device still exists or still holds anything. Item 4 was not produced and was not examined.</td>
+    </tr>
+    <tr>
+      <td><b>2.</b> Records on Item 1 show that seven of the nine filenames in Schedule A were accessed from a volume bearing the identifier at Finding 1, between <span class="v">2026-02-04</span> and <span class="v">2026-02-05</span></td>
+      <td>Item 1: shortcut and recent-item artefacts referencing the external volume, with recorded times. Behaviour of these artefact classes tested on a matching build; test at Exhibit E-4</td>
+      <td class="val">Supported</td>
+      <td class="not">That the files were copied to that volume. These artefacts are created by opening a file, which can occur on a file already present, and they record a filename rather than content. That the files opened were the documents of those names. Two of the nine names appear nowhere.</td>
+    </tr>
+    <tr>
+      <td><b>3.</b> The tenant audit log records one message sent from the custodian's mailbox to a non-tenant address at <span class="v">2026-02-18T22:06:41-05:00</span>, with three attachments</td>
+      <td>Item 2: message-send record in the audit log export, verified against the container digest at acquisition</td>
+      <td class="val">Observed</td>
+      <td class="not">What the attachments contained. Whether the recipient received or read them. Who composed the message; the record evidences an authenticated session, not a person. The attachment names are not recorded in this log at this licence tier.</td>
+    </tr>
+    <tr>
+      <td><b>4.</b> Whether the two remaining Schedule A documents left Item 1 by any mechanism</td>
+      <td>Item 1 and Item 2, searched by filename, by content fragment and by the artefact classes at Findings 1 to 3</td>
+      <td class="val">Not established</td>
+      <td class="not">That the documents did not leave. No artefact was identified either way. The absence of a record is not evidence that nothing happened, for the reasons at clause 5.7.</td>
+    </tr>
+    <tr>
+      <td><b>5.</b> No data-destruction or artefact-wiping utility was identified as having been installed or executed on Item 1 within the period examined</td>
+      <td>Item 1: installed-application inventory, execution artefacts, and the file-system journal for the period</td>
+      <td class="val">Supported</td>
+      <td class="not">That nothing was deleted. Ordinary deletion, retention policy and application cache behaviour remove data continuously without any tool and without any intent, and are not distinguishable in these artefacts from deliberate removal.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Findings 4 and 5 are in the table for the same reason Item 4 is in the inventory. An examination that reports only what it found, and is silent about the parts of the question it could not reach, leaves the reader to assume the silence is a negative answer. It is not, and the report has to say so in its own voice rather than in a footnote.</p>
+<p>Finding 5 is also the point at which a report can most easily overreach. What the artefacts support is a statement about tooling. It is not a statement about whether files were deleted, and it is emphatically not a statement about anyone's intention. We report what was destroyed, when, and by what mechanism. Whether a party acted with intent to deprive another of evidence is a finding for the court under <span class="v">FRCP 37(e)(2)</span>, and we do not offer it.</p>
+</section>
+
+<section class="cl"><span class="n">5.6</span>
+<h3>Specimen: exhibits</h3>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<div class="tw">
+<table class="ledger">
+  <caption>Exhibits and their status</caption>
+  <thead><tr>
+    <th>Exhibit</th><th>What it is</th><th>Status</th><th>What this does not establish</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td class="val">E-1</td>
+      <td>Acquisition worksheets and verification records for Items 1 to 3, with tool versions; the collection manifest for Item 3, including what was deliberately not collected; and the record of any recovery attempted and not achieved</td>
+      <td>Underlying record</td>
+      <td class="not">That the sources were unaltered before acquisition, or that anything was authored by a particular person.</td>
+    </tr>
+    <tr>
+      <td class="val">E-2</td>
+      <td>Chain-of-custody records CoC-1 to CoC-3</td>
+      <td>Underlying record</td>
+      <td class="not">Admissibility. A documented chain supports authentication under <span class="v">FRE 901(a)</span>; gaps ordinarily go to weight, and the record is evidence of handling only.</td>
+    </tr>
+    <tr>
+      <td class="val">E-3</td>
+      <td>Timeline chart assembled from the artefacts behind Findings 1 to 3</td>
+      <td>Illustrative aid, offered under <span class="v">FRE 107</span> &mdash; not evidence</td>
+      <td class="not">Anything on its own. The chart is a way of reading the underlying artefacts and carries no weight the artefacts do not carry. Removing it removes no finding.</td>
+    </tr>
+    <tr>
+      <td class="val">E-4</td>
+      <td>Description and results of the artefact-behaviour test referred to in Finding 2</td>
+      <td>Method record</td>
+      <td class="not">That the tested build is identical to every build in the examined estate. The build tested is named; where it differs, the finding is weaker and the difference is stated.</td>
+    </tr>
+    <tr>
+      <td class="val">E-5</td>
+      <td>Computed summary of the audit-log export, reconciled to the source records</td>
+      <td>Summary of voluminous material, offered under <span class="v">FRE 1006</span></td>
+      <td class="not">That the underlying log is complete or accurate. A summary inherits every limit of what it summarises, including the retention and licence limits at clause 5.7.</td>
+    </tr>
+    <tr>
+      <td class="val">E-6</td>
+      <td>Certification for the hash-verified copies of Items 1 to 3</td>
+      <td>Certification for use with <span class="v">FRE 902(14)</span>, meeting <span class="v">FRE 902(11)</span></td>
+      <td class="not">Hearsay, relevance or best-evidence questions, none of which self-authentication reaches. An opponent may still contest authenticity, and <span class="v">902(11)</span> carries a written-notice condition that must be met.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Saying which exhibit is an illustrative aid and which is substantive is not pedantry. A timeline is the single most persuasive object a forensic report produces and the single most common one to be treated, by everybody in the room, as though it were itself evidence. We say which we are producing, in the exhibit list, before anyone has to ask.</p>
+</section>
+
+<section class="cl"><span class="n">5.7</span>
+<h3>Specimen: limitations of the examination as a whole</h3>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<p>These apply to every finding above and are not repeated in each one.</p>
+<div class="refuse">
+<h2>Limitations</h2>
+<ol>
+  <li>Timestamps in this report are as recorded by the source system, converted to the stated offset. They depend on time-zone configuration, clock drift, filesystem semantics, application behaviour and network time state. Where two artefacts disagree, the disagreement is reported rather than reconciled silently.</li>
+  <li>The examination reaches what was collected. Item 3 was a targeted collection, and what was deliberately not collected is listed in the manifest at Exhibit E-1.</li>
+  <li>Nothing predates the earliest surviving log entry. The audit log at Item 2 reflects the tenant's retention configuration and licence tier at the time of export, and the record type showing which individual messages were read was not available at that tier. That is a limit on what could ever have been answered, not a limit on the search performed.</li>
+  <li>The removable device at Item 4 was not produced. Every statement about it is a statement about records held on Item 1.</li>
+  <li>No question of attribution to a person is addressed. Device and account evidence shows what a device or an account did. An opinion on who was at the keyboard would require a separately stated methodology and is not offered here.</li>
+  <li>Deleted-data recovery is conditional on medium, filesystem and encryption, and is frequently unavailable on modern encrypted flash storage. Where recovery was attempted and failed, that is recorded at Exhibit E-1 rather than omitted.</li>
+  <li>This report answers the question at clause 5.1 on the material at clause 5.2 as at the report date. If further material is produced, or if an assumption recorded here is shown to be wrong, the findings may change, and we will say so in writing.</li>
+</ol>
+</div>
+<p class="small">The full published statement of what digital evidence cannot establish is at <a href="{{ '/limits/' | relative_url }}">/limits</a> and is written before any engagement rather than in response to one.</p>
+</section>
+
+<section class="cl"><span class="n">5.8</span>
+<h3>Specimen: statement of the examiner</h3>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<div class="note seal">
+<p>I performed the examination described in this report and I have prepared and signed it myself. The opinions in it are my own. They were formed on the material listed at clause 5.2 and are stated with the confidence defined at clause 5.4.</p>
+<p>My compensation is at the published rate schedule in force at the date of the engagement letter. It does not depend on the content of my findings, on the outcome of this matter, or on which party retained me, and it would have been identical had every finding gone the other way.</p>
+<p>Where counsel supplied facts, data or assumptions that I considered or relied upon, they are identified as such in the report and logged separately on receipt.</p>
+<p>I have stated the limits of this examination at clause 5.7 and the limits of each finding beside it. If material is produced that changes a finding, or if I become aware of an error, I will issue a revised report identifying what changed and why, rather than amending this one.</p>
+<p>I have not been asked to opine, and do not opine, on who was at the keyboard, on whether any person acted with intent, or on whether anything in this report is admissible in any proceeding.</p>
+</div>
+<p class="small">Signature block, printed name, date and reference follow in the served document.</p>
+</section>
+
+<section class="cl"><span class="n">5.9</span>
+<h3>Specimen: qualifications, testimony list and compensation</h3>
+<p class="specimen-mark">[SPECIMEN — NOT A REAL MATTER]</p>
+<p>A report served under <span class="v">FRCP 26(a)(2)(B)</span> carries three further sections that this specimen deliberately leaves as headings. <span class="v">26(a)(2)(B)(iv)</span> requires the witness's qualifications, including a list of publications authored in the previous ten years. <span class="v">26(a)(2)(B)(v)</span> requires a list of all other cases in which the witness testified as an expert at trial or by deposition during the previous four years. <span class="v">26(a)(2)(B)(vi)</span> requires a statement of the compensation to be paid for the study and testimony.</p>
+<p>The compensation section is the one this practice can publish in advance, and does: the whole schedule is at <a href="{{ '/rates/' | relative_url }}">/rates</a>, including the testimony rates, published before any date is reserved. The other two are properties of the examiner in a particular engagement. They appear in this specimen as field headings with nothing entered against them, and nothing on this page states or implies what either would contain.</p>
+<div class="spec"><dl>
+  <div><dt>Qualifications, incl. publications 10 yrs</dt><dd>[HEADING ONLY &mdash; NOT COMPLETED IN THIS SPECIMEN]</dd></div>
+  <div><dt>Testimony list, previous 4 yrs</dt><dd>[HEADING ONLY &mdash; NOT COMPLETED IN THIS SPECIMEN]</dd></div>
+  <div><dt>Compensation</dt><dd>Rate schedule in force at the engagement-letter date</dd></div>
+</dl></div>
+<div class="note">
+<p><b>This is the clause most likely to be misread, so it is written plainly.</b> Where a matter requires a previously qualified testifying expert, that requirement is identified at scoping, named in the engagement letter, and either met by associating a qualified examiner or the matter is declined. Nothing on this site asserts a history of testimony, deposition, qualification, or of any challenge to admissibility being made or survived.</p>
+</div>
+<p class="small">Disclosure timing runs under <span class="v">FRCP 26(a)(2)(D)</span> absent a stipulation or court order, and those defaults are frequently displaced. We work to the date in the scheduling order.</p>
+</section>
+
+<section class="cl"><span class="n">6</span>
+<h2>What changes between this specimen and a real report</h2>
+<p>The structure does not. The length does, and mostly in one direction: the method clause and the exhibits expand, because a real examination touches more artefact classes and each one brings its own interpretation question. The findings clause frequently contracts. An examination that answers a narrow question honestly produces fewer findings than a client expects and more "not established" entries than an advocate would like, and both of those are the format working rather than failing.</p>
+<p>Two things are decided before the report is drafted rather than during it. The role, which fixes what is disclosable — the four roles and their discovery posture are set out at <a href="{{ '/roles/' | relative_url }}">/roles</a>. And the authorised ceiling, which fixes what the examination can cost; we stop and report at eighty per cent of it and do not resume without a written increase, so a report is never quietly truncated by a budget the reader cannot see.</p>
+<div class="refuse">
+<h2>In any report we produce, we will not</h2>
+<ol>
+  <li>Write to a conclusion supplied in advance, or report an inference as a finding because a stronger letter is wanted.</li>
+  <li>State a finding without the artefacts that support it and the confidence it is stated with.</li>
+  <li>Leave a limit out of the report because it weakens it. The limits are written before the engagement; an examiner who has not written them down beforehand will be writing them on the stand.</li>
+  <li>Opine on who was at the keyboard from device evidence alone. A device is not a person.</li>
+  <li>Opine that a party acted with intent to destroy evidence. We report what the artefacts show. Intent is the court's finding, not ours.</li>
+  <li>Present an illustrative aid as though it were substantive evidence, or a summary without the material it summarises.</li>
+  <li>Promise you a finding, a recovered file, an unlocked handset, or that anything we produce will be admitted. Admissibility is the court's decision and no one can guarantee it.</li>
+</ol>
+</div>
+<p class="small">The full list is published on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a> and repeated verbatim in the engagement letter. The fee is the same whichever side retains us, is fixed before we look at anything, and does not move with what we find &mdash; which is why a report that helps you and a report that does not are billed identically.</p>
+<div class="acts">
+  <a class="btn" href="{{ '/method/' | relative_url }}">The method this report applies</a>
+  <a class="btn" href="{{ '/limits/' | relative_url }}">What the evidence cannot establish</a>
+  <a class="btn k" href="{{ '/contact/' | relative_url }}">Start a conflicts check</a>
+</div>
+</section>

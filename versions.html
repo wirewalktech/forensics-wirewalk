@@ -1,0 +1,215 @@
+---
+layout: default
+title: "Versions and integrity"
+lede: "Every page here carries its path, its revision date, a SHA-256 of its own source and a link to its version history. This page explains how those values are produced, how to check them without trusting us, and exactly what checking them proves."
+description: "How the chain-of-custody footer on each page is produced: a SHA-256 computed over the page source by a build tool in the public repository, verifiable by anyone, with prior versions held as real commit history. Includes the index of every published document and the honest limits of the mechanism."
+permalink: /versions/
+doc_id: WW-F-015
+version: "1.0"
+issued: 2026-09-11
+revised: 2026-09-11
+scope: "Document integrity and version index"
+authority: Principal
+content_sha256: 7a7ff6dbc76847c70c2787aa05c52b4d28d589078acddca5cb57a9f95278c06e
+---
+
+<section class="cl"><span class="n">1</span>
+<h2>Why a forensics practice publishes this at all</h2>
+<p>This practice asks clients to rely on documented integrity. We ask you to accept that an image corresponds to a source because a digest was computed at acquisition and compared afterwards, that a copy is a copy because its hash matches, and that a record was made when we say it was made because it was written as the work happened. That is a reasonable thing to ask. It is a less reasonable thing to ask from a firm whose own published material can be edited overnight with no trace, which is the ordinary condition of most websites.</p>
+<p>So the same discipline is applied here. The footer at the bottom of every page states which document you are reading, when it was last revised, and a cryptographic digest of the text it was generated from, and it links to the history of that file in a public repository. None of it is decoration. The digest is produced from source you can read, by a tool you can run yourself, and section 3.2 sets out how to reproduce it without our help. What the other three values do not establish is set out at section 5, alongside the limits of the whole mechanism.</p>
+</section>
+
+<section class="cl"><span class="n">1.1</span>
+<h3>What the mechanism is for</h3>
+<p>It answers one narrow question: <b>has the published text changed since it was stamped, and if it has, is the change on the record?</b> That question matters here more than it would on a brochure. The rate schedule on this site is the schedule attached to the engagement letter. The refusals are repeated verbatim in that letter. The limits of each capability are published so that they cannot be discovered for the first time in a deposition. All three are worth less if the version you read in March cannot be distinguished from the version quoted back in November.</p>
+<p>It is also, deliberately, a small claim. Section 5 and its subsections set out what this mechanism does not do, at more length than the part describing what it does, for the same reason every capability on this site is published alongside its limits.</p>
+</section>
+
+<section class="cl"><span class="n">2</span>
+<h2>The footer fields</h2>
+<p>The chain-of-custody footer renders at the bottom of every page in this lane, and in a reduced form on the emergency page, which carries no navigation. It carries up to four values and each one means something specific. Where a page has not been through the stamping run described at 3.2, the digest row is absent rather than filled with a value nobody computed.</p>
+<div class="tw">
+<table class="ledger">
+  <caption>Chain-of-custody footer &mdash; field by field</caption>
+  <thead><tr><th>Field</th><th>What it is</th><th>What this does not establish</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><span class="v">PAGE</span></td>
+      <td>The canonical path of the document you are reading, as published. It is the same string used in the permalink and in the sitemap.</td>
+      <td class="not">Does not establish that the page was reached over an unmodified connection, or that an intermediary or an archive has not altered what was delivered to your browser.</td>
+    </tr>
+    <tr>
+      <td><span class="v">REVISED</span></td>
+      <td>The date of the last substantive revision, written in the front matter of the source file and rendered in ISO 8601 with an offset from UTC. The same date appears in the specimen header at the top of the page.</td>
+      <td class="not">Does not establish that no edit was made after that date. It is a value we write; the commit history at section 4 is the record that can contradict it.</td>
+    </tr>
+    <tr>
+      <td><span class="v">SHA-256 (SOURCE)</span></td>
+      <td>A SHA-256 digest computed over the source body of that page &mdash; the whole file below the front matter &mdash; by a build tool held in the public repository, then committed alongside it.<span class="cond">Where a page cannot be stamped, the row is omitted rather than filled with something false.</span></td>
+      <td class="not">Does not establish who wrote the text, when it was written, or that it is true. A digest is a statement about bytes and nothing else.</td>
+    </tr>
+    <tr>
+      <td><span class="v">prior versions</span></td>
+      <td>A link to the commit history of that exact file in the public repository, which is where prior versions of this site live.</td>
+      <td class="not">Does not establish that the history is complete. Git history can be rewritten by whoever controls the repository &mdash; see section 5.2.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section class="cl"><span class="n">3</span>
+<h2>The hash, and what it is computed over</h2>
+<p>The digest is taken over the <b>source body</b> of the page: everything in the source file after the closing delimiter of the front matter block, encoded as UTF-8. It is not taken over the rendered HTML that arrives in your browser.</p>
+<p>That choice is deliberate and it has one drawback worth stating first. Because the rendered page is assembled at build time from the source body plus a shared layout, the digest does not cover the navigation, the specimen header, the emergency band or the footer itself. It covers the argument of the document &mdash; the part that is specific to that page, and the part that would matter in a dispute about what was published.</p>
+</section>
+
+<section class="cl"><span class="n">3.1</span>
+<h3>Why the source and not the rendered output</h3>
+<p>Three reasons, in order of weight.</p>
+<p>A digest over rendered output would change whenever anything shared changed &mdash; a new item in the navigation, a corrected typo in the footer, a different build of the site generator &mdash; and a value that moves for reasons unrelated to the document teaches a reader to ignore it. An integrity signal that alarms routinely is worse than none, because the alarm stops being read.</p>
+<p>A digest over rendered output would also be unverifiable without reproducing our build exactly, which means trusting our toolchain rather than checking our text. Hashing the source lets anyone with a checkout, a shell and a SHA-256 implementation reach the same value.</p>
+<p>Finally, the front matter is excluded so that the stamp can be written back into the file without invalidating itself. The digest lives in the front matter; the front matter is not part of what is hashed; the value is therefore stable across the stamping run that records it.</p>
+</section>
+
+<section class="cl"><span class="n">3.2</span>
+<h3>Verifying it yourself</h3>
+<p>Nothing here requires our cooperation. The repository is public and the tool that produces the stamp is in it.</p>
+<ol>
+  <li>Clone the repository: <code>git clone https://github.com/wirewalktech/forensics-wirewalk</code></li>
+  <li>Check every page at once, using the same command we run before publishing: <code>python3 tools/stamp.py --check</code>. It exits non-zero and names any file whose committed digest does not match its body.</li>
+  <li>Or check a single page by hand, without running our tool at all &mdash; strip the front matter and hash the remainder:<br>
+  <code>awk 'f{print} /^---$/{n++; if(n==2) f=1}' versions.html | shasum -a 256</code><span class="cond">Reproduces the digest byte for byte where the source file ends in a newline, as ours do.</span></li>
+  <li>Compare the result with the value printed in that page's footer, and with the value of <code>content_sha256</code> in the file's front matter. All three are the same string or something is wrong.</li>
+</ol>
+<p>The second form is the more useful one, because it uses no code of ours. If you would rather read the build tool before trusting it, it is short enough to read in a sitting and it is at <span class="v">tools/stamp.py</span>.</p>
+</section>
+
+<section class="cl"><span class="n">3.3</span>
+<h3>What a match proves, and what a mismatch means</h3>
+<p>A match proves that the source file in the repository at the commit you checked out is byte-for-byte the source that produced the digest in the footer. That is the whole of it. It says nothing about whether the sentences are accurate, whether the prices are honoured, or whether the page was published on the date it claims.</p>
+<p>A mismatch is not automatically evidence of anything sinister, and we would rather say so than let a reader over-read it. The ordinary cause is a page edited and published without the stamping run having been made &mdash; a process failure on our side, which is exactly the class of failure the check exists to surface. What a mismatch does establish is that the text in front of you is not the text that was stamped, and that someone should be asked why.</p>
+</section>
+
+<section class="cl"><span class="n">4</span>
+<h2>Prior versions are a repository, not an archive we curate</h2>
+<p>Prior versions of every page are the real commit history of a public repository:</p>
+<p><span class="v"><a href="https://github.com/wirewalktech/forensics-wirewalk">github.com/wirewalktech/forensics-wirewalk</a></span></p>
+<p>The distinction matters. A curated archive is a set of documents a publisher chose to keep, which means the interesting version is the one that is missing. A commit history is the working record of the site: every change to every file, each with a message and a diff, and with the recomputed digest alongside it wherever that commit went through the stamping run. Nobody selects which versions go into it, because it is the same record used to build the site. The link in each page's footer goes straight to the history of that one file, so you do not have to search the whole repository to see how one document has moved.</p>
+<p>At first publication every page has a single commit. That is not a weakness to be dressed up &mdash; a site published today has no history yet, and a page claiming a richer one would be the first thing worth checking. The record becomes useful in its second year, which is the point at which anybody would want it.</p>
+</section>
+
+<section class="cl"><span class="n">4.1</span>
+<h3>The version number and the revised date</h3>
+<p>The version in the specimen header moves on a stated rule rather than on judgement about how important a change felt.</p>
+<div class="tw">
+<table class="ledger">
+  <caption>Versioning rule</caption>
+  <thead><tr><th>Change</th><th>Effect</th></tr></thead>
+  <tbody>
+    <tr><td>A correction that does not alter meaning &mdash; spelling, a broken link, markup</td><td class="val">no version change</td></tr>
+    <tr><td>A change to wording that alters what a reader would understand the practice to be committing to</td><td class="val">minor increment</td></tr>
+    <tr><td>A change to a published price, a rule citation, a refusal, or a term reproduced in the engagement letter</td><td class="val">minor increment<span class="cond">and a new revised date</span></td></tr>
+    <tr><td>A restructure that changes the clause numbering, so that a reference to a section number would no longer land where it did</td><td class="val">major increment</td></tr>
+  </tbody>
+</table>
+</div>
+<p>The last row is the one that exists for counsel rather than for us. Clause numbers are published so that a reader can say <em>your section 3.2 says</em>, and a number that silently comes to mean something else is worse than no number at all. Where clause numbering changes, the major version changes with it, and the prior numbering stays readable in the commit history. What the version number does not do is at section 5: it records which edition you were shown, and it holds no price and binds nobody.</p>
+</section>
+
+<section class="cl"><span class="n">4.2</span>
+<h3>What is not in the repository</h3>
+<p>The repository holds the source of this website and nothing else. It contains no client material, no matter names, no engagement records, no correspondence and no evidence of any kind. Nothing about an engagement is ever committed to it, and the version history of a published page is not a record of any matter. Evidence handling is governed by <a href="/evidence-handling/">its own published terms</a>, and the store described there has no connection to this repository.</p>
+</section>
+
+<section class="cl"><span class="n">5</span>
+<h2>The limits of this mechanism</h2>
+<p>Read this section as carefully as section 3. Everything above is an integrity control over published text. It is not a timestamping authority, it is not notarisation, and it establishes nothing whatever about the practice's work product.</p>
+<div class="tw">
+<table class="ledger">
+  <caption>Integrity mechanism &mdash; reach and limits</caption>
+  <thead><tr><th>Component</th><th>What it establishes</th><th>What this does not establish</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Source digest in the footer</td>
+      <td>That the published text of this page corresponds to a specific source file, and that a silent edit to that text will not go unnoticed by anyone who checks.</td>
+      <td class="not">No trusted time. No authorship. No notarial act. It is not a qualified electronic timestamp, and we make no representation that it is admissible for any purpose in your matter &mdash; admissibility is the court's decision and nobody can promise it.</td>
+    </tr>
+    <tr>
+      <td>Commit history</td>
+      <td>An ordered, public record of changes to each file, including the change that was made and the digest afterwards.</td>
+      <td class="not">Does not establish that the record is immutable. It is hosted by a third party and controlled by us, and the dates in it are supplied by the committer rather than attested by an authority.</td>
+    </tr>
+    <tr>
+      <td>Version and revised date</td>
+      <td>Which edition of a published term you were shown, so it can be compared with the edition quoted to you later.</td>
+      <td class="not">Does not create a contract, hold a price, or bind anyone. The rate that applies to an engagement is the one in the signed engagement letter, on the terms at <a href="/rates/">rates</a>.</td>
+    </tr>
+    <tr>
+      <td>The mechanism as a whole</td>
+      <td>That this practice applies to its own published material the kind of control it describes applying to evidence.</td>
+      <td class="not">Establishes nothing about the quality, soundness or admissibility of any examination, report or opinion. A verifiable website is not a verified examiner, and it is not a substitute for reading the <a href="/method/">method</a> and testing it.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section class="cl"><span class="n">5.1</span>
+<h3>Why we are not claiming more</h3>
+<p>There is a version of this page that would describe the same four values as a <em>chain of custody for our published content</em>, or as <em>tamper-proof</em>, or as an application of the standards our method is written against. Each of those would be a small overstatement, and small overstatements are the material a cross-examination is built from. A hash committed next to the file it describes is a control against silent and accidental change. It is not proof against the party who holds the repository, and describing it as though it were would be precisely the costume this site exists to avoid.</p>
+</section>
+
+<section class="cl"><span class="n">5.2</span>
+<h3>The party this does not protect you against is us</h3>
+<p>Stated plainly, because it is the first objection a careful reader will raise: we compute the digest, we commit it, and we control the repository. Someone with that access can change a page and its stamp in the same commit, and can rewrite history. What they cannot easily do is make that invisible &mdash; a rewritten history breaks every clone anyone else has taken, and a copy you hold yourself cannot be reached at all.</p>
+<p>If the wording of a published term may matter to you later, do not rely on our copy of it. Print the page &mdash; the print stylesheet keeps the footer and expands the URLs &mdash; or save it, or take your own clone of the repository. That is the ordinary advice about anyone's published terms, and we would give it about ours.</p>
+</section>
+
+<section class="cl"><span class="n">6</span>
+<h2>Index of published documents</h2>
+<p>Every page on this site, with the identifier in its specimen header, its current version and a link to the history of that file. The identifier is stable for the life of the document; if a page is withdrawn its identifier is not reissued to something else.</p>
+<div class="tw">
+<table class="ledger">
+  <caption>Published documents &mdash; index at 2026-09-11</caption>
+  <thead><tr><th>Document</th><th>Page</th><th>Version</th><th>Revised</th><th>History</th></tr></thead>
+  <tbody>
+    <tr><td class="val">WW-F-001</td><td><a href="/">Wirewalk Forensics</a><span class="cond">/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/index.html">index.html</a></td></tr>
+    <tr><td class="val">WW-F-002</td><td><a href="/emergency/">Emergency: the first hour</a><span class="cond">/emergency/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/emergency.html">emergency.html</a></td></tr>
+    <tr><td class="val">WW-F-003</td><td><a href="/scope/">Scope of services</a><span class="cond">/scope/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/scope.html">scope.html</a></td></tr>
+    <tr><td class="val">WW-F-004</td><td><a href="/rates/">Rate schedule</a><span class="cond">/rates/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/rates.html">rates.html</a></td></tr>
+    <tr><td class="val">WW-F-005</td><td><a href="/method/">Method</a><span class="cond">/method/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/method.html">method.html</a></td></tr>
+    <tr><td class="val">WW-F-006</td><td><a href="/limits/">Limits of digital evidence</a><span class="cond">/limits/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/limits.html">limits.html</a></td></tr>
+    <tr><td class="val">WW-F-007</td><td><a href="/engagement/">Engagement</a><span class="cond">/engagement/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/engagement.html">engagement.html</a></td></tr>
+    <tr><td class="val">WW-F-008</td><td><a href="/roles/">Instruction roles</a><span class="cond">/roles/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/roles.html">roles.html</a></td></tr>
+    <tr><td class="val">WW-F-009</td><td><a href="/insurance/">Insurance and panel position</a><span class="cond">/insurance/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/insurance.html">insurance.html</a></td></tr>
+    <tr><td class="val">WW-F-010</td><td><a href="/evidence-handling/">Evidence handling</a><span class="cond">/evidence-handling/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/evidence-handling.html">evidence-handling.html</a></td></tr>
+    <tr><td class="val">WW-F-011</td><td><a href="/standby/">Standby agreement</a><span class="cond">/standby/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/standby.html">standby.html</a></td></tr>
+    <tr><td class="val">WW-F-012</td><td><a href="/ediscovery/">eDiscovery</a><span class="cond">/ediscovery/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/ediscovery.html">ediscovery.html</a></td></tr>
+    <tr><td class="val">WW-F-013</td><td><a href="/specimen-report/">Specimen examination report</a><span class="cond">/specimen-report/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/specimen-report.html">specimen-report.html</a></td></tr>
+    <tr><td class="val">WW-F-014</td><td><a href="/contact/">Contact</a><span class="cond">/contact/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/contact.html">contact.html</a></td></tr>
+    <tr><td class="val">WW-F-015</td><td><a href="/versions/">Versions and integrity</a><span class="cond">/versions/</span></td><td class="val">1.0</td><td class="val">2026-09-11</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/versions.html">versions.html</a></td></tr>
+  </tbody>
+</table>
+</div>
+</section>
+
+<section class="cl"><span class="n">6.1</span>
+<h3>How this index is kept from going stale</h3>
+<p>An index of documents is the easiest thing on a site to leave behind, and a stale one undermines the rest of the page more effectively than having no index. Two things work against that, and neither is an automatic gate. The repository is the same set of files, so a page that exists and is missing here shows up as a file with no row, and you can establish that without asking us. And the check described at 3.2 covers every page carrying front matter, so running it before publication surfaces a document that has been added or altered without being stamped. Both are checks that have to be run &mdash; by us before publishing, or by you at any time &mdash; not a mechanism that makes an unstamped or unlisted page impossible to publish. If you find a page on this site with no row here, section 7 is how to say so.</p>
+<p>Where a page is withdrawn rather than revised, it is removed from this index and the reason is recorded in the commit message. The document itself remains in the history; nothing published here is unpublished quietly.</p>
+</section>
+
+<section class="cl"><span class="n">7</span>
+<h2>If you find a discrepancy</h2>
+<p>Tell us. A footer digest that does not match its source, a version number that did not move when a price did, a page in the repository with no row in the index above &mdash; any of those is a defect in a control we published, and we would rather hear it from a reader than discover it when it matters. There is a number and a form on <a href="/contact/">contact</a>, and reporting a defect on this page creates no engagement and is not a matter enquiry.</p>
+<div class="note seal">
+  <b>The claim on this page, in one sentence.</b> The published text of this site has not been
+  silently changed, and you can establish that for yourself without asking us. That is all it
+  claims. It is not a timestamping authority, it is not notarisation, and it establishes nothing
+  about any examination or any opinion of ours &mdash; those are tested by
+  reading the <a href="/method/">method</a>, the <a href="/limits/">limits</a>, and the
+  <a href="/specimen-report/">specimen report</a>, and by putting questions to the examiner.
+  <span class="cond">Integrity of published text only. No representation as to work product.</span>
+</div>
+</section>

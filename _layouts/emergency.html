@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page.title }} &mdash; {{ site.title }}</title>
+<meta name="description" content="{{ page.description | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+<style>
+/* Self-contained by design: no navigation, no scripts, nothing to click past.
+   Someone is reading this under pressure, possibly on a phone, possibly on a
+   network they have just been told to unplug. Narrower measure, opened leading. */
+body{font-size:17px;line-height:1.62}
+.wrap{max-width:58rem}
+.doc{max-width:52ch}
+.ehead{background:var(--kraft);border-bottom:2px solid var(--rule)}
+.ehead .wrap{padding:13px 0}
+.ehead b{font-family:var(--mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase}
+.tel{display:block;font-family:var(--mono);font-size:clamp(26px,6vw,38px);font-weight:600;
+  color:var(--ink);text-decoration:none;margin:18px 0 8px;letter-spacing:-.01em}
+.tel:hover{color:var(--annotation)}
+ol.proc{counter-reset:s;list-style:none;padding:0;margin:20px 0}
+ol.proc>li{counter-increment:s;position:relative;padding:0 0 0 3.1rem;margin:0 0 22px}
+ol.proc>li::before{content:counter(s);position:absolute;left:0;top:.06em;font-family:var(--mono);
+  font-size:15px;font-weight:600;color:var(--annotation)}
+ol.proc>li>b{display:block;margin-bottom:5px}
+.sit{border:1px solid var(--rule);background:var(--label-stock);padding:16px 18px;margin:0 0 16px}
+.sit>h3{margin:0 0 8px;font-size:16px}
+.sit p{font-size:15.5px}
+@media print{.ehead{background:#fff;border-bottom:1.5pt solid #000}}
+</style>
+</head>
+<body>
+<div class="ehead"><div class="wrap">
+  <b>Immediate response &mdash; this page is written to be used, not read</b>
+</div></div>
+<main><div class="wrap"><div class="doc">
+{{ content }}
+</div></div></main>
+<footer class="coc"><div class="wrap">
+  <div class="fields">
+    <span><b>PAGE</b> <span>{{ page.url }}</span></span>
+    <span><b>REVISED</b> <span>{{ page.revised | default: '2026-09-11' }}T00:00:00-04:00</span></span>
+    {% if page.content_sha256 %}<span><b>SHA-256 (SOURCE)</b> <span>{{ page.content_sha256 }}</span></span>{% endif %}
+  </div>
+  <p class="house">Nothing on this page is legal advice, and reading it creates no engagement.
+    Obligations under an insurance policy, a contract or a regulator vary; check yours.</p>
+  <div class="links"><a href="{{ '/' | relative_url }}">Wirewalk Forensics</a>
+    <a href="{{ '/insurance/' | relative_url }}">Before you engage anyone, call your insurer</a></div>
+</div></footer>
+</body></html>
