@@ -1,0 +1,225 @@
+---
+layout: default
+title: What kind of matter is this
+lede: >-
+  Most people do not arrive looking for a digital forensic examiner. They arrive
+  with a situation. This page is the translation between the two.
+description: >-
+  Matrimonial and family, employment and departing employees, partnership and
+  business disputes, harassment and threats, estate disputes, and incidents in
+  progress. What digital evidence can establish in each, and what it cannot.
+permalink: /matters/
+doc_id: WW-F-016
+version: "1.0"
+issued: 2026-09-12
+revised: 2026-09-12
+scope: Matter types and what evidence can answer
+authority: Principal
+content_sha256: c12873a0d7384d0881cd252d62fb2644ec37d9b16e92008fdbf7a45af48c8b32
+---
+
+<section class="cl"><span class="n">1</span>
+<h2>Start from the situation, not the service</h2>
+<p>The service names are no help if you have not bought this before. Nobody wakes up needing
+"targeted artefact collection". They wake up because a laptop is going back to IT tomorrow, or
+because a bank statement does not match what they were told, or because a server is encrypted.</p>
+
+<p>So: find the row that sounds like your week. Each one says what digital evidence can usually
+establish, what it cannot, and what I would want preserved before anything else happens. If
+none of them fit, ring me and I will tell you whether this is even a forensics problem. That
+call is free, including the version of it where I say it is not.</p>
+
+<div class="sos">
+  <a class="call" href="tel:+19172177975"><b>917-217-7975</b>
+    <span>If something is happening right now, call. Otherwise read on.</span></a>
+  <a href="/emergency/"><b>Something is happening now</b>
+    <span>Ransomware, an intruder, money already gone, a device about to be wiped.</span></a>
+  <a href="#matrimonial"><b>Matrimonial and family</b>
+    <span>Divorce, custody, asset tracing. Where the authority question decides everything.</span></a>
+  <a href="#employee"><b>An employee is leaving, or has left</b>
+    <span>Suspected data taken, a laptop in the return queue, a competitor set up.</span></a>
+  <a href="#employment"><b>An employment dispute</b>
+    <span>Termination, discrimination, harassment at work, a grievance turning into a claim.</span></a>
+  <a href="#partners"><b>A business or partnership dispute</b>
+    <span>A partner, a co-founder, a shareholder. Records on shared systems.</span></a>
+  <a href="#threats"><b>Harassment, threats or stalking</b>
+    <span>Anonymous messages, a fake account, someone who knows too much.</span></a>
+  <a href="#estate"><b>An estate or probate dispute</b>
+    <span>A will, a device nobody can open, transfers before death.</span></a>
+</div>
+</section>
+
+<section class="cl"><span class="n">2</span>
+<h2 id="matrimonial">Matrimonial and family</h2>
+<p>This is the one where the law does more work than the technology, so I will start there.</p>
+
+<p>I will not touch a device, an account or a mailbox without documented authority from someone
+entitled to give it. That holds whatever the relationship, whatever the story about who paid for
+the phone, and whatever is written on the bill. A saved session on a shared laptop is not
+authority. A password your spouse once told you is not authority. Being married is not authority.</p>
+
+<p>I am careful about this because the exposure runs to the person who instructs me, not only to
+me. Unlawfully obtained material tends not merely to be excluded. It can taint the rest of the
+case, it can create a counterclaim, and in some circumstances accessing an account you are not
+entitled to access is a federal offence. People rarely arrive knowing that. I would rather say it
+on the first call than after.</p>
+
+<p>What that leaves is a great deal, and it is usually what actually matters:</p>
+
+<div class="tw"><table class="ledger">
+<caption>Matrimonial work</caption>
+<tr><th>What you want to know</th><th>What I can usually establish</th><th>What this does not establish</th></tr>
+<tr><td>Whether assets have been moved or hidden</td>
+    <td>Documents, spreadsheets, statements and communications on devices and accounts you are
+        entitled to, with dates. Deleted files and superseded versions where the medium allows.</td>
+    <td class="not">The existence of an account nobody has disclosed. I read what is in front of
+        me. Finding an undisclosed account is what disclosure and subpoenas are for.</td></tr>
+<tr><td>What was said, and when</td>
+    <td>Messages, mail and call records from lawfully held devices and accounts, reconstructed
+        into a timeline and produced in a form the other side can test.</td>
+    <td class="not">That a particular person typed it. A device is not a person, and an account
+        is not a person either.</td></tr>
+<tr><td>Whether a device was wiped before handover</td>
+    <td>Reinstall dates, wipe artefacts, the gap between last use and the state I received it in.</td>
+    <td class="not">Why. Intent is the court's finding, not mine. I describe what the artefacts
+        show and stop there.</td></tr>
+<tr><td>Whether a phone is being tracked, or a device has stalkerware on it</td>
+    <td>Installed applications, profiles, device management, and permissions on a handset you own
+        and control.</td>
+    <td class="not">Who installed it, unless the artefacts happen to say. Often they do not.</td></tr>
+<tr><td>What a court has ordered produced</td>
+    <td>Forensic preservation and production of exactly what the order covers, with the custody
+        record that makes it usable, and nothing outside it.</td>
+    <td class="not">Anything outside the order. Over-collection in a family matter is a problem,
+        not thoroughness.</td></tr>
+</table></div>
+
+<p class="cond">Instructed through counsel wherever possible. It is not a rule, but the work is
+more useful when it is done under privilege and to a defined question.</p>
+</section>
+
+<section class="cl"><span class="n">3</span>
+<h2 id="employee">An employee is leaving, or has already gone</h2>
+<p>The most time-critical matter that is not an emergency, and the one where the damage is almost
+always done by ordinary helpfulness rather than by anybody's bad intent.</p>
+
+<p>The laptop goes into the return queue. IT reimages it on Thursday because that is the process,
+and the process is good. The mailbox is deleted on day thirty by an offboarding script nobody has
+looked at in two years. The cloud drive empties itself. None of this is anyone's fault, and all of
+it is irreversible.</p>
+
+<p><b>Take the laptop out of that queue today.</b> Not next week. Label it, log who has it, put it
+in a drawer, and do not boot it. Booting alters thousands of timestamps, can trigger a cloud sync
+that deletes the very files you are asking about, and on a managed device can trigger a remote
+wipe. Put the same hold on the mailbox, the cloud drive and the home directory, all of which
+delete on a timer.</p>
+
+<p>Then decide what you actually want to know, because the artefacts differ:</p>
+
+<div class="tw"><table class="ledger">
+<caption>Departing-employee work</caption>
+<tr><th>The question</th><th>Where the answer lives</th><th>What this does not establish</th></tr>
+<tr><td>Was a USB drive connected, and when</td>
+    <td>Registry device keys and setup logs, giving make, serial and first and last connection.</td>
+    <td class="not">That anything was copied to it. Connection is not copying. This is the single
+        most over-read artefact in the field.</td></tr>
+<tr><td>Were files copied to removable media</td>
+    <td>The change journal, link files, recent-items and shellbags, read together rather than
+        alone.</td>
+    <td class="not">Certainty, on its own. A copy finding is built from several artefacts agreeing.
+        One artefact is an argument, not a finding.</td></tr>
+<tr><td>Were files sent to personal mail or personal cloud</td>
+    <td>Mail logs, browser history and download records, sync client logs where the client was
+        installed.</td>
+    <td class="not">What was inside an attachment the mail system no longer holds.</td></tr>
+<tr><td>Was anything deleted before handover</td>
+    <td>Deletion artefacts, recycle bin records, shadow copies where they survive.</td>
+    <td class="not">Whether it was deliberate. Again: intent is for the court.</td></tr>
+<tr><td>Did they take the client list</td>
+    <td>Access and export events in the CRM or file server logs, which are usually the better
+        evidence and are usually forgotten.</td>
+    <td class="not">What they remember. Nothing on a disk reaches what is in somebody's head, and
+        that is often the real question.</td></tr>
+</table></div>
+
+<div class="note seal">
+<p style="margin:0"><b>Do not tip them off, and know what does the tipping.</b> An abrupt account
+disable, a device recall, a new block on something they use daily, a meeting that does not fit the
+calendar. When and how the person is told is a decision for counsel and for HR, driven by the
+employment agreement and the law where they work. It is not an IT decision and it is not mine.</p>
+</div>
+
+<p>I will also say the unwelcome thing early, because it saves money: quite often the artefacts
+show ordinary behaviour that looks alarming when you go looking for alarm. People email
+themselves documents. People plug in drives. If that is what it turns out to be, I will tell you
+that, and the engagement ends there rather than expanding.</p>
+</section>
+
+<section class="cl"><span class="n">4</span>
+<h2 id="employment">Employment disputes</h2>
+<p>Termination, discrimination, harassment at work, a grievance that has become a claim. The
+evidence is usually mail, chat and access logs, and it usually exists on systems the employer
+controls, which changes the practical question from "can it be recovered" to "has it been
+preserved and can it be produced in a defensible form".</p>
+
+<p>Acting for an employer, the risk is deleting something after a duty to preserve has attached.
+Acting for an individual, the risk is the opposite: the material sits on a system you do not
+control and is disappearing while the parties argue. Either way the first useful step is a
+preservation letter and a hold, not an examination.</p>
+
+<p class="cond">Where a matter needs a certification, an accreditation or a licence I do not hold,
+I say so at scoping, name it in the engagement letter, and either bring in someone who holds it or
+decline.</p>
+</section>
+
+<section class="cl"><span class="n">5</span>
+<h2 id="partners">Business and partnership disputes</h2>
+<p>A co-founder, a partner, a departing shareholder. What makes these awkward is that the systems
+are shared, so "who is entitled to authorise an examination of this mailbox" is a live question
+rather than a formality, and getting it wrong contaminates the work.</p>
+
+<p>I want that settled in writing before I touch anything, and I would rather lose the instruction
+than proceed on somebody's assurance that they have the authority. Where the entity itself is the
+client, that is usually clean. Where one individual is instructing about a system the entity
+controls, it usually is not.</p>
+</section>
+
+<section class="cl"><span class="n">6</span>
+<h2 id="threats">Harassment, threats and stalking</h2>
+<p>Anonymous messages, a fake profile, somebody who knows things they should not. Two honest
+notes about this work.</p>
+
+<p>First, attribution is hard and is often impossible from the content alone. What usually breaks
+these cases is a subpoena to a platform or a carrier, which is a legal instrument rather than a
+technical one, and which your lawyer obtains. What I can do is preserve the material properly so
+the subpoena has something to point at, document it in a form the police or a court will accept,
+and tell you which of the available routes has any chance of working.</p>
+
+<p>Second, if you are in danger, the order of operations is the police first and me second. I am
+not a substitute for that, and nothing on this page is.</p>
+</section>
+
+<section class="cl"><span class="n">7</span>
+<h2 id="estate">Estate and probate disputes</h2>
+<p>A device nobody can open, a will that may have been altered, transfers made in the months
+before a death. The work is the same as anywhere else; the authority question is the one that
+differs, because the person who could have authorised access is the person who died.</p>
+
+<p>The executor or administrator is usually the right source of authority, and usually the only
+one. Ask me before the family tries the passcode. Repeated guesses lock some devices
+permanently, and a small number wipe.</p>
+</section>
+
+<section class="cl"><span class="n">8</span>
+<h2>What is the same in all of them</h2>
+<p>Authority before access. Preserve before you examine. State the limits of a finding at the same
+time as the finding. And the answer is sometimes that the evidence cannot settle the question,
+which is a real answer and one I would rather give you in week one than in week six.</p>
+
+<div class="acts">
+  <a class="btn k" href="/emergency/">If it is happening now</a>
+  <a class="btn" href="/scope/">The full service ledger</a>
+  <a class="btn" href="/rates/">What it costs</a>
+  <a class="btn" href="/contact/">Get in touch</a>
+</div>
+</section>
