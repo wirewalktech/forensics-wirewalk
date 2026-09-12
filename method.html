@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "Method"
-lede: "The procedure I follow, from authority through to destruction, written so that an examiner retained against me could repeat it and check the result. Every stage is published with what it establishes and what it does not."
-description: "The full acquisition, verification, examination and reporting procedure used at Wirewalk Forensics and Security: hash verification, what a mismatch means, chain of custody, and what each stage does not establish."
+lede: "Write-blocked acquisition, two independent hashes, and a custody record written as the work happens — set out so an examiner retained against me could repeat it and check the result."
+description: "How Wirewalk Forensics and Security acquires, verifies and reports digital evidence: write blocking, SHA-256 verification with a worked transcript, what a hash mismatch means, and what each stage does not establish."
 permalink: /method/
 doc_id: WW-F-005
 version: "1.0"
@@ -10,13 +10,10 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "Acquisition to destruction procedure"
 authority: Principal
-content_sha256: 38811fee40e883676096df606b653835ca4aaaa9649664054c4db46189a7fecb
+content_sha256: 81f5d58e5b9559d392e80fc07e8ff303c8def84a9d5f8e168bd29fbd391c9aae
 ---
 
 <style>
-/* One-off to this page: the worked transcripts. Mono is already the claim
-   face; this only gives the block a boundary and horizontal scroll so a long
-   command line does not push the page sideways. */
 pre.tr{font-family:var(--mono);font-size:12.5px;line-height:1.5;color:var(--ink);
   background:var(--label-stock);border:1px solid var(--rule);border-left:3px solid var(--annotation);
   padding:14px 16px;margin:14px 0 8px;overflow-x:auto;white-space:pre}
@@ -25,219 +22,86 @@ pre.tr i{font-style:normal;color:var(--ink-2)}
 @media print{pre.tr{white-space:pre-wrap;break-inside:avoid}}
 </style>
 
-<section class="cl"><span class="n">1</span>
-<h2>What this document is</h2>
-<p>This is the procedure I follow. I publish it in full because the procedure is the part of a forensic engagement that gets attacked, and an examiner who has not written it down before the engagement ends up writing it on the stand. None of it is a claim about past matters. It is a description of how I work, set out in enough detail that an examiner retained against me could take the same media, follow the same steps and say whether my result holds.</p>
-<p>Two things it is not. It is not a guarantee that anything here will be admitted; that is the court's decision and nobody can promise it. It is also not a claim of accreditation. The standards named below are guidance I work to, not certificates I hold. Where a matter requires a certified examiner, an accredited laboratory or a licence, I identify that at scoping and state it in the engagement letter, and either the condition is satisfied before work begins or I decline the matter.</p>
+<section>
+<h2>What you end up holding</h2>
+<ul>
+<li><b>A signed report</b> — each opinion, its basis, the data considered and the method applied, traceable to something verified.</li>
+<li><b>A verified forensic image</b>, hash-matched at acquisition, before analysis and before production.</li>
+<li><b>The acquisition log and imaging worksheet</b> — tool, version, operator, timestamps, blocker make and firmware.</li>
+<li><b>A chain of custody record</b>, closed by return or a certificate of destruction.</li>
+</ul>
+<p>Rates and minimums are on <a href="{{ '/rates/' | relative_url }}">rates</a>. The report format is on <a href="{{ '/specimen-report/' | relative_url }}">specimen report</a>.</p>
 </section>
 
-<section class="cl"><span class="n">1.1</span>
-<h3>The four principles the method is written against</h3>
-<p>ISO/IEC 27037:2012 sets out four requirements for the handling of digital evidence, and every step below exists to satisfy one of them. <b>Auditability</b> means an independent assessor can see what was done and why. <b>Repeatability</b> means the same test on the same material under the same conditions gives the same result. <b>Reproducibility</b> means a different examiner, using different equipment, arrives at that result too. <b>Justifiability</b> means every choice can be explained and defended afterwards, including the choices that altered something. The same standard separately sets out three qualities the evidence itself must have, relevance and reliability and sufficiency; I cite the four requirements here because they are the ones you can write a procedure against.</p>
-<p>Of the four, repeatability and reproducibility are what decide contested matters. A finding the other side's examiner cannot reproduce is not a finding, it is my word. So the working notes record the filters and search terms I used and the version of every tool, not just what I concluded.</p>
+<section>
+<h2>The four things that make it hold</h2>
+<p><b>Authority first.</b> Before a device is connected to anything, I record who authorises access, to what, on what basis. Where that is unclear I decline — a credential that works is not authority to use it.</p>
+<p><b>Write blocking, and proof of it.</b> The source is presented read-only through a hardware blocker where the interface permits, and I confirm and record the blocked state before imaging starts. A blocker on the bench is not a blocker in line.</p>
+<p><b>Two digests, two tools.</b> One over the bytes as read, in the pass that writes the image; a second over the stored image afterwards, with a different tool. Only the comparison means anything.</p>
+<p><b>A custody record written as it happens.</b> Receipt, every custodian, every transfer, storage, disposal. One reassembled afterwards reads like one reassembled afterwards.</p>
 </section>
 
-<section class="cl"><span class="n">1.2</span>
-<h3>Standards consulted</h3>
-<div class="tw">
-<table class="ledger">
-<caption>Guidance worked to, with the date consulted</caption>
-<thead><tr><th style="width:30%">Source</th><th>What I take from it</th><th style="width:30%">What this does not establish</th></tr></thead>
-<tbody>
-<tr><td><span class="v">NIST SP 800-86</span><br><span class="cond">consulted 2026-09-11</span></td><td>The collection &rarr; examination &rarr; analysis &rarr; reporting structure, and the order of volatility that decides what gets captured first on a running system.</td><td class="not">That NIST has reviewed or approved anything I do, or is aware of this practice at all. It is a 2006 guide and its cloud and mobile sections have been overtaken by events.</td></tr>
-<tr><td><span class="v">ISO/IEC 27037:2012</span><br><span class="cond">with 27041, 27042, 27043 where relevant</span></td><td>The four principles in 1.1, and the identification / collection / acquisition / preservation sequence.</td><td class="not">Accreditation. I am not an ISO/IEC 17025 accredited laboratory, and I do not call my work "ISO 27037 compliant".</td></tr>
-<tr><td><span class="v">SWGDE 17-F-002</span>, <span class="v">18-F-001</span>, <span class="v">18-F-002</span>, <span class="v">23-F-004</span><br><span class="cond">acquisitions, examinations, collection, cloud &middot; consulted 2026-09-11</span></td><td>Practice-level detail on acquisition, examination, collection and cloud sources.</td><td class="not">Membership, endorsement or certification. SWGDE documents get revised and withdrawn, so the report names the version I relied on, not just the number.</td></tr>
-<tr><td><span class="v">NIST CFTT</span> HWB and SWB specifications, Federated Testing</td><td>The validation framework I assess write-blocking hardware and software, and imaging tools, against.</td><td class="not">That any specific device in my kit has been tested by NIST. Where tool validation matters to a finding, I state what validation was performed and by whom.</td></tr>
-<tr><td>EDRM</td><td>Shared vocabulary with counsel and litigation support for the discovery stages.</td><td class="not">A standard. EDRM is not required by the Federal Rules, it is iterative rather than linear, and following it proves nothing about the quality of any individual step.</td></tr>
-</tbody>
-</table>
-</div>
-</section>
-
-<section class="cl"><span class="n">2</span>
-<h2>Authority and scope, before anything is touched</h2>
-<p>The first step is not technical. Before a device is connected to anything, I confirm and record who is authorising access to it, what they are authorising access to, and what entitles them to authorise it. Where that is unclear, I decline. I would rather lose the engagement at that point than at the point where the other side asks the question.</p>
-<p>It can look like box-ticking. It is not. Access without authority engages the Computer Fraud and Abuse Act, <span class="v">18 U.S.C. &sect; 1030</span>. Interception of communications in transit engages the Wiretap Act, <span class="v">18 U.S.C. &sect; 2511</span>. And the Stored Communications Act, <span class="v">18 U.S.C. &sect; 2702</span>, is the reason a civil subpoena to a provider does not produce message content, whatever the subpoena says. State computer-crime and eavesdropping statutes add further constraints and are not uniform. The same few situations cause the trouble every time, so I put them on the table at scoping rather than discover them later: personal devices used for work under a BYOD arrangement; household machines that more than one person uses; accounts where a spouse or a relative or a co-owner supplies the credentials; saved sessions on a company laptop that reach into somebody's personal mail or cloud storage. A credential that works is not authority to use it.</p>
-<p class="small">Suspected child sexual abuse material is handled under a stop-and-escalate rule that cannot be varied by agreement. I do not take or retain custody of it, and I work through counsel and law enforcement on access, noting <span class="v">18 U.S.C. &sect; 3509(m)</span> in federal criminal matters. The full statement is on <a href="{{ '/evidence-handling/' | relative_url }}">evidence handling</a>, and clients hear it before they engage me rather than afterwards.</p>
-</section>
-
-<section class="cl"><span class="n">2.1</span>
-<h3>Scope is written down before collection, not inferred from it</h3>
-<p>I write down the question the examination is meant to answer, the custodians and systems in scope, the date range, and what is deliberately excluded. Where a targeted collection answers the question, I take the targeted collection, and the manifest records what I chose not to collect and why. Imaging a whole disk is easier to defend than a decision is, which is exactly why I do not do it on that basis, and I do not bill you for processing volume that was never needed.</p>
-</section>
-
-<section class="cl"><span class="n">3</span>
-<h2>Acquisition</h2>
-<p>Acquisition is the point at which the evidence either becomes checkable or stops being checkable, and it is almost always unrepeatable. A mistake anywhere after it can be recovered from. A mistake here cannot.</p>
-</section>
-
-<section class="cl"><span class="n">3.1</span>
-<h3>Write blocking</h3>
-<p>Where the source permits it, I present the source to the acquisition system through a hardware write blocker, or through a software write block where hardware is not usable for that interface. If I use a software block, the tool record says what validation it has been subjected to and by whom, rather than simply asserting that it works. I confirm the blocked state and record it before imaging starts; a blocker sitting on the bench is not the same thing as a blocker in line, and the presence of the device is not the confirmation. The make, model and firmware or version of the blocker go in the acquisition log next to the imaging tool and its version.</p>
-</section>
-
-<section class="cl"><span class="n">3.2</span>
-<h3>When write blocking cannot be used, which is often</h3>
-<p>It is no help for live memory capture, or for a running production system that must not be taken down, or for most mobile extractions. Nor for cloud and SaaS sources, where the collection is an authenticated API session rather than a read of a medium. In all of those the acquisition alters something, and pretending otherwise is worse than the alteration.</p>
-<p>Soundness then has to come out of the record, which is why I build it as I go rather than afterwards. The method is documented step by step. The tool and its version are recorded. The output is hashed at the earliest point at which a hash means anything. And the alteration that could not be avoided is stated plainly, with the reason it could not be avoided and an assessment of what it could have affected. A running system changes while you look at it. A report that says so is stronger than one that does not, because the first thing an examiner on the other side will do is go hunting for the artefacts my own tooling wrote.</p>
-</section>
-
-<section class="cl"><span class="n">3.3</span>
-<h3>Live acquisition, and when it is the right call</h3>
-<p>Memory is the clearest case. It holds running processes, network connections, injected code and, in an intrusion, often the only copy of what was executed. It is overwritten continuously while the machine runs and it does not survive a power-off at all. If memory bears on the question, the machine has to be taken live or that evidence is simply not there to collect.</p>
-<p>Full-volume encryption is the case that decides it more often. A running, unlocked machine with BitLocker or FileVault engaged is readable. The same machine powered off, with no escrowed recovery key, is a block of ciphertext that no amount of effort or expenditure opens. So I establish the encryption state and where the keys are before anything is powered down, and where both memory and disk are in scope I capture memory first, following the order of volatility in NIST SP 800-86.</p>
-<p>There is a cost to this and I would rather state it than bury it. Capturing memory from a running system means running code on that system and writing to it. I record what was run, from what medium, at what time, and under what account.</p>
-</section>
-
-<section class="cl"><span class="n">3.4</span>
-<h3>Mobile and cloud</h3>
-<p>Mobile and cloud acquisitions are logical and partial. What is obtainable moves with the handset, the operating system version and the security patch level; for cloud, with the tenant's licence tier and retention configuration at the moment of collection. I record the level achieved and the method used, and then the part that matters a year later, which is what was not obtainable at that level. For a cloud collection I also record the authority I relied on and the tenant's retention and licence tier as they stood that day, because both will have changed by the time anyone reads the report.</p>
-</section>
-
-<section class="cl"><span class="n">4</span>
-<h2>Verification</h2>
-<p>A digest is computed over the bytes as they are read from the source, in the same pass that writes the image. That is the <b>acquisition digest</b>. Afterwards I compute a second digest over the stored image as a separate operation, preferably with a different tool from the one that wrote it. That is the <b>verification digest</b>. Only the comparison of the two means anything. A tool that reports its own image as verified, using its own arithmetic in its own pass, is testing rather less than it appears to be.</p>
-<p>I re-verify the image before analysis begins, and again before anything is produced to another party. <span class="v">SHA-256</span> is the primary algorithm. The limit belongs in the same paragraph as the claim: a hash match proves the image corresponds to the source as it was read at acquisition. It does not prove the source was unaltered before I arrived, it says nothing about who created any of the data, and it is not a statement about content.</p>
-</section>
-
-<section class="cl"><span class="n">4.1</span>
-<h3>Worked verification &mdash; the transcript</h3>
+<section>
+<h2>The verification, shown</h2>
 <p class="specimen-mark">[SPECIMEN &mdash; NOT A REAL MATTER]</p>
-<p>The identifiers, serials and digests below are invented for illustration and correspond to no device and no matter. The commands are the ones I actually run.</p>
-<pre class="tr"><i># Read-only state of the block device confirmed before imaging, and
-# recorded. This records what the operating system will permit. It is not
-# itself proof that a hardware blocker is in line; the blocker's make,
-# model and firmware are recorded separately in the acquisition log.</i>
-$ <b>sudo blockdev --getro /dev/sdb</b>
+<p>Identifiers and digests below are invented. The commands are the ones I run.</p>
+<pre class="tr">$ <b>sudo blockdev --getro /dev/sdb</b>
 1
 
-<i># Acquisition. The digest is computed over the bytes as read from the
-# source, in the pass that writes the image. Tool version recorded.</i>
-$ <b>dc3dd --version | head -1</b>
-dc3dd 7.2.646
-
 $ <b>sudo dc3dd if=/dev/sdb hof=/evi/WW-S-0000/001.raw \
-      hash=sha256 hash=md5 log=/evi/WW-S-0000/001.acq.log</b>
-
-input results for device `/dev/sdb':
+      hash=sha256 log=/evi/WW-S-0000/001.acq.log</b>
    500107862016 bytes ( 466 G ) copied ( 100% ), 4231.1 s, 113 M/s
    9d2a35b6a225ec122410d86b12cf875bf04215e5608dea39034cbb8bfa192e3a (sha256)
-   e472401664e6f4bf1dfa29e7c72c1407 (md5)
 
-output results for file `/evi/WW-S-0000/001.raw':
-   500107862016 bytes ( 466 G ) copied ( 100% ), 4231.3 s, 113 M/s
-   [ok] 9d2a35b6a225ec122410d86b12cf875bf04215e5608dea39034cbb8bfa192e3a
-
-<i># Verification. Separate pass, separate tool, blocker removed, source
-# detached. 2026-03-04T14:07:52-05:00</i>
+<i># Separate pass, separate tool, source detached.</i>
 $ <b>sha256sum /evi/WW-S-0000/001.raw</b>
-9d2a35b6a225ec122410d86b12cf875bf04215e5608dea39034cbb8bfa192e3a  /evi/WW-S-0000/001.raw
-
-$ <b>md5sum /evi/WW-S-0000/001.raw</b>
-e472401664e6f4bf1dfa29e7c72c1407  /evi/WW-S-0000/001.raw
-
-<i># ACQUISITION DIGEST == VERIFICATION DIGEST. Recorded in the imaging
-# worksheet with algorithm, tool, version, operator and timestamp.</i></pre>
-<p>I then make working copies from the master image and verify them the same way before an analysis tool opens any of them.</p>
-<pre class="tr">$ <b>sha256sum /work/WW-S-0000/001.working.raw</b>
-9d2a35b6a225ec122410d86b12cf875bf04215e5608dea39034cbb8bfa192e3a  /work/WW-S-0000/001.working.raw
-
-<i># Master image returned to the evidence store. Analysis proceeds on the
-# copy. The master is re-verified on withdrawal and before production.</i></pre>
+9d2a35b6a225ec122410d86b12cf875bf04215e5608dea39034cbb8bfa192e3a  /evi/WW-S-0000/001.raw</pre>
+<p><span class="v">SHA-256</span> is the primary algorithm; MD5 appears only where a tool emits it, never as a security claim. Analysis runs on a working copy, verified against the master the same way. A match proves the image corresponds to the source as read — not that the source was unaltered before I arrived, and nothing about authorship or content.</p>
 </section>
 
-<section class="cl"><span class="n">4.2</span>
-<h3>What a mismatch means, and what I do about it</h3>
-<p>When a verification digest does not match, work stops. Nothing is analysed from that image. It is never ignored, and it is never quietly re-run until it passes. I record the failed verification with its timestamp, both digests and the tool that produced each, and that record goes into the report whether or not the problem is later resolved.</p>
-<p>A mismatch means one of three things, and the whole point of the procedure is to find out which. The source may have read differently on the two occasions, usually because it is failing. The image may have been damaged in transfer or in storage. Or something wrote to the image. I narrow the discrepancy rather than guess at it. Where the image is segmented, per-segment digests localise it. Where the source is still available and still readable, I take a fresh acquisition and compare. Where the medium is failing, I re-acquire with the error handling recorded and the bad sectors enumerated, and I say which regions of the image are not reliable.</p>
-<p>A failing drive is the common case and it does not destroy the evidence. What destroys the evidence is a second acquisition that quietly replaces the first with no record that the first ever existed. Where the source is no longer available and the discrepancy cannot be resolved, I report the discrepancy and the limits it places on every finding downstream of it. That is an unattractive paragraph to write. It is a great deal less unattractive than having it drawn out of me later.</p>
+<section>
+<h2>When a digest does not match</h2>
+<p>Work stops. Nothing is analysed from that image, and the failure goes into the report with both digests, the tools and the time, resolved or not. Then I narrow it: per-segment digests to localise it, a fresh acquisition where the source is still readable, enumerated bad sectors where the medium is failing. A failing drive does not destroy the evidence. A quiet second attempt that replaces the first with no record does.</p>
 </section>
 
-<section class="cl"><span class="n">4.3</span>
-<h3>Why MD5 and SHA-1 still appear</h3>
-<p>They appear because tools still emit them, because legacy case records are full of them, and because a second digest from a second algorithm is a cheap independent check that the image file on disk has not changed since I put it there. I record them where a tool provides them. I never describe them as secure. MD5 and SHA-1 both have practical collision attacks; under NIST SP 800-131A Rev. 2 SHA-1 is disallowed for digital signature generation and permitted only for legacy signature verification, and NIST has since announced the transition away from SHA-1 for all applications. Where a digest is doing evidentiary work, the digest doing it is SHA-256.</p>
+<section>
+<h2>Where write blocking cannot be used</h2>
+<p>Live memory, a production system that cannot be taken down, most mobile extractions, cloud collected over an authenticated session. Each alters something. Soundness then comes from the record: method, tool version, a digest at the earliest point one means anything, and a plain statement of what was altered. Memory is usually worth the cost — it holds running processes and injected code, and an unlocked encrypted volume is ciphertext once the machine is shut down.</p>
 </section>
 
-<section class="cl"><span class="n">5</span>
-<h2>Working copies</h2>
-<p>I analyse a working copy. The master image is stored under access control with its own integrity record, and no analysis tool mounts it. Working copies are hash-verified against the master before use, and where anything about a copy's state is uncertain I discard it and make another rather than try to repair it.</p>
-<p>The reason is not superstition about touching originals. An analysis suite is a large body of software that writes caches, indexes and recovery files, and the cost of being wrong about which of those writes touched the evidence file is the whole engagement. Working on a copy makes the question moot.</p>
-</section>
-
-<section class="cl"><span class="n">6</span>
-<h2>Examination</h2>
-<p>Examination proceeds from the scope question recorded at 2.1. I keep the tool inventory with versions, the search terms and filter criteria applied, the date ranges and time zones used, and the hypotheses tested, including the ones I tested and discarded. Findings are stated alongside the artefacts they rest on, so that another examiner can go to those same artefacts and disagree with my reading of them.</p>
-<p>Two disciplines are worth naming, because they are where examinations go wrong. The first is timestamps. I treat a timestamp as evidence about a system's record-keeping rather than as a fact about the world: it depends on time zone, clock drift, NTP state, filesystem semantics and the behaviour of whatever application wrote it. Where two timestamp sources conflict, I say so instead of choosing the convenient one. The second is absence. The absence of an artefact is the absence of an artefact, and it is never evidence that an event did not happen, because retention windows, log rotation, TRIM on solid-state media and ordinary housekeeping all destroy data with no intent behind any of it.</p>
-<p>Where I report on destruction, I report what was destroyed, when, and by what mechanism. Routine retention deletion looks a great deal like deliberate destruction in the artefacts, and where the two cannot be distinguished I say that they cannot. Whether a party acted with intent to deprive another of evidence is a finding for the court under FRCP 37(e)(2). I do not offer it.</p>
-</section>
-
-<section class="cl"><span class="n">6.1</span>
-<h3>Notes are written on the assumption that they will be produced</h3>
-<p>Contemporaneous notes, the tool inventory, search terms, filter criteria and discarded hypotheses are kept in a form fit to be handed over, because FRCP 26(a)(2)(B)(ii) reaches the facts or data <i>considered</i> by a testifying expert, not merely those relied upon. Material supplied by counsel is segregated and logged separately. That is so the carve-outs in FRCP 26(b)(4)(C), covering compensation, facts or data provided and considered, and assumptions provided and relied on, can be honoured without sweeping in protected communications or draft reports, which are protected under 26(b)(4)(B).</p>
-</section>
-
-<section class="cl"><span class="n">7</span>
-<h2>Chain of custody</h2>
-<p>The custody record covers receipt, every named custodian, every transfer with its date and time, the storage conditions between transfers, and the return or destruction at the end. I write it as the work happens. A record reassembled afterwards out of memory and calendar entries does not read like one written at the time, and the people who read these for a living can tell.</p>
-</section>
-
-<section class="cl"><span class="n">7.1</span>
-<h3>The distinction most people get wrong</h3>
-<p>Authentication is a comparatively low bar. Under FRE 901(a) the proponent must produce evidence sufficient to support a finding that the item is what it is claimed to be, a question of conditional relevance under FRE 104(b) that turns on whether a reasonable juror could so find, not on whether the judge is persuaded. Illustrations 901(b)(1), (b)(3), (b)(4) and (b)(9) each supply a route, and gaps in a custody record ordinarily go to weight rather than admissibility (<i>United States v. Howard-Arias</i>, 679 F.2d 363 (4th Cir. 1982)).</p>
-<p>Which sounds like permission to relax, and is the opposite of it: the low bar is the reason the custody record matters more, not less. Evidence that squeaks past the admissibility threshold with an incoherent custody record arrives in front of the fact-finder already damaged, and every hour of cross-examination spent on where the drive was over a weekend is an hour nobody spends on what was on it. The rule is generous; the jury is not. So I do not overstate the rule in my own favour, and I do not treat "it will come in anyway" as a reason to keep a thinner record.</p>
-<p>The foundation for authentication gets built at collection time rather than assembled in the weeks before trial. That is the structural argument in <i>Lorraine v. Markel American Insurance Co.</i>, 241 F.R.D. 534 (D. Md. 2007), and it is why the imaging worksheet, the acquisition log and the custody record are produced as the work happens.</p>
-</section>
-
-<section class="cl"><span class="n">7.2</span>
-<h3>Self-authentication, and what it does not resolve</h3>
-<p>Two provisions are available here, and they get stated the wrong way round often enough that a lawyer notices immediately when they are. FRE 902(14) covers data copied from an electronic device, storage medium or file and authenticated by a process of digital identification, which is the hash-verified copy. FRE 902(13) covers a record generated by an electronic process or system, which is the log file. Both require a certification by a qualified person meeting the requirements of FRE 902(11) or (12), and 902(11) carries the notice condition: reasonable written notice of the intent to offer the record, with the record and certification made available for inspection in advance.</p>
-<p>The limit goes where the capability goes. These provisions remove the need for live foundation testimony on authenticity, and nothing else. They resolve neither hearsay, nor relevance, nor best evidence, and an opponent remains free to contest authenticity.</p>
-<p>On best evidence. FRE 1002 read with 1001(d) and 1001(e) means that for electronically stored information an "original" includes any printout or other output readable by sight that accurately reflects the information, and under FRE 1003 a duplicate is admissible to the same extent as the original unless a genuine question is raised about the original's authenticity or the circumstances make it unfair to admit the duplicate. On the face of the rule, then, a forensic image produced and verified as described above is not a lesser form of the evidence. Whether it is admitted in a particular matter remains the court's decision.</p>
-</section>
-
-<section class="cl"><span class="n">8</span>
-<h2>Reporting</h2>
-<p>The report states each opinion, the basis and reasons for it, the facts or data considered, and the method applied, in that order, and mapped so that each sentence of conclusion can be traced back to something verified. Where a matter calls for a report under FRCP 26(a)(2)(B), it contains the complete statement of opinions with bases and reasons, the facts or data considered, exhibits, the examiner's qualifications with any publications from the previous ten years, a list of any other cases in which the examiner testified as an expert in the previous four years, and the compensation statement. It is prepared and signed by the examiner who did the work. Timing follows FRCP 26(a)(2)(D) absent a stipulation or a court order, which is to say the default sequence is a default and not a fixture.</p>
-<p>The operative admissibility test is the text of FRE 702 as amended effective 1 December 2023. The proponent must show that it is more likely than not that each requirement is met, and 702(d) asks whether the opinion reflects a reliable application of the method to the facts of the case. <i>Daubert v. Merrell Dow Pharmaceuticals, Inc.</i>, 509 U.S. 579 (1993), and <i>Kumho Tire Co. v. Carmichael</i>, 526 U.S. 137 (1999), gloss the rule. <i>Kumho</i> is the governing gloss for digital forensics, which is technical and experience-based, and its factors are flexible rather than a checklist. I check the applicable standard for the venue at engagement, and the condition in section 1 applies to it: where a venue requires a qualification I do not hold, I identify that at scoping and state it in the engagement letter, or I decline the matter. New York, where this practice is based, remains a <i>Frye</i> jurisdiction (<i>Frye v. United States</i>, 293 F. 1013 (D.C. Cir. 1923); <i>People v. Wesley</i>, 83 N.Y.2d 417 (1994)), and the general-acceptance question is a different question from the 702 one.</p>
-<p>I distinguish what I relied on from what is offered as evidence. Third-party logs and vendor telemetry can support an opinion under FRE 703 without themselves being admitted, and FRE 705 governs disclosure of the underlying facts. I also say which kind of exhibit I am producing. A timeline assembled from artefacts is ordinarily an illustrative aid under FRE 107, effective 1 December 2024, and is not itself evidence, whereas a computed summary of voluminous admissible material can be substantive evidence under FRE 1006. Producing one and describing it as the other is an avoidable fight, and I have no appetite for the avoidable ones.</p>
-</section>
-
-<section class="cl"><span class="n">9</span>
-<h2>Return or destruction</h2>
-<p>At the close of a matter, evidence is returned or destroyed on written instruction. I re-verify master images on withdrawal from the store and compare the digest recorded at withdrawal against the digest recorded at deposit. Destruction happens against a written instruction only, and I issue a certificate for it. I close the custody record with the same discipline I opened it with, which is the point at which a custody record either reads as a document or reads as an afterthought.</p>
-</section>
-
-<section class="cl"><span class="n">10</span>
-<h2>Each stage, against what it does and does not establish</h2>
+<section>
+<h2>What each stage does and does not establish</h2>
 <div class="tw">
 <table class="ledger">
 <caption>Stage ledger</caption>
-<thead><tr><th style="width:22%">Stage</th><th>What it establishes</th><th style="width:32%">What this does not establish</th></tr></thead>
+<thead><tr><th style="width:24%">Stage</th><th>What it establishes</th><th style="width:32%">What this does not establish</th></tr></thead>
 <tbody>
-<tr><td>Authority and scope</td><td>Who authorised access to what, on what basis, recorded before anything was connected.</td><td class="not">That the authority was validly held. I record what I was shown and who represented it; a disputed ownership question is for counsel and the court.</td></tr>
-<tr><td>Write-blocked acquisition</td><td>That the source was presented read-only and the image corresponds to the source as read.</td><td class="not">That the source was unaltered before I received it. Write blocking starts at my custody, not at the events in issue.</td></tr>
-<tr><td>Live acquisition</td><td>The state of a running system at a stated moment, including memory and encryption state.</td><td class="not">A clean, unaltered capture. Live acquisition writes to the system. I record what ran, when, from where, and what it could have touched.</td></tr>
-<tr><td>Hash verification<br><span class="cond">SHA-256 primary</span></td><td>That the stored image and any working copy are byte-identical to what was read at acquisition.</td><td class="not">Anything about content, authorship or truth. A verified image of a fabricated document is a verified image of a fabricated document.</td></tr>
-<tr><td>Targeted collection</td><td>That the defined artefact set was collected, with a manifest of what was deliberately excluded.</td><td class="not">That nothing relevant sits outside the targeted set. The exclusions are published in the manifest precisely so that the decision can be challenged.</td></tr>
-<tr><td>Mobile extraction</td><td>The data obtainable at the level achieved, on that handset, at that OS and patch level, on that date.</td><td class="not">Completeness. Mobile extraction is partial by construction, and the report states the level reached and what was not obtainable at it.</td></tr>
-<tr><td>Cloud collection</td><td>What the tenant retained and exposed at the moment of collection, under the authority relied on.</td><td class="not">What happened where logging was off or retention had lapsed. Nothing predates the earliest surviving log, and silence is not a record of absence.</td></tr>
-<tr><td>Chain of custody</td><td>Where the item was, in whose hands, and under what conditions, from receipt to disposal.</td><td class="not">Integrity of the evidence before receipt, and it is not a substitute for the hash record. The two do different jobs.</td></tr>
-<tr><td>Examination</td><td>What the artefacts show: what existed, what changed, when, and by what mechanism.</td><td class="not">Who was at the keyboard. Device evidence shows what a device did. Attribution to a person requires a separately stated methodology and is identified as such.</td></tr>
-<tr><td>Timeline analysis</td><td>A sequence assembled from timestamped artefacts, with each entry sourced.</td><td class="not">A reliable absolute clock. Time zone, drift, NTP state and application behaviour all distort timestamps, and conflicts between sources are reported rather than reconciled silently.</td></tr>
-<tr><td>Reporting</td><td>The opinions, their bases, the facts or data considered, and the method applied.</td><td class="not">Admissibility. That is the court's decision under FRE 702 or the applicable state standard, and nobody can promise it.</td></tr>
-<tr><td>Return or destruction</td><td>That material was re-verified on withdrawal and disposed of on written instruction, with a certificate.</td><td class="not">That copies held by other parties were disposed of. I can only certify what was in my custody.</td></tr>
+<tr><td>Authority and scope</td><td>Who authorised access to what, recorded before anything was connected.</td><td class="not">That the authority was validly held.</td></tr>
+<tr><td>Write-blocked acquisition</td><td>The source was read-only and the image corresponds to the source as read.</td><td class="not">Anything before my custody began.</td></tr>
+<tr><td>Live acquisition</td><td>The state of a running system at a stated moment, memory and encryption state included.</td><td class="not">A clean capture; it writes to the system.</td></tr>
+<tr><td>Hash verification<br><span class="cond">SHA-256 primary</span></td><td>Image and working copies are byte-identical to what was read.</td><td class="not">Content, authorship or truth.</td></tr>
+<tr><td>Mobile and cloud collection</td><td>What was obtainable at that patch level, or retained by that tenant, on that date.</td><td class="not">Completeness; both are partial by construction.</td></tr>
+<tr><td>Chain of custody</td><td>Where the item was, in whose hands, from receipt to disposal.</td><td class="not">Integrity before receipt; it is not a substitute for the hash.</td></tr>
+<tr><td>Examination</td><td>What the artefacts show: what existed, what changed, when, by what mechanism.</td><td class="not">Who was at the keyboard.</td></tr>
+<tr><td>Reporting</td><td>The opinions, their bases, the data considered and the method applied.</td><td class="not">Admissibility; that is the court's decision.</td></tr>
 </tbody>
 </table>
 </div>
+<p class="small">The image and its logs are the material FRE 902(14) and 902(13) contemplate, with a certification. That removes the need for live foundation testimony on authenticity and nothing else.</p>
 </section>
 
-<section class="cl"><span class="n">11</span>
-<h2>What publishing this costs me</h2>
-<p>A method published at this level of detail can be checked, which means it can also be criticised. That is the trade and I have made it deliberately. An examiner whose procedure is described only in general terms, all "forensically sound" and "court-admissible" and "bulletproof chain of custody", has given you nothing you can test before the engagement and nothing to defend during it.</p>
-<p>What it means for you in practice is that I will tell you, before you pay for an attempt, when a thing is unlikely to be recoverable. Deleted-data recovery depends on the medium, the filesystem and the encryption, and on modern encrypted flash storage it is frequently not available at all. An encrypted volume without a key is not opened by effort. A locked modern handset may not be reachable at any price. I will also report findings that do not help you, at the same rate, because the rate does not move with what I find. That is a worse outcome for me and a perfectly good one for you, and it is the reason this is worth commissioning rather than taking anybody's word for it.</p>
+<section>
+<h2>Standards worked to</h2>
+<p>NIST SP 800-86 for the collection-to-reporting sequence and order of volatility; ISO/IEC 27037 for auditability, repeatability, reproducibility and justifiability; SWGDE practice documents, cited by version. Guidance I work to, not certificates I hold — I do not call work "ISO 27037 compliant". Where a matter requires a certified examiner, an accredited laboratory or a licence, that is identified at scoping and stated in the engagement letter, or I decline the matter.</p>
+</section>
+
+<section>
+<h2>Before you pay for an attempt</h2>
+<p>I will tell you when something is unlikely to be recoverable: deleted data on encrypted flash often is not, an encrypted volume without a key is not opened by effort, a locked modern handset may not be reachable at any price. I report findings that do not help you at the same rate, because the rate does not move with what I find.</p>
+<p>Ring me on <a class="v" href="tel:+19172177975">917-217-7975</a> and I will tell you whether this is even a forensics problem, and if it is, what the first hour should do.</p>
 <div class="acts">
-  <a class="btn" href="{{ '/limits/' | relative_url }}">What digital evidence cannot establish</a>
-  <a class="btn" href="{{ '/specimen-report/' | relative_url }}">The report format</a>
   <a class="btn k" href="{{ '/contact/' | relative_url }}">Scoping call &mdash; no charge</a>
+  <a class="btn" href="{{ '/rates/' | relative_url }}">Rates</a>
+  <a class="btn" href="{{ '/limits/' | relative_url }}">What digital evidence cannot establish</a>
 </div>
 </section>

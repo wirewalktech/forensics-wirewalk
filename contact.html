@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "Contact"
-lede: "Five fields, each with the reason for it printed alongside. There is no box for case detail, and clause 1.1 explains why leaving it out protects you rather than me."
-description: "How to reach Wirewalk Forensics and Security: telephone, email, and a deliberately minimal enquiry form. No case-detail field, no chat widget, and the reason for each is stated. For an incident in progress, see the first-hour page."
+lede: "Telephone 917-217-7975. The first call is free and there is no box on this page for case detail."
+description: "How to reach Wirewalk Forensics and Security: telephone, email, and a five-field enquiry form. No case-detail field and no chat widget. For an incident in progress, see the first-hour page."
 permalink: /contact/
 doc_id: WW-F-014
 version: "1.0"
@@ -10,13 +10,12 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "How to reach the practice"
 authority: Principal
-content_sha256: 2f67702292e6299e2e54b6162a3c842ddbcd42de2c23ce7ff471f58d082dfa3b
+content_sha256: 036a30b18983a778aeab292c6cbd261efb843e55a5ceff21450556dad643d8d5
 ---
 
 <style>
-/* One-off to this page: the enquiry block is the only form on the site, and it
-   is ruled like the specimen header rather than styled like a marketing form.
-   The reason for each field sits beside the field, not in a privacy page. */
+/* The enquiry block is the only form on the site. The reason for each field
+   sits beside the field, not in a privacy page. */
 form.enq{border:1px solid var(--rule);background:var(--label-stock);margin:18px 0 10px}
 form.enq > .fld{padding:14px 16px;border-bottom:1px solid var(--hairline)}
 form.enq > .fld:last-of-type{border-bottom:0}
@@ -35,93 +34,33 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
 @media print{form.enq{break-inside:avoid}form.enq .act{display:none}}
 </style>
 
-<section class="cl"><span class="n">1</span>
-<h2>What this page is</h2>
-<p>This is the shortest page on the site, and it is short on purpose. A contact page for a forensic practice has one job, which is to get you talking to me on a telephone quickly, having first collected the little I need in order to check whether I am free to speak to you at all. Everything past that is either premature or bad for the person typing it.</p>
-<p>So the form asks five things: your name, your role in the matter, whether counsel is already engaged, a number to call you back on, and an email address. Each field carries its reason in the field itself. What is not there is a box for what happened. No file upload either, and no drop-down of incident types. Clause 1.1 sets out why.</p>
-<p>If something is happening right now, do not use the form at all. Call the number in clause 2, and open <a href="{{ '/emergency/' | relative_url }}">the first-hour page</a> while you wait for it to connect. That page is written to be useful whether or not you ever speak to me.</p>
-</section>
+<section>
+<h2>Telephone <span class="v"><a href="tel:+19172177975">917-217-7975</a></span></h2>
+<p><b>The first call is free</b> — up to 45 minutes of scoping and preservation triage, with a written preservation instruction where one is needed. No charge either for the call that ends with me saying you do not need a forensic examiner. Rates are published in full at <a href="{{ '/rates/' | relative_url }}">/rates</a>.</p>
 
-<section class="cl"><span class="n">1.1</span>
-<h3>Why there is no box for case detail</h3>
-<p>Privileged or sensitive facts should not be typed into a web form. The reason is not squeamishness about data handling. It is that at the moment you would be typing them, nothing whatsoever protects them.</p>
-<p>An enquiry arrives before a conflicts check has been run and before an engagement letter is signed. Until both of those have happened there is no engagement and no retention, and nothing through which a privilege claim over what you sent could sensibly be made. What you have written is a message from a member of the public to a business. It sits in a database and in a mailbox with nothing in place to protect it, and it may later be a document that has to be produced and explained by the person who wrote it.</p>
-<p>There is a second reason and it runs the other way. If the conflicts check shows that I cannot act, because the party on the other side has already spoken to me or is an existing client, then everything substantive you sent is material I should never have had. I would have to sequester it, decline, and stay careful about it for the rest of the matter. Opposing parties do sometimes approach a specialist early precisely to put that specialist out of reach, and a form that invites facts makes the manoeuvre cheap.</p>
-<p>So the honest sequence is the dull one. Identify yourself, let the conflicts check clear, then have the conversation by telephone with someone who can tell you what to preserve before anything else is discussed. This is the part people find hardest, because when something has gone wrong the instinct is to explain it to somebody immediately. The conversation costs nothing and clause 3.2 describes it.</p>
-<p><span class="cond">Do not attach anything, and do not send a device, a disk image, a log export or any other file until the conflicts check has cleared and the engagement letter is signed.</span></p>
-</section>
-
-<section class="cl"><span class="n">1.2</span>
-<h3>There is no chat widget on this site, and there will not be one</h3>
-<p>A chat bubble in the corner of a page invites a caller to type privileged facts into a third-party service. That is the whole objection. Nobody using one is thinking about where the message goes; they are thinking about the thing that has gone wrong. The substance of a legal matter ends up inside a vendor's platform, held on that vendor's infrastructure under that vendor's retention policy and possibly processed for that vendor's own purposes, before anyone has checked whether I can act.</p>
-<p>The same reasoning explains the rest of what is missing here. No callback prompt driven by analytics, and no exit-intent capture. No live-availability indicator either: a green dot saying I am online is a response commitment made by a script, and I publish no response commitment outside a signed standby agreement. Clause 3.1 sets that out.</p>
-</section>
-
-<section class="cl"><span class="n">2</span>
-<h2>How to reach me</h2>
 <div class="tw">
 <table class="ledger">
-  <caption>Channels, and what each one is for</caption>
-  <thead><tr><th style="width:20%">Channel</th><th style="width:24%">Detail</th><th style="width:28%">What it is for</th><th>What it is not for</th></tr></thead>
+  <caption>Channels</caption>
+  <thead><tr><th style="width:22%">Channel</th><th style="width:26%">Detail</th><th style="width:26%">For</th><th>Not for</th></tr></thead>
   <tbody>
-    <tr>
-      <td>Telephone</td>
-      <td class="val"><a href="tel:+19172177975">917-217-7975</a></td>
-      <td>Everything time-sensitive, and the free scoping call. The same number is on the first-hour page.</td>
-      <td class="not">Leaving the substance of a matter on a voicemail. Your name, a number and the word <i>urgent</i> is plenty. The rest belongs in the call.</td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td class="val"><a href="mailto:sales@wirewalk.com">sales@wirewalk.com</a></td>
-      <td>Scheduling, purchase orders, vendor onboarding paperwork, invoicing questions, and anything else administrative.</td>
-      <td class="not">Case facts, custodian names, credentials or attachments. Ordinary email is not a secure channel and I am not going to treat it as one.</td>
-    </tr>
-    <tr>
-      <td>This form</td>
-      <td class="val">clause 4</td>
-      <td>Asking me to call you back, and starting the conflicts check that has to happen before anything else.</td>
-      <td class="not">Describing the matter. There is no field for it, and typing it into one of the other fields does not make it safer.</td>
-    </tr>
-    <tr>
-      <td>Incident in progress</td>
-      <td class="val"><a href="{{ '/emergency/' | relative_url }}">/emergency</a></td>
-      <td>What to do in the first hour, written so your own staff can do it before anyone is instructed.</td>
-      <td class="not">A replacement for calling. If it is moving, ring me and we will work out the next hour together.</td>
-    </tr>
+    <tr><td>Telephone</td><td class="val"><a href="tel:+19172177975">917-217-7975</a></td>
+      <td>Anything time-sensitive, and the free scoping call.</td>
+      <td class="not">Case detail on a voicemail. Your name, a number and <i>urgent</i> is plenty.</td></tr>
+    <tr><td>Email</td><td class="val"><a href="mailto:sales@wirewalk.com">sales@wirewalk.com</a></td>
+      <td>Scheduling, purchase orders, onboarding, invoices.</td>
+      <td class="not">Case facts, credentials or attachments. Email is not a secure channel.</td></tr>
+    <tr><td>Incident in progress</td><td class="val"><a href="{{ '/emergency/' | relative_url }}">/emergency</a></td>
+      <td>What to do in the first hour, before anyone is instructed.</td>
+      <td class="not">A substitute for ringing. If it is moving, call.</td></tr>
   </tbody>
 </table>
 </div>
-<p>I work principally in the New York metropolitan area, and take instructions from further afield where the venue and the licensing position allow it. Where a matter requires a licence, a certification or a qualification, that condition is identified at scoping, named in the engagement letter, and either met or the matter is declined. <span class="cond">I check the licensing position for your venue and either hold the licence, work under one, or decline.</span></p>
+<p><span class="cond">Where a matter requires a licence, a certification or a qualification, that condition is named in the engagement letter and either met or the matter is declined.</span></p>
 </section>
 
-<section class="cl"><span class="n">2.1</span>
-<h3>If something is happening right now</h3>
-<div class="note seal">
-<p>Call <span class="v"><a href="tel:+19172177975">917-217-7975</a></span> and open <a href="{{ '/emergency/' | relative_url }}">the first-hour page</a> in the meantime. Containment and preservation are two different jobs, and almost every avoidable loss in the first hour comes from doing containment in a way that also does destruction. Re-imaging the machine, rebooting it, restoring from backup and letting tonight's retention cycle run as normal are all ordinary, competent responses, and every one of them destroys the record permanently. Nothing on that page requires my involvement, an engagement or a payment.</p>
-</div>
-</section>
-
-<section class="cl"><span class="n">3</span>
-<h2>When the telephone is answered</h2>
-<p>I publish no response interval and no staffed hours, not here and not on the first-hour page. A published figure is a promise made to everyone who reads it, and outside a signed agreement there is nobody rostered to keep it. What is true instead is that I answer when I can, and I would rather tell you that here than have you find it out in the middle of an incident. Ordinary enquiries, meaning this form or an email, get dealt with in working hours rather than overnight. Clause 3.1 has the rest.</p>
-</section>
-
-<section class="cl"><span class="n">3.1</span>
-<h3>This is not a response commitment, and here is what would be</h3>
-<p>The paragraph above describes what happens, not how quickly. It is deliberately not written as an interval. A one-principal practice cannot staff a guarantee at three in the morning, and a published response time missed during an incident is a worse first impression than no figure at all.</p>
-<p><span class="cond">A stated response commitment exists only under a signed standby agreement, where it is set out in that agreement. Without one there is none, and I would rather say so now than at 02:00.</span></p>
-<p>What you get from me without any agreement in place is a quick answer on whether I can take the matter, and that includes the no. Where I cannot act I say so immediately rather than sit on it while you wait, and where I can think of someone who might be able to help instead, I give you the name. A fast no is worth more to you in the first hour than a slow maybe, and it costs nothing.</p>
-</section>
-
-<section class="cl"><span class="n">3.2</span>
-<h3>What the first call costs</h3>
-<p>Nothing. The scoping and preservation triage call runs up to <span class="v">45 minutes</span> at no charge, and it includes a written preservation instruction where one is needed. There is no charge either for the call that ends with me saying the data cannot answer your question, or that you do not need a forensic examiner at all. Those two are not a loss leader. They are the calls where the advice is most likely to be worth something, and billing for them would put a price on telling you the truth.</p>
-<p>What the call is not is the start of an engagement. No work begins, no date is held and no file is accepted until the conflicts check has cleared and the engagement letter is signed. Rates are published in full at <a href="{{ '/rates/' | relative_url }}">/rates</a> before you speak to anyone, so the first call can be about whether the work is worth doing rather than about what it is going to cost.</p>
-</section>
-
-<section class="cl"><span class="n">4</span>
+<section>
 <h2>The enquiry form</h2>
-<p>Five fields. The reason for each one is printed beside it, in the form itself, so that nobody has to take a privacy page's word for what the field is for.</p>
+<p>Five fields, each with its reason beside it. There is no box for case detail: an enquiry reaches me before the conflicts check has run and before any engagement letter exists, so nothing yet protects what you type. Keep the facts for the call.</p>
 
 <form class="enq" method="POST" action="https://wirewalk-portal.wirewalk-upload.workers.dev/api/enquiry">
   <input type="hidden" name="_subject" value="Forensics enquiry — forensics.wirewalk.com">
@@ -134,13 +73,13 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
   <div class="fld">
     <label class="lab" for="f-name">Name</label>
     <input id="f-name" type="text" name="name" autocomplete="name" required>
-    <span class="why">So that I can run the conflicts check. It is the one thing that has to happen before anything else, and it cannot be run against an anonymous enquiry.</span>
+    <span class="why">The conflicts check cannot be run against an anonymous enquiry.</span>
   </div>
 
   <div class="fld">
     <label class="lab" for="f-role">Your role in the matter</label>
     <input id="f-role" type="text" name="role" placeholder="outside counsel, in-house, IT, HR, individual, other" autocomplete="organization-title" required>
-    <span class="why">Because it decides who the client would be, who instructions come from, and who the report belongs to. That is less obvious than it sounds. The four instruction roles are set out at <a href="{{ '/roles/' | relative_url }}">/roles</a>.</span>
+    <span class="why">It decides who the client is and who the report belongs to — see <a href="{{ '/roles/' | relative_url }}">/roles</a>.</span>
   </div>
 
   <div class="fld">
@@ -151,91 +90,56 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
       <option value="no">No — not yet</option>
       <option value="unsure">Not sure</option>
     </select>
-    <span class="why">Because it changes who the first call should be with. If counsel is engaged, the call is usually with them. If not, the first thing I am likely to say is that you should engage one.</span>
+    <span class="why">It decides who the first call should be with.</span>
   </div>
 
   <div class="fld">
     <label class="lab" for="f-phone">Callback number</label>
     <input id="f-phone" type="tel" name="phone" autocomplete="tel" required>
-    <span class="why">Because the first useful exchange is a telephone call rather than a thread. It is also the channel on which it is safe to describe the matter, which this form is not.</span>
+    <span class="why">The first useful exchange is a call, not a thread.</span>
   </div>
 
   <div class="fld">
     <label class="lab" for="f-email">Email address</label>
     <input id="f-email" type="email" name="email" autocomplete="email" required>
-    <span class="why">To confirm I have your enquiry, and to send the engagement letter if the matter gets that far. I treat it as an administrative channel only, for the reason in clause 2.</span>
+    <span class="why">To confirm the enquiry and send the engagement letter if it gets that far.</span>
   </div>
 
   <div class="act">
     <button type="submit">Send</button>
-    <span class="why">There is deliberately no field for the matter itself. Please keep case detail, custodian names, account identifiers and credentials out of every field above.</span>
+    <span class="why">Please keep case detail, custodian names and credentials out of every field above.</span>
   </div>
 </form>
-</section>
 
-<section class="cl"><span class="n">4.1</span>
-<h3>What sending this does, and what it does not do</h3>
 <div class="tw">
 <table class="ledger">
   <caption>The enquiry, and its limits</caption>
-  <thead><tr><th style="width:32%">What sending it does</th><th style="width:30%">On what basis</th><th>What this does not establish</th></tr></thead>
+  <thead><tr><th style="width:42%">What sending it does</th><th>What this does not establish</th></tr></thead>
   <tbody>
-    <tr>
-      <td>Puts your name and role in front of a person.</td>
-      <td>I read the enquiries myself. There is no queue and no routing.</td>
-      <td class="not">Any response time. There is no service commitment outside a signed standby agreement. See clause 3.1.</td>
-    </tr>
-    <tr>
-      <td>Starts the conflicts check against the names given.</td>
-      <td>The check runs against parties, counsel and prior approaches before any substantive conversation.</td>
-      <td class="not">That I am free to act. A check can only clear or fail, and it sometimes fails for reasons I am not able to explain to you.</td>
-    </tr>
-    <tr>
-      <td>Creates a logged record of a preliminary approach.</td>
-      <td>I log approaches for conflicts purposes even where they go nowhere.</td>
-      <td class="not">An engagement. Logging an approach creates no retention, no obligation on either side, and no duty to take the matter.</td>
-    </tr>
-    <tr>
-      <td>Confidentiality over what was said in the approach.</td>
-      <td>What is said in a preliminary approach stays confidential whether or not I am instructed.</td>
-      <td class="not">Privilege. Confidentiality is my undertaking; privilege is a legal characteristic this form cannot confer, and nothing sent through it should be assumed to carry any. Whether a communication is privileged is a question for your lawyer.</td>
-    </tr>
-    <tr>
-      <td>Nothing else.</td>
-      <td>Work begins on a signed engagement letter and a cleared conflicts check, in that order.</td>
-      <td class="not">That any date is held, that any deadline can be met, or that any file has been accepted. None of those happen before signature.</td>
-    </tr>
+    <tr><td>Puts your name in front of a person. I read enquiries myself.</td>
+      <td class="not">A response time. There is none outside a signed standby agreement.</td></tr>
+    <tr><td>Starts the conflicts check, then a callback if it clears.</td>
+      <td class="not">That I am free to act.</td></tr>
+    <tr><td>Logs a preliminary approach, confidential whether or not I am instructed.</td>
+      <td class="not">Privilege, an engagement, or a held date.</td></tr>
   </tbody>
 </table>
 </div>
 </section>
 
-<section class="cl"><span class="n">5</span>
-<h2>What happens after you send it</h2>
-<p>The sequence is short and it is the same every time. I read the enquiry. I run the conflicts check against the parties you name, and against counsel on both sides where you can give me them. If it clears, you get a call at the number you gave, and that call is the scoping call in clause 3.2: free, up to forty-five minutes, and the right place to describe what happened. If there are preservation steps to take before anything else, you get them on that call and in writing afterwards, whether or not you go on to instruct me.</p>
-<p>If the check does not clear, you are told that I cannot act, promptly and without a substantive discussion having taken place. I will not be able to tell you why. That discretion is the same protection you would be relying on if the position were reversed.</p>
-<p>And if the matter is one I should not take for some other reason, because the deadline cannot be met, or the question needs a discipline I do not practise, or the work belongs with a larger consultancy, I say so on the first call rather than accept it and discover it later. Where I can name someone better suited, I do.</p>
-</section>
-
-<section class="cl"><span class="n">5.1</span>
-<h3>If you are contacting me about a matter I am already in</h3>
-<p>Use the telephone number, quote the engagement reference, and do not use this form. An existing matter has a named channel and a distribution list set out in its engagement letter, and putting correspondence about it through a public web form is how material ends up outside that list. If you are the opposing party, or counsel for the opposing party, in a matter I am already instructed in, contact should come through counsel rather than to me directly.</p>
-</section>
-
-<section class="cl"><span class="n">6</span>
-<h2>What I will not do with what you send</h2>
+<section>
 <div class="refuse">
 <h2>I will not</h2>
 <ol>
-  <li>Start work, hold a date, or accept a single file before the conflicts check clears and the engagement letter is signed. A payment made before that point is an offer, held unapplied, and refunded in full.</li>
-  <li>Use what you send for anything other than the conflicts check, the callback, and the administration of an engagement if one follows. No list is sold, rented or shared, and there is no marketing sequence attached to this form.</li>
-  <li>Disclose that you approached me, or what was said, to anyone at all, including to a party the conflict runs to. A preliminary approach is logged for conflicts purposes and is otherwise confidential whether or not I am instructed.</li>
-  <li>Take or pay a referral fee, in either direction, for sending you somewhere else. Where I name someone better suited to your matter, no money moves between us.</li>
-  <li>Put a chat widget, a live-availability indicator or a callback prompt on this site. Every one of them invites the substance of a legal matter into a third-party service before anybody has checked whether I can act.</li>
-  <li>Promise you a finding, a recovered file, an unlocked handset, or that anything I produce will be admitted. Admissibility is the court's decision and no one can guarantee it.</li>
+  <li>Start work, hold a date or accept a file before the conflicts check clears and the engagement letter is signed. Money paid earlier is held unapplied and refunded in full.</li>
+  <li>Sell, rent or market to anything you send, or tell anyone that you approached me.</li>
+  <li>Take or pay a referral fee when I send you to someone better suited.</li>
+  <li>Put a chat widget or a live-availability indicator on this site.</li>
+  <li>Promise you a finding, a recovered file, an unlocked handset, or that anything I produce will be admitted.</li>
 </ol>
 </div>
-<p class="small">The full list is published on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a> and repeated word for word in the engagement letter.</p>
+<p class="small">The full list is on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a> and repeated word for word in the engagement letter.</p>
+<p><b>Ring me on <span class="v"><a href="tel:+19172177975">917-217-7975</a></span> and I will tell you whether this is even a forensics problem.</b> If it is happening right now, call and open <a href="{{ '/emergency/' | relative_url }}">the first-hour page</a> while it connects.</p>
 <div class="acts">
   <a class="btn" href="{{ '/rates/' | relative_url }}">Rate schedule</a>
   <a class="btn" href="{{ '/engagement/' | relative_url }}">Engagement terms</a>

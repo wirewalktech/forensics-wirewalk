@@ -10,173 +10,65 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "Reach and limits of findings"
 authority: Principal
-content_sha256: d92e9382342e7a7994b60083b3f780944dedf786c040766fd6b29925c62d08ec
+content_sha256: 653ec3727182226eb965ca8be50231e0d66b6c10e220de33904b93f645189eaf
 ---
 
-<section class="cl"><span class="n">1</span>
-<h2>Why this is a published page and not a disclaimer</h2>
-<p>Every finding has a reach. Past that point the same artefact will support two or three explanations at once, and the artefact has nothing to say about which of them is true. So I do not treat the reach as a caveat bolted on at the end. It is part of the finding, and it is the part an opposing examiner will spend their time on.</p>
-<p>The other reason to publish it is self-interested. If I have not written down the limits of a method before the engagement, I will be writing them for the first time under cross-examination, when the wording is no longer mine to choose. The same limits go into the report, attached as a clause to each finding, in this language. I will not take them out because a stronger letter is wanted.</p>
-<p>There is also a question counsel asks early and rarely gets a straight answer to. If I pay for this, what will I actually have? Sometimes the answer is that the question as posed cannot be reached from the data at all, and that is much better known on the first call than after the invoice. Section&nbsp;8 sets out how to turn one of those into a question the evidence can answer.</p>
-</section>
-
-<section class="cl"><span class="n">2</span>
-<h2>People, devices and accounts</h2>
-<p>The overstatements that do the most damage in this field are versions of one mistake, made at rising levels of ambition: reading a machine as a person, then an account as a person, then a mechanism as a motive.</p>
-</section>
-
-<section class="cl"><span class="n">2.1</span>
-<h3>A device is not a person</h3>
-<p>An examination recovers what the machine did. Which processes ran, which files were opened, written or deleted, which volumes were attached, and under which session or service context. All of that is a record about the machine. Getting from there to a named human takes material that lives off the device: an access-control or camera record, a second device the same person was carrying at the same time, a credential nobody else held, an admission. Where that material exists I can say whether the device record is consistent with it. Where it does not, the gap will not close by looking harder at the disk.</p>
-<p>The competing explanations are ordinary ones. A shared workstation. An unlocked session left unattended. A remote support tool, a scheduled task running under a user context, malware operating with the interactive user's token. On the device alone, every one of those produces artefacts indistinguishable from the person you have in mind sitting down and typing.</p>
-<p><span class="cond">Where a matter asks me for an attribution opinion, I state the methodology in writing before work starts, and name the non-device material it depends on.</span></p>
-</section>
-
-<section class="cl"><span class="n">2.2</span>
-<h3>An account action is not a person either</h3>
-<p>Authentication records show that a credential was presented and accepted. A credential is a bearer instrument. Multi-factor authentication raises the cost of a false attribution considerably, and it does not eliminate it: approval fatigue, a replayed session token, a helpdesk reset, a delegated mailbox and a shared administrative account all produce clean, unremarkable logs.</p>
-<p>The useful work on a disputed account action is comparative. I build a baseline out of the account's own history, then state how far the disputed event departs from it. Source addresses, device identifiers, authentication method, usual hours, geography. That is a finding about consistency rather than identity, which is a real distinction and not a hedge. A consistent event is not proof, and an inconsistent one is not guilt.</p>
-</section>
-
-<section class="cl"><span class="n">2.3</span>
-<h3>Intent is a finding for the court</h3>
-<p>Artefacts record mechanism and sequence. They do not record a state of mind. I can often establish that material was destroyed, when, and by what means: a single deletion, a bulk removal, a wipe utility with a recognisable signature, a factory reset, a retention rule reaching its expiry. I can often also say whether a policy in force would have deleted the same material on the same day whether or not anybody wanted it gone.</p>
-<p>This is the part instructing parties find hardest to accept. Where routine expiry and deliberate destruction are indistinguishable in the artefacts, I report that they cannot be separated, and the fact that a different answer would have suited the instructing party does not change it. Under Rule 37(e)(2) of the Federal Rules of Civil Procedure the severest measures for lost electronically stored information are available only on a finding that the party acted with the intent to deprive another party of the information's use in the litigation, a threshold that negligence, and even gross negligence, do not reach. That finding belongs to the court. What I supply is what existed, what was removed, when, by what mechanism, and whether it can be restored from backups, shadow copies, journals or a second custodian.</p>
-</section>
-
-<section class="cl"><span class="n">3</span>
-<h2>Time, and the several clocks involved</h2>
-<p>Timestamps are the most persuasive thing in a forensic report and the most routinely misread. They persuade because they are precise. But precision and accuracy are different properties, and nothing in the record announces which one you are looking at.</p>
-</section>
-
-<section class="cl"><span class="n">3.1</span>
-<h3>There is never only one clock</h3>
-<p>A single event can involve the hardware clock, the operating system clock as disciplined by a time service between synchronisations, the clock of the application writing the record, and the clock of a server at the other end of the connection. Then whatever tool normalises all of that afterwards adds assumptions of its own. A workstation whose time was set wrong, or set back deliberately, writes the wrong time and nothing flags it.</p>
-<p>Where a second record covering the same event was generated independently, I can test one clock against the other. Where there is no second record, the time is single-source, and I label it that way rather than let it stand as though something corroborated it.</p>
-</section>
-
-<section class="cl"><span class="n">3.2</span>
-<h3>Zones, epochs and conversions</h3>
-<p>NTFS stores times in UTC. FAT and exFAT store local time, so the same file copied between them changes its apparent time by the offset with nothing wrong at either end. Application databases store seconds since 1970, milliseconds since 1970, microseconds since 1601, or seconds since 2001, depending on what their designers chose. A tool that assumes the wrong one does not produce an obvious error. It produces a plausible wrong date, which is worse.</p>
-<p>So I publish times in ISO 8601 with an explicit offset, in the form <span class="v">2026-03-14T09:41:07-04:00</span>, and state the conversion applied and the field it came from. A time printed without an offset should be treated as unverified, wherever you find it. That sounds fussy right up until an hour is the thing in dispute.</p>
-</section>
-
-<section class="cl"><span class="n">3.3</span>
-<h3>What filesystem times do and do not mean</h3>
-<p>"Created" does not mean authored. Copy a file and the creation time is the time of the copy, while the modification time is usually inherited from the original, which is why files routinely appear to have been modified before they existed. Sync clients, archive extraction, restores and indexing all move times about. Last-access updating is deferred or disabled by default on many Windows configurations, so an absent access time means very little.</p>
-<p>On NTFS each file carries two sets of times, one in <span class="v">$STANDARD_INFORMATION</span> and one in <span class="v">$FILE_NAME</span>. Tools that alter timestamps have historically written the first and not the second, which is why disagreement between them is informative. Agreement proves nothing in return, because current tooling often writes both. Where time matters I go looking for an independent record of the event rather than trusting the file's account of itself.</p>
+<section>
+<h2>Six places digital evidence stops</h2>
+<p>Every finding has a reach. Past it, one artefact supports two or three explanations at once. These six are where cases run out of road.</p>
 <div class="tw">
 <table class="ledger">
-  <caption>Time-bearing artefacts — reach</caption>
-  <thead><tr><th style="width:24%">Artefact</th><th style="width:38%">What it can establish</th><th style="width:38%">What this does not establish</th></tr></thead>
+  <caption>The limits that matter</caption>
+  <thead><tr><th style="width:24%">The limit</th><th style="width:38%">What the evidence does reach</th><th style="width:38%">What this does not establish</th></tr></thead>
   <tbody>
-    <tr><td>Filesystem times</td><td>The values present at acquisition, and the order of operations on that volume.</td><td class="not">Authorship, or that a file was made when it says. Copies, restores and sync rewrite these with no intent involved.</td></tr>
-    <tr><td>Journal and change records</td><td>That an operation of a stated class hit a named record, inside the window the journal still covers.</td><td class="not">Anything outside that window. A missing entry for an older event is expected, not probative.</td></tr>
-    <tr><td>Application database times</td><td>Times as that application recorded them, once epoch and zone handling are stated and tested.</td><td class="not">Accuracy of the writing device's clock. Where the epoch assumption is left unstated, nothing at all.</td></tr>
-    <tr><td>Server-side and tenant logs</td><td>An independent time from a clock I did not have to trust the endpoint for.</td><td class="not">Events before the retention window opened, or on a service whose logging was off at the time.</td></tr>
-    <tr><td>Document internal metadata</td><td>What the producing application wrote in, and whether it is internally consistent.</td><td class="not">Truth of those fields. They are writable, and some are set by a template rather than by the person named in them.</td></tr>
+    <tr><td>A device — or an account — is not a person</td><td>What the machine did, under which session or credential.</td><td class="not">Who was at the keyboard. Shared logins, remote tools and malware look alike on disk.</td></tr>
+    <tr><td>Intent is a finding for the court</td><td>What was destroyed, when, by what mechanism, and whether retention would have taken it anyway.</td><td class="not">Intent to deprive under Rule 37(e)(2). Where expiry and destruction look alike, I say so.</td></tr>
+    <tr><td>Timestamps are precise, not accurate</td><td>Times as each clock recorded them, from a named field, with the offset printed.</td><td class="not">The true time, where one clock is the only source. "Created" never means authored.</td></tr>
+    <tr><td>Absence is not evidence of absence</td><td>That an artefact is missing where comparable events reliably have one.</td><td class="not">That nothing happened, or that it was hidden. Rotation, retention and SSD trim delete on a schedule.</td></tr>
+    <tr><td>USB records show attachment, not copying</td><td>That a device reporting a given identity was attached, and usually when.</td><td class="not">That anything was copied, which way, or how much. <span class="v">USBSTOR</span> serials repeat across production runs.</td></tr>
+    <tr><td>Deletion is decided by the medium</td><td>What the medium and encryption state permit, and which backup or custodian is the better prospect.</td><td class="not">Recovery from encrypted flash. The controller erases on its own schedule.</td></tr>
   </tbody>
 </table>
 </div>
+<p><span class="cond">Recovery attempts bill the same whether or not they return anything, so I say what the medium permits first.</span></p>
+<p><strong>Cloud logs record access, not content.</strong> In Microsoft 365, <span class="v">MailItemsAccessed</span> — the record that governs what must be notified — depends on audit tier and is absent from many tenants that assume they have it. Enabling it mid-incident logs forward only.</p>
+<p><strong>Automated output is not a finding.</strong> Tools disagree and versions change behaviour, so I read behind the parse to the structure itself and record the tool and version.</p>
 </section>
 
-<section class="cl"><span class="n">4</span>
-<h2>Absence</h2>
-<p>Gaps in the record produce the most confident wrong conclusions in this field, and they go wrong in both directions at once. One reading treats a gap as proof that nothing happened. The other treats it as proof that something was hidden. Absence can be made to carry weight, but only on conditions, and the conditions are set out below.</p>
-</section>
-
-<section class="cl"><span class="n">4.1</span>
-<h3>Absence of an artefact is not evidence of absence</h3>
-<p>A thing that is not there may never have existed. It may have been removed by a person. It may equally have been removed by a retention job, a log rotation, a background trim cycle on solid-state storage, an upgrade that discarded an old database, or a reimage. Those are ordinary behaviours running on a schedule nobody thinks about, and several of them destroy data more thoroughly than a person trying to. I can separate the explanations only where some record survives that does the separating, and often enough that record is the missing thing itself. Where it is, the honest finding is that the question cannot be resolved from this material, and I write it that way rather than present silence as a result.</p>
-</section>
-
-<section class="cl"><span class="n">4.2</span>
-<h3>What a missing artefact can mean</h3>
-<p>There is a narrower positive result available here, and it is worth asking for by name. Where a system reliably creates a particular artefact for a class of event, and that artefact is present for comparable events in the same period but absent for the one in dispute, the absence starts to carry weight. Making that argument means stating how consistently the artefact is created, how long it survives, whether it can be suppressed and by whom, and how large the comparison set is. I state all four, because a bare assertion that "there would have been a record" does not survive contact with an opposing examiner.</p>
-<p>The other honest use of absence is to mark the boundary of the record. Nothing predates the earliest surviving log. Where the retention window opens after the events of interest, the answer to "did this happen" is "the record does not reach that far back". That is not the same answer as "no", and I will not report it as though it were.</p>
-</section>
-
-<section class="cl"><span class="n">5</span>
-<h2>Particular artefacts and how far they reach</h2>
-<p>These are the artefacts that get asked about by name, and the ones opposing reports lean on hardest. Each is genuinely useful. Each also reaches less far than its reputation.</p>
-</section>
-
-<section class="cl"><span class="n">5.1</span>
-<h3>USB records, and evidence of copying</h3>
-<p>Windows records removable devices attached to a machine. The <span class="v">USBSTOR</span> keys hold a vendor string, a product string and an instance identifier; connection times come from associated keys and from <span class="v">setupapi.dev.log</span>, and a per-user <span class="v">MountPoints2</span> key ties a profile to a volume. Taken together that is good evidence that a device reporting a particular identity was presented to that machine, and often when.</p>
-<p>What they do not record is a copy. Not in either direction, and not how much. They also do not identify the physical device with certainty: the serial string is supplied by the device itself, inexpensive controllers repeat them across whole production runs, and where the second character of the instance identifier is an ampersand, Windows generated the string precisely because the device supplied none. And they say nothing about who attached it. Evidence of copying comes from other artefacts with limits of their own, and how much data was written to a removable device is generally not recoverable from the host at all.</p>
-<p>Where a copy is recorded, what is recorded is the operation and not the reason for it. A file arriving in a personal cloud folder, on an external disk or in a second account looks identical whether someone put it there deliberately or a sync client, a backup agent, a roaming profile or a mail rule did what it was configured to do months earlier. Telling those apart takes the configuration that was in force at the time, and a pattern across many files and dates rather than one copy event. Where the configuration cannot be established from the material, the two explanations are not separable, and that is what I report.</p>
-</section>
-
-<section class="cl"><span class="n">5.2</span>
-<h3>Deleted data, and why recovery is conditional</h3>
-<p>Whether deleted data comes back is decided by the medium, not by how hard anyone tries. On a conventional hard disk, deleting a file commonly unlinks it while the content stays in unallocated space until something reuses it, and recovery there is routine. Solid-state storage behaves differently. The controller is told the blocks are free and erases them on its own schedule, independently of the operating system, so by the time a drive reaches me the content is frequently gone at the hardware level and no tool, budget or effort returns it. Full-disk encryption closes the door another way, since unallocated space is then ciphertext with no structure to carve.</p>
-<p>The same thing happens a level up, inside applications. Messages and browser history live in databases that mark a deleted row free and keep it until the space is reused, or until a vacuum operation rewrites the file. Several applications run that automatically, with no user involvement. Often the better prospect is not the medium the file was deleted from at all: it is a backup, a shadow copy, a synchronised second device, or the counterparty's own copy of the same message.</p>
-<p><span class="cond">Before you pay for an attempt I set out what the medium and its encryption state permit, and which other source is the better prospect. That is a statement about conditions and not a prediction of the result. An attempt that recovers nothing bills exactly as one that recovers everything.</span></p>
-</section>
-
-<section class="cl"><span class="n">5.3</span>
-<h3>Cloud logs record access, not content</h3>
-<p>A cloud audit record says that an operation of a stated type was performed against a named object at a stated time by a named principal. It does not contain the message, the document, or the version as it stood at that moment. Whether the content can be produced is a question about retention, versioning, licence tier and whether a hold was in place. The log does not answer it.</p>
-<p>Two gaps here are common enough to be worth checking in your own tenant today rather than during an incident, against your own licence and your provider's current documentation, because both move. In Microsoft 365, <span class="v">MailItemsAccessed</span> is the record showing which messages were actually accessed, which makes it the record that governs what has to be notified. It depends on audit licence tier and on the audit configuration in force at the time, and it is absent from many tenants that assume they have it. In AWS, CloudTrail data events record object-level access; they are not enabled by default and are billed separately when they are. Enabling either during an incident logs forward only and recovers nothing. Audit pipelines also throttle and truncate under load, so a quiet period in a log can turn out to be a quiet period in the pipeline.</p>
-</section>
-
-<section class="cl"><span class="n">5.4</span>
-<h3>Encrypted, partial and defended data</h3>
-<p>An encrypted volume with no key and no recovery credential is not going to open, and the money is better spent locating the key. Mobile and cloud acquisitions are logical and partial by nature. What can be obtained depends on the handset, the operating system version, the state the device was in when it was seized, and the tooling available that month, and it moves in both directions over time. A result achieved on one device last year is not a promise about this one, which is why deeper mobile extraction is quoted only after the handset has been inspected.</p>
-<p>Anti-forensic tooling exists, it is freely available, and it sometimes works. Its use sometimes leaves recognisable traces and sometimes leaves none. Where I find traces I report them as what they are. Where I find none, I do not offer that as proof that nothing was done.</p>
-</section>
-
-<section class="cl"><span class="n">6</span>
-<h2>Automated output is not a finding</h2>
-<p>Forensic suites present interpretations as facts. A column headed "USB inserted" reads better than a column headed "this tool's current parse of a partly documented structure". Different tools parse the same structure differently, behaviour changes between versions, and two reputable products disagreeing about one artefact is unremarkable. That disagreement is itself information, and the tool version is part of the finding.</p>
-<p>For any finding that matters I read behind the output to the underlying structure, record the tool and version, and state what I examined directly rather than accepted from a report pane. Carved data needs particular care. It arrives with no filename, no path and no filesystem timestamp, carrying only what the file itself contains, and a carved fragment tabulated beside ordinary files implies a context it does not have. Rule 702(d) of the Federal Rules of Evidence requires that the opinion reflects a reliable application of the principles and methods to the facts of the case. An output nobody has read behind is not an application of a method.</p>
-</section>
-
-<section class="cl"><span class="n">7</span>
-<h2>What can be established well</h2>
-<p>Everything above is the constraint. This is the other half of the same ledger: what an examination does establish, with the reach of each line printed beside it.</p>
+<section>
+<h2>What an examination does establish</h2>
+<p>You end up holding a written report, each finding carrying its own reach in this language, the verified image, and where needed a declaration.</p>
 <div class="tw">
 <table class="ledger">
   <caption>Capability — with reach</caption>
   <thead><tr><th style="width:24%">What I can establish</th><th style="width:38%">On what basis</th><th style="width:38%">What this does not establish</th></tr></thead>
   <tbody>
-    <tr><td>That a copy corresponds to its source</td><td>A digest computed at acquisition, compared against the image and re-verified before analysis and before production, with algorithm and tool version recorded.</td><td class="not">That the source was unaltered before I reached it, and nothing whatever about who created the content.</td></tr>
-    <tr><td>That a file was present, with its content, at acquisition</td><td>Direct examination of the working copy, with location and recovery route stated.</td><td class="not">How it arrived, who put it there, whether it was ever opened, or whether copies exist elsewhere.</td></tr>
-    <tr><td>The sequence of events</td><td>Ordering corroborated across several independently generated artefacts, which is often sound even where absolute times are not.</td><td class="not">The cause of the sequence or the person behind it. An order of events is not a chain of responsibility.</td></tr>
-    <tr><td>That material was removed, and by what mechanism</td><td>Journal and recycle records, wipe-utility artefacts, reset and reinstallation records, retention rules in force.</td><td class="not">Intent. Where routine expiry and deliberate destruction look alike, I report that they cannot be separated.</td></tr>
-    <tr><td>That an account behaved unlike itself</td><td>A baseline from the account's own history, against which the disputed activity is compared.</td><td class="not">Who held the credential. Departure from a baseline is a reason to look further, not an identification.</td></tr>
-    <tr><td>What a system could record, and did not</td><td>Configuration, licence tier, retention settings and log state as they stood, read from the tenant rather than assumed.</td><td class="not">The content of what went unrecorded. It defines the boundary of the record; it does not extend it.</td></tr>
-    <tr><td>Whether an opposing report is supported by its own material</td><td>Each material finding marked supported, partly supported, unsupported or untestable, with the questions to put.</td><td class="not">That the conclusion is wrong. An unsupported finding may still be true, and I say so in those words.</td></tr>
+    <tr><td>That a copy corresponds to its source</td><td>A digest taken at acquisition, re-verified before analysis and before production.</td><td class="not">That the source was unaltered before I reached it.</td></tr>
+    <tr><td>The sequence of events</td><td>Ordering corroborated across independent artefacts, often sound where absolute times are not.</td><td class="not">The cause, or the person behind it.</td></tr>
+    <tr><td>That material was removed, and how</td><td>Journal and recycle records, wipe-utility artefacts, reset records, retention rules.</td><td class="not">Intent, which is for the court.</td></tr>
+    <tr><td>That an account behaved unlike itself</td><td>A baseline built from the account's own history.</td><td class="not">Who held the credential.</td></tr>
+    <tr><td>Whether an opposing report is supported by its own material</td><td>Each finding marked supported, partly supported, unsupported or untestable.</td><td class="not">That the conclusion is wrong.</td></tr>
   </tbody>
 </table>
 </div>
+<p><span class="cond">Where a matter requires an attribution opinion or a certified examiner, that is stated in the engagement letter before work starts.</span></p>
 </section>
 
-<section class="cl"><span class="n">8</span>
-<h2>Asking a question the evidence can answer</h2>
-<p>An instruction the evidence cannot answer as posed can often be reshaped into one it can, because the commercial question underneath is usually narrower than the question that reaches the examiner. This is the translation I would work through with you on the scoping call, which is not charged for.</p>
-<div class="tw">
-<table class="ledger">
-  <caption>The question as posed — and what it can be turned into</caption>
-  <thead><tr><th style="width:22%">The question as posed</th><th style="width:40%">What can actually be established</th><th style="width:38%">What this does not establish</th></tr></thead>
-  <tbody>
-    <tr><td>"Did he take our client list?"</td><td>Whether the file existed, whether it was opened in the period, whether a removable device was attached, and whether an upload, webmail attachment or personal-account sync is recorded at either end.<span class="cond">Ask instead: what records of movement of these named files exist between these dates, across these devices and accounts?</span></td><td class="not">That a named person did any of it, or that a copy reached a competitor. The receiving end is usually outside my reach and inside discovery.</td></tr>
-    <tr><td>"Prove this email is genuine."</td><td>Whether the headers are internally consistent, whether both mail systems hold matching items and transport records, and whether the produced copy matches the mailbox item.<span class="cond">Ask instead: is the produced copy consistent with the records held by both mail systems?</span></td><td class="not">That the account was operated by the person named on it. Where only a printed copy or a PDF exists, alteration before capture cannot be excluded.</td></tr>
-    <tr><td>"When was this photograph taken?"</td><td>What the embedded metadata records, whether the file's own times and the device's records corroborate it, and whether the image is consistent with the camera it claims.<span class="cond">Ask instead: is the stated date corroborated by anything outside the file itself?</span></td><td class="not">Truth of the embedded fields, which are writable and are rewritten by ordinary editing, messaging and social platforms.</td></tr>
-    <tr><td>"Did they wipe the machine?"</td><td>Whether a wiping utility ran and when, whether the system was reset or reinstalled, what survives from before that point, and what retention would have deleted anyway.<span class="cond">Ask instead: what was destroyed, when, by what mechanism, and what can be replaced from another source?</span></td><td class="not">Intent to deprive, which is a finding for the court on the whole record, not for an examiner on the artefacts.</td></tr>
-    <tr><td>"Can you recover everything deleted last year?"</td><td>What the specific medium, filesystem and encryption state permit, and what is held in backups, shadow copies, a synchronised second device, and by other custodians.<span class="cond">Ask instead: for these specific items, what is the realistic prospect of recovery, and from which source?</span></td><td class="not">A year of deletions. On modern encrypted flash storage the honest expectation is that most of it is unrecoverable at any price.</td></tr>
-    <tr><td>"Who was at the keyboard?"</td><td>Which session and credential were in use, which device, from where, and whether the activity is consistent or inconsistent with the person suggested.<span class="cond">Ask instead: what would an attribution opinion require here, and is that material available?</span></td><td class="not">Identity. This is the one question on the list that device evidence alone does not answer, and further examination does not change that.</td></tr>
-  </tbody>
-</table>
-</div>
+<section>
+<h2>Ask a question the evidence can answer</h2>
+<p>Most instructions can be reshaped into something the data reaches. I do that on the scoping call, which is not charged for.</p>
+<ul>
+<li><strong>"Did he take our client list?"</strong> → What movement of these named files is recorded, between these dates, across these devices and accounts?</li>
+<li><strong>"Prove this email is genuine."</strong> → Is the produced copy consistent with the records held by both mail systems?</li>
+<li><strong>"Who was at the keyboard?"</strong> → What would an attribution opinion require, and does that material exist?</li>
+</ul>
 </section>
 
-<section class="cl"><span class="n">9</span>
-<h2>The commitment this page represents</h2>
+<section>
 <div class="note seal">
-<p>I report what the evidence supports, including when it supports nothing, or supports the other side. The fee is the same either way. That is a worse outcome for me and a perfectly good one for you, and it is the reason this is worth commissioning rather than taking my word for it.</p>
+<p>I report what the evidence supports, including when it supports nothing, or supports the other side. The fee is the same either way.</p>
 </div>
-<p>The rate is fixed before I look at anything and it does not move with what I find, so I have no reason to stretch a finding past its reach. The scoping call is not charged for. Neither is the call that ends with me saying the data cannot answer your question, or that you do not need a forensic examiner at all.</p>
-<p>How I produce these findings is on the <a href="{{ '/method/' | relative_url }}">method</a> page, and what they cost is on the <a href="{{ '/rates/' | relative_url }}">rates</a> page. The services I take on, and the ones I refer out, are on the <a href="{{ '/scope/' | relative_url }}">scope</a> page.</p>
+<p>The rate is fixed before I look at anything, so I have no reason to stretch a finding past its reach.</p>
+<p>Ring me on <a class="call" href="tel:+19172177975"><b>917-217-7975</b></a> and I will tell you whether this is even a forensics problem. That call is free, and so is the one that ends with me saying you do not need an examiner. Or use the <a href="/contact/">contact</a> form.</p>
+<p><a href="{{ '/method/' | relative_url }}">Method</a> · <a href="{{ '/rates/' | relative_url }}">rates</a> · <a href="{{ '/scope/' | relative_url }}">scope</a>.</p>
 </section>

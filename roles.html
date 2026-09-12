@@ -1,191 +1,99 @@
 ---
 layout: default
 title: "Instruction roles"
-lede: "There are four ways to instruct a forensic examiner, and they carry different discovery obligations. Your lawyer picks the role, not me. But it has to be picked before the first artefact is touched, because choosing it afterwards decides nothing and discloses everything."
-description: "The four roles a digital forensic examiner can be instructed in: testifying expert, consulting expert, appointed neutral and technical adviser to counsel. What is discoverable in each, what protection exists, and the honest limit of that protection under FRCP 26(b)(4)."
+lede: "Four ways to instruct a forensic examiner, and they carry different discovery obligations. Your lawyer picks the role — but it has to be picked before the first artefact is touched."
+description: "The four roles a digital forensic examiner can be instructed in: testifying expert, consulting expert, appointed neutral and technical adviser to counsel. Who instructs, what is discoverable, what you end up holding."
 permalink: /roles/
 doc_id: WW-F-008
-version: "1.0"
+version: "1.1"
 issued: 2026-09-11
 revised: 2026-09-11
 scope: "Instruction roles and discovery posture"
 authority: Principal
-content_sha256: 9bef2ebdb3bad755db9ecab0109d500cf6a818139848587eccdd0f9672a78784
+content_sha256: 69c0670855c04ec01efe57d4241df7c3fc481ef7052b65eeb215e706108b727b
 ---
 
-<section class="cl"><span class="n">1</span>
-<h2>The role is a decision, and it is made first</h2>
-<p>The same examination can be commissioned four different ways, and the technical work barely changes between them. What changes is who instructs me, who I report to, what an opponent can later demand, and what I am obliged to hand over before anyone thinks to ask for it.</p>
-<p>So I ask which role applies on the first call, before I touch anything. Notes, search terms, interim positions, the hypotheses that went nowhere: all of it is generated under whatever role was in force at the time I wrote it, and a matter that starts as an internal enquiry and turns into a testifying engagement carries the whole file forward with it. That sounds like paperwork until the week it decides what an opponent gets.</p>
-<p>I do not decide the role. Your lawyer does, and it is a legal decision about privilege, disclosure and litigation posture rather than a technical one. What I do is set out the consequences of each choice before the choice is made, then work consistently with the one you pick.</p>
-</section>
+<section>
+<h2>Four ways to instruct me</h2>
+<p>Pick the role before I touch anything. The notes and dead ends I write on day one are governed by the role in force then, and they travel with the file.</p>
 
-<section class="cl"><span class="n">1.1</span>
-<h3>Who the client is, in each case</h3>
-<p>The client is the party that signs the engagement letter and is named in it. Where counsel retains me on behalf of a party, counsel is the client and the party is the beneficiary. Where a company retains me directly, the company is the client and its lawyers are not. That is not a formality, because it decides who can tell me to stop work, who can direct that material be destroyed, and who receives the report. It is written into the engagement letter in every role, including the neutral one, where the appointing order governs instead.</p>
-</section>
-
-<section class="cl"><span class="n">2</span>
-<h2>The four roles at a glance</h2>
 <div class="tw">
 <table class="ledger">
-  <caption>Instruction roles — discovery posture</caption>
+  <caption>Who instructs, what is discoverable, what you hold</caption>
   <thead><tr>
-    <th>Role</th><th>Who instructs</th><th>What is ordinarily discoverable</th><th>What this does not establish</th>
+    <th>Role</th><th>Who instructs</th><th>Ordinarily discoverable</th><th>What you end up holding</th><th>What this does not establish</th>
   </tr></thead>
   <tbody>
     <tr>
       <td>Testifying expert</td>
-      <td>Counsel for a party, or the party</td>
-      <td>The report and its bases; facts and data considered, whatever their source; exhibits; the compensation arrangement; the examiner personally, at deposition</td>
-      <td class="not">That anything outside the report is protected. Drafts and most attorney communications are trial-preparation material, not an absolute privilege, and can be overcome or waived.</td>
+      <td>Counsel, or the party</td>
+      <td>Report and bases; everything considered; exhibits; my fee; me, at deposition</td>
+      <td>A signed report meeting <span class="v">FRCP 26(a)(2)(B)</span>, and my time in the chair</td>
+      <td class="not">That anything outside the report is protected.</td>
     </tr>
     <tr>
-      <td>Consulting expert<br><span class="small">non-testifying, retained for trial preparation</span></td>
-      <td>Counsel, ordinarily</td>
-      <td>Very little, absent exceptional circumstances. But the shield is conditional, and it ends if the role changes</td>
-      <td class="not">That the work is invisible. The shield covers the expert's facts and opinions; it does not conceal the underlying evidence, and it does not survive a decision to call me.</td>
+      <td>Consulting expert<br><span class="small">non-testifying</span></td>
+      <td>Counsel</td>
+      <td>Very little, absent exceptional circumstances</td>
+      <td>A written position to counsel: what the artefacts show, what they do not reach</td>
+      <td class="not">That the work is invisible. The evidence stays discoverable.</td>
     </tr>
     <tr>
-      <td>Appointed neutral or court-appointed examiner</td>
-      <td>Both parties jointly, or the court by order</td>
-      <td>Everything. The protocol, the findings and the examiner are available to all parties and to the court</td>
-      <td class="not">That the appointment makes a finding more likely to be accepted. A neutral's opinion is contestable on the same grounds as any other.</td>
+      <td>Appointed neutral</td>
+      <td>Both parties jointly, or the court</td>
+      <td>Everything — protocol, notes, findings, examiner</td>
+      <td>The protocol and the findings, to every party and the court</td>
+      <td class="not">That an appointment makes a finding harder to contest.</td>
     </tr>
     <tr>
-      <td>Technical adviser to counsel<br><span class="small">non-testifying, no opinion offered</span></td>
+      <td>Rebuttal or second opinion</td>
+      <td>Counsel, either footing above</td>
+      <td>Whichever row above applies</td>
+      <td>Each finding marked supported, partly supported, unsupported or untestable, and the questions to put</td>
+      <td class="not">That untestable means wrong — usually the method was unreproducible.</td>
+    </tr>
+    <tr>
+      <td>Technical adviser<br><span class="small">no examination, no opinion</span></td>
       <td>Counsel only</td>
-      <td>Ordinarily nothing, where the work stays advisory and no opinion is disclosed or relied upon</td>
-      <td class="not">That advice is privileged because I gave it. Protection depends on how the engagement is structured, and that is counsel's call, not mine.</td>
+      <td>Ordinarily nothing, while it stays advisory</td>
+      <td>A memorandum, deposition questions, or a mark-up of an ESI protocol</td>
+      <td class="not">That advice is privileged because I gave it. Structure decides that, not me.</td>
     </tr>
   </tbody>
 </table>
 </div>
-<p class="small">In a state court, the position in the last two columns is checked against that state's own rules before the engagement letter is signed. Some states track the federal position closely. Some do not, and in those the protection of drafts and of communications with counsel can be materially narrower, or absent altogether.</p>
+<p class="small">Neutral appointments run under <span class="v">FRE 706</span>, or <span class="v">FRCP 53</span> for a supervised protocol; the appointing order governs, not my letter.</p>
 </section>
 
-<section class="cl"><span class="n">3</span>
-<h2>Testifying expert</h2>
-<p>A testifying expert is disclosed, produces a report, and is available to be deposed and cross-examined. <span class="v">FRCP 26(a)(2)(B)</span> sets out what the report has to contain: a complete statement of the opinions and the bases and reasons for them, the facts or data considered in forming them, any exhibits, the witness's qualifications including a list of all publications authored in the previous ten years, a list of all other cases in which the witness testified as an expert at trial or by deposition during the previous four years, and a statement of the compensation to be paid for the study and testimony. The witness who did the work prepares and signs it. <span class="v">26(a)(2)(C)</span> is the lighter disclosure that applies to an expert witness who is not required to provide a written report. Timing runs under <span class="v">26(a)(2)(D)</span> absent a stipulation or a court order, and those defaults are displaced often enough that I work to the date in the scheduling order rather than to the general rule.</p>
-<p>One word in that rule governs how I work from the first day. <span class="v">26(a)(2)(B)(ii)</span> reaches facts and data <em>considered</em>, not merely those relied upon, so the material I looked at and put aside is inside the disclosure too. My notes, the tool inventory with versions, the search terms and filter criteria, the hypotheses I abandoned: I keep all of it on the assumption that it will be produced, and I write it while the work is happening rather than reconstructing it afterwards from memory.</p>
-<p><span class="cond">Where a matter requires a previously qualified testifying expert, that requirement is identified at scoping, named in the engagement letter, and either met by associating a qualified examiner or the matter is declined.</span></p>
+<section>
+<h2>Before you choose</h2>
+<p><b>Protection is qualified, never absolute.</b> <span class="v">FRCP 26(b)(4)(B)</span> covers draft reports, <span class="v">26(b)(4)(C)</span> attorney–expert communications — both trial-preparation material, overcome-able and easily waived. Three carve-outs always get through: my fee, facts counsel supplied that I considered, assumptions counsel supplied that I relied on. So I log counsel's material apart from the artefacts and my notes.</p>
+<p><b>The consulting shield ends if the role does.</b> It covers my facts and opinions, not the evidence. And where an examination consumes what it examines — volatile memory, a one-attempt extraction — the exceptional-circumstances exception has teeth. I say so first.</p>
+<p><b>State practice differs.</b> New York runs under <span class="v">CPLR 3101(d)</span>, not a federal-form report, and remains a <i>Frye</i> jurisdiction. I check your venue at engagement and state it in the letter.</p>
 </section>
 
-<section class="cl"><span class="n">3.1</span>
-<h3>What is protected, and the honest limit</h3>
-<p><span class="v">FRCP 26(b)(4)(B)</span> protects drafts of any report or disclosure, regardless of the form in which the draft is recorded. <span class="v">26(b)(4)(C)</span> protects communications between the party's attorney and a witness who is required to provide a report under <span class="v">26(a)(2)(B)</span>, subject to three carve-outs. It does not reach a testifying witness who falls outside the report requirement, which is one reason the disclosure category is settled at engagement instead of assumed. The carve-outs are these. Discovery is permitted into compensation for the study or testimony; into facts or data that the attorney provided and the expert considered in forming opinions; and into assumptions that the attorney provided and the expert relied on.</p>
-<p>The limit is in the mechanism, and it is weaker than most people expect. Both protections operate by treating the material as trial-preparation material, which is a qualified protection and not an absolute one. It can be overcome on the showing the rules allow, and it can be waived by what is done with the material afterwards. An expert who forwards a draft to a third party has made the protection considerably harder to assert. So has an expert whose file mixes counsel's assumptions into the working notes until the two cannot be pulled apart again.</p>
-<p>So I segregate. Material supplied by counsel is logged on arrival and kept in its own set, away from the artefacts and away from my own notes, so the three carve-outs can be honoured precisely without sweeping in drafts and communications that are protected. It is more bookkeeping than the work strictly needs, right up to the day someone asks for exactly one of those three categories.</p>
-<div class="tw">
-<table class="ledger">
-  <caption>Material handling in a testifying engagement</caption>
-  <thead><tr>
-    <th>Material</th><th>How it is held</th><th>What this does not establish</th>
-  </tr></thead>
-  <tbody>
-    <tr>
-      <td>Facts or data provided by counsel</td>
-      <td>Logged on receipt with date, source and form; held in a separate set; listed as considered</td>
-      <td class="not">That the log is complete on its own. Anything I looked at is disclosed whether or not it appears there.</td>
-    </tr>
-    <tr>
-      <td>Assumptions provided by counsel and relied on</td>
-      <td>Recorded as assumptions in the report, attributed, and marked where the opinion turns on one</td>
-      <td class="not">That the assumption is true. I state what an opinion depends on; whether the dependency holds is for the record, not the examiner.</td>
-    </tr>
-    <tr>
-      <td>Compensation</td>
-      <td>Stated in the report from the published rate schedule in force at the engagement date</td>
-      <td class="not">That the fee bears on the merits. The rate is the same whichever side retains me and does not move with what I find.</td>
-    </tr>
-    <tr>
-      <td>Report drafts</td>
-      <td>Retained, version-numbered, not circulated outside counsel and the examiner</td>
-      <td class="not">That drafts are beyond reach. The protection is qualified, and it is counsel's to assert or waive.</td>
-    </tr>
-    <tr>
-      <td>Working notes, tool versions, search terms, discarded hypotheses</td>
-      <td>Kept contemporaneously, on the assumption they will be produced</td>
-      <td class="not">That a tidy file is a better file. A note written afterwards is worth less than an honest one written at the time.</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</section>
-
-<section class="cl"><span class="n">3.2</span>
-<h3>What changes about how I work</h3>
-<p>Everything is written to be read by someone trying to break it. Each sentence in the report maps to something verified, and each finding carries its own limit in the same paragraph rather than in a disclaimer at the end. Where I produce a timeline, I say whether it is an illustrative aid or a computed summary of voluminous material, because the two are treated differently and an examiner who leaves it ambiguous has started an argument about the exhibit instead of the evidence. Deposition and testimony time is billed to the retaining party irrespective of the outcome and irrespective of whether the testimony helps them. Under <span class="v">FRCP 26(b)(4)(E)</span> the party seeking the discovery ordinarily pays the expert's reasonable fee for time spent responding to it, absent manifest injustice.</p>
-</section>
-
-<section class="cl"><span class="n">4</span>
-<h2>Consulting expert</h2>
-<p>A consulting expert is retained in anticipation of litigation or to prepare for trial, and is not expected to testify. Under <span class="v">FRCP 26(b)(4)(D)</span> the facts known and opinions held by such an expert are ordinarily not discoverable by interrogatory or deposition, except as provided in Rule 35(b) or on a showing of exceptional circumstances under which it is impracticable for the other side to obtain facts or opinions on the same subject by other means.</p>
-<p>Two honest limits belong next to that sentence. The first is that the shield covers my facts and opinions, not the evidence. A device, a mailbox or a log is discoverable on its own terms no matter who examined it, and your preservation obligation is unaffected by the role I was retained in. The second is that the exceptional-circumstances exception has real content in this field. Where an examination consumes the thing being examined — a volatile memory capture, a one-attempt extraction, a live system since rebuilt — the argument that equivalent facts cannot be obtained by other means gets considerably stronger. I flag that before I take the step, not after.</p>
-<p>And the role can change. If counsel later decides to call me, the consulting shield does not travel across with me; the work becomes a testifying expert's work, with the obligations in clause 3 applying to it. Which is why a consulting engagement is documented to the same standard as a testifying one, even when both of us expect the file will never be read by anyone else.</p>
-</section>
-
-<section class="cl"><span class="n">4.1</span>
-<h3>The deliverable</h3>
-<p>Usually a written position to counsel rather than a report in the <span class="v">26(a)(2)(B)</span> form. What the artefacts show, what they do not reach, what further work would cost and what it could and could not resolve. I write it so that it could become the spine of a disclosed report without being rewritten, because the alternative is a document that says one thing in private and something more careful in public.</p>
-</section>
-
-<section class="cl"><span class="n">5</span>
-<h2>Appointed neutral or court-appointed examiner</h2>
-<p>A neutral is appointed by both parties jointly, by stipulation, or by the court: under <span class="v">FRE 706</span> for a court-appointed expert witness, or as a special master under <span class="v">FRCP 53</span> where the appointment is to supervise a protocol rather than to give an opinion. The appointing instrument governs, not my engagement letter. It sets the scope of the work, who receives the findings, and how disputes about the protocol are resolved.</p>
-<p>Nothing in this role is protected from the parties or from the court. The protocol, the search terms, the working notes, the findings, all of it goes to every party and to the court, subject only to whatever the appointing instrument says about disclosure beyond them. Under <span class="v">FRE 706(b)</span> a court-appointed expert must advise the parties of any findings, may be deposed by any party, may be called to testify by the court or any party, and may be cross-examined by any party, including the party that called the expert. I write the whole file on that basis from the first hour.</p>
-<p><span class="cond">I accept an appointed-neutral role only where both parties or the court appoint me, and I do not act as neutral in a matter where I have advised either side.</span></p>
-<p>Before accepting, I ask for a written and agreed protocol: what is searched, what is not, and what happens to material that falls outside the scope. I ask for a defined route for privilege, which means I flag and segregate rather than adjudicate, and anything flagged goes to counsel or to the court instead of to the requesting party. And I ask that the compensation arrangement be settled in the order, because a neutral paid by one side is an argument waiting to be made.</p>
-</section>
-
-<section class="cl"><span class="n">6</span>
-<h2>Rebuttal or second-opinion examiner</h2>
-<p>In form this is a testifying or consulting engagement, and the discovery posture is whichever of clause 3 or clause 4 applies. What differs is the subject matter, which is another examiner's work rather than the evidence directly. It gets its own clause here because its limits are specific.</p>
-<p>A first-pass review marks each material finding as supported, partly supported, unsupported or untestable on the material provided, and sets out the questions to put. The fourth category does most of the work. A finding is untestable where the underlying artefacts were not produced, where the method was not described in enough detail to reproduce, or where the examination itself altered or consumed what would be needed to check it. Untestable is not a synonym for wrong, and I will not let it drift into one, however much stronger the letter would read.</p>
-<p>Where the review goes further and I re-examine the original artefacts rather than the report, that is an examination in its own right, hourly against a written ceiling, and it carries its own limits. One of them is worth naming. Where the work under review was an internal IT investigation, part of what has to be assessed is what that investigation itself overwrote, and the answer is sometimes that the question can no longer be answered by anyone.</p>
-</section>
-
-<section class="cl"><span class="n">7</span>
-<h2>Technical adviser to counsel</h2>
-<p>Here I do not examine and I do not opine. The work is helping counsel see what the other side's technical position actually asserts, drafting the technical parts of requests and responses, preparing questions for the deposition of an opposing examiner, and reading an ESI protocol for the thing it quietly makes impossible. Advising on what a proposed search would and would not capture tends to be the same conversation. The deliverable is usually a memorandum, a question list or a mark-up.</p>
-<p>Two boundaries on it. The role is meant to stay advisory, and the moment an opinion is disclosed or relied upon it has stopped being advisory, so I say so rather than letting it drift. And I do not draft the substance of an expert's report for anyone. An examiner signs their own work, in every role on this page.</p>
-</section>
-
-<section class="cl"><span class="n">8</span>
-<h2>Privilege, and its honest limit</h2>
+<section>
+<h2>Privilege</h2>
 <div class="note seal">
-<p>Where privilege matters, counsel usually prefers to retain me directly, scoped to the legal question and paid from the legal budget, with distribution controlled and any business-remediation workstream kept separate from the litigation report. How the engagement is structured is a decision for your lawyer and I will paper it either way. What I will not tell you is that involving me makes anything privileged. Forensic reports are not automatically work product; courts have ordered them produced. I can structure my work to support a privilege claim. I cannot promise one holds.</p>
+<p>Involving me does not make anything privileged. Forensic reports are not automatically work product; courts have ordered them produced, usually where one report served both the litigation and the remediation. Separate workstreams and a distribution list I keep to support the claim. I cannot promise it holds.</p>
 </div>
-<p>What I can do is keep the structure clean enough that the claim is capable of being made. Where a single report serves both the litigation question and the business's remediation programme, the argument that it was prepared because of the litigation becomes much harder to sustain, and that dual purpose is what courts have examined when ordering a forensic report produced. Two workstreams, separately scoped and separately distributed, is not a trick. It is an accurate description of two different pieces of work. I keep a distribution list and I do not circulate beyond it. Where the court will enter an order under <span class="v">FRE 502(d)</span>, I work under it and say so. Where privileged material turns up in the middle of an examination, I flag it and segregate it rather than ruling on it: I apply the protocol, counsel or the court makes the call.</p>
 </section>
 
-<section class="cl"><span class="n">8.1</span>
-<h3>State practice differs, so I check rather than assume</h3>
-<p>The protections described in clause 3.1 and clause 4 are the federal position, and state practice is not uniform. Some states have adopted rules that track the 2010 federal amendments on draft reports and attorney–expert communications. Some have not, and in those jurisdictions drafts and communications with counsel may be discoverable to a degree they would not be in federal court.</p>
-<p>Expert disclosure can also differ in kind rather than in detail. New York state practice runs under <span class="v">CPLR 3101(d)</span>, which does not itself require a written report of the federal kind; it calls instead for a statement in reasonable detail of the subject matter, the substance of the facts and opinions, the expert's qualifications and a summary of the grounds for the opinion. Individual courts then add to that, and the Commercial Division rules on expert disclosure are the ones most likely to reach a matter of this kind. So the requirement is read for the venue rather than assumed from the statute. I check the position for your venue at engagement and state it in the engagement letter. I do not publish a state-by-state table, because the position moves and a stale table is worse than none.</p>
-<p>The same discipline applies to the admissibility standard. New York remains a <i>Frye</i> jurisdiction; the federal courts apply <span class="v">FRE 702</span> as amended effective <span class="v">2023-12-01</span>. Which standard your venue applies changes what the report has to demonstrate about method, so it is checked at engagement rather than assumed.</p>
-</section>
-
-<section class="cl"><span class="n">9</span>
-<h2>When the role changes mid-matter</h2>
-<p>A role can change after the file has been opened, and the failure mode is silence. If counsel decides to disclose me after a period of consulting work, or a party proposes that a jointly instructed examination become a testifying one, I say in writing what that does to the file as it already stands: which material becomes disclosable, which protections do not survive the change, and what cannot be undone. Then counsel decides with the position in front of them rather than in retrospect.</p>
-<p>A conflict surfacing mid-matter is settled differently, and immediately. Work stops. The evidence is sequestered unexamined, the retaining party is told the same day, material is returned or destroyed on instruction, and the unearned balance is refunded in full. Nothing I have learned is disclosed to anyone, including to the party the conflict runs to.</p>
-</section>
-
-<section class="cl"><span class="n">10</span>
-<h2>In every one of these roles</h2>
+<section>
+<h2>If the role changes</h2>
+<p>I put in writing what it does to the file as it stands: what becomes disclosable, what protection does not survive, what cannot be undone.</p>
+<p>A conflict stops the work that day: evidence sequestered unexamined, unearned balance refunded in full.</p>
 <div class="refuse">
 <h2>I will not</h2>
 <ol>
-  <li>Take a fee that depends on what I find, on the outcome of the matter, or on which side retains me. The rate is the same either way and it is set before I look at anything.</li>
-  <li>Act for both sides in a matter, or act as an appointed neutral where I have advised either side.</li>
-  <li>Write to a conclusion supplied in advance, or report an inference as a finding because a stronger letter is wanted.</li>
-  <li>Opine on who was at the keyboard from device evidence alone. A device is not a person. Nor will I opine that a party acted with intent to destroy evidence: I report what the artefacts show, and intent is the court's finding.</li>
-  <li>Take a matter that requires a certification, a licence or a qualification I do not hold. I identify that at scoping, name it in the engagement letter, and either bring in someone who holds it or decline.</li>
-  <li>Promise you a finding, a recovered file, an unlocked handset, or that anything I produce will be admitted. Admissibility is the court's decision and no one can guarantee it.</li>
+  <li>Take a fee that turns on what I find, the outcome, or which side retains me.</li>
+  <li>Act for both sides, or act as neutral where I have advised either side.</li>
+  <li>Opine on who was at the keyboard from device evidence alone, or on intent to destroy.</li>
+  <li>Take a matter needing a qualification I do not hold. <span class="cond">Where a matter requires a certified examiner, that is named in the engagement letter, or the matter is declined.</span></li>
 </ol>
 </div>
-<p class="small">The full list is published on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a> and repeated verbatim in the engagement letter.</p>
+<p class="small">Full list on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a> and in the engagement letter.</p>
+<p><b>Not sure which role you need?</b> Ring me on <span class="v">917-217-7975</span> and I will tell you what each one costs you in discovery before your lawyer decides.</p>
 <div class="acts">
   <a class="btn" href="{{ '/engagement/' | relative_url }}">Engagement terms</a>
   <a class="btn" href="{{ '/method/' | relative_url }}">The method</a>

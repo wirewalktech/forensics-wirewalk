@@ -1,0 +1,198 @@
+---
+layout: default
+title: Order
+lede: >-
+  Fixed prices, orderable now. Card, bank transfer or a purchase order.
+description: >-
+  Order forensic imaging, mobile and cloud collection, examinations, emergency
+  mobilisation and readiness work. Fixed prices, no discovery call required.
+permalink: /order/
+doc_id: WW-F-018
+version: "1.0"
+issued: 2026-09-12
+revised: 2026-09-12
+scope: Orderable services
+authority: Principal
+content_sha256: 9508f8e17f98e5169a65306cb4d9d39782999bc1b63756ff5d4f93370ed1f6be
+---
+
+<div id="cat"><p class="small">Loading services&hellip;</p></div>
+
+<div id="form" hidden>
+  <h2 id="checkout">Your details</h2>
+  <div class="chosen" id="chosen"></div>
+  <div class="f2">
+    <div class="fl"><label for="o-name">Name</label><input id="o-name" type="text" autocomplete="name"></div>
+    <div class="fl"><label for="o-email">Email</label><input id="o-email" type="email" autocomplete="email"></div>
+  </div>
+  <div class="f2">
+    <div class="fl"><label for="o-org">Firm or company <span class="h">&mdash; optional</span></label>
+      <input id="o-org" type="text" autocomplete="organization"></div>
+    <div class="fl"><label for="o-ref">Your reference <span class="h">&mdash; matter or PO number, optional</span></label>
+      <input id="o-ref" type="text"></div>
+  </div>
+  <div id="ts"></div>
+  <button id="go" class="btn pay" disabled>Continue to payment</button>
+  <p class="small" style="margin-top:10px">Payment is handled by Stripe. Card details never reach
+  this site. Nothing starts until a conflicts check clears and an engagement letter is signed
+  &mdash; if a conflict turns up, the payment is returned in full.</p>
+  <div id="omsg" class="omsg" hidden></div>
+</div>
+
+<div class="note" style="margin-top:30px">
+  <p style="margin:0"><b>Not sure which one?</b> Ring <a href="tel:+19172177975">917-217-7975</a>
+  and I will tell you what the job actually needs, including when it is less than you think.
+  Analysis and opinion work beyond these fixed items runs at $425/hr against a ceiling you set.</p>
+</div>
+
+<style>
+/* Phone first. Cards, not a table: a four-column price table on a 390px screen
+   crushes the description into a column nobody reads. */
+.grp{margin:26px 0 0}
+.grp>h2{margin:0 0 4px}
+.grp>p.note-l{margin:0 0 14px;color:var(--ink-2);font-size:14.5px}
+.svc{border:1px solid var(--rule);background:var(--label-stock);border-radius:4px;
+  padding:16px 17px;margin:0 0 10px}
+.svc h3{margin:0 0 6px;font-size:16.5px;font-family:var(--sans)}
+.svc p{margin:0 0 12px;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.svc .px{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--ink);
+  display:block;margin:0 0 12px}
+.svc .px s{text-decoration:none;font-family:var(--sans);font-size:13px;font-weight:400;
+  color:var(--ink-2);display:block;margin-top:2px}
+.svc .acts{display:flex;gap:8px;flex-wrap:wrap;margin:0}
+.svc .acts button{flex:1 1 auto;min-width:44%;min-height:46px;font:600 14.5px/1 var(--sans);
+  padding:12px 14px;border-radius:4px;border:1px solid var(--rule);background:#fff;
+  color:var(--ink);cursor:pointer}
+.svc .acts button:hover{border-color:var(--annotation);color:var(--annotation)}
+.svc .acts button.pay{background:var(--seal);border-color:var(--seal);color:#fff}
+.svc .acts button.pay:hover{background:#8e3f24;color:#fff}
+@media(min-width:720px){
+  .svc{display:grid;grid-template-columns:1fr 210px;gap:20px;align-items:start}
+  .svc .head{grid-column:1}
+  .svc .side{grid-column:2}
+  .svc .acts button{min-width:100%}
+}
+.chosen{border-left:3px solid var(--seal);background:var(--kraft);border-radius:0 4px 4px 0;
+  padding:12px 15px;margin:0 0 16px;font-size:15px}
+.chosen b{font-weight:650}
+.chosen button{background:none;border:0;padding:0;margin-left:10px;color:var(--annotation);
+  text-decoration:underline;cursor:pointer;font:inherit;font-size:13.5px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:620px){.f2{grid-template-columns:1fr}}
+.fl{margin:0 0 14px}
+.fl label{display:block;font-size:14px;font-weight:600;margin-bottom:5px}
+.fl label .h{font-weight:400;color:var(--ink-2)}
+.fl input{width:100%;padding:12px;font-size:16px;font-family:inherit;color:var(--ink);
+  background:#fff;border:1px solid var(--rule);border-radius:4px}
+.fl input:focus{outline:2px solid var(--annotation);outline-offset:1px}
+button.btn.pay{background:var(--seal);border:1px solid var(--seal);color:#fff;
+  min-height:48px;font-size:16px;cursor:pointer;border-radius:4px;padding:13px 22px}
+button.btn.pay:disabled{opacity:.5;cursor:default}
+.omsg{margin-top:14px;padding:12px 15px;border-radius:4px;font-size:15px}
+.omsg.bad{background:#FBEDE9;border-left:3px solid var(--seal)}
+.omsg.wait{background:var(--label-stock);border-left:3px solid var(--rule);color:var(--ink-2)}
+</style>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script>
+const API = "https://wirewalk-orders.wirewalk-upload.workers.dev";
+const SITE_KEY = "0x4AAAAAAEuBwz8OpbI3bmtE";
+const $ = s => document.querySelector(s);
+let ITEMS = [], picked = null, widgetId = null, tsToken = null;
+
+const GROUP_NOTE = {
+  acquire: "Fixed price per device or account. Hash-verified, with the custody record.",
+  examine: "Opinion work. Fixed where the scope is fixed.",
+  respond: "Mobilise tonight. Card, because a bank transfer does not clear at 2am.",
+  prepare: "Arranged while nothing is on fire.",
+};
+const GROUP_NAME = { acquire: "Get the evidence", examine: "Have it examined",
+                     respond: "Something is happening now", prepare: "Before anything happens" };
+
+fetch(API + "/catalog?practice=forensics")
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(d => { ITEMS = d.items || []; render(); })
+  .catch(() => { $("#cat").innerHTML =
+    '<p class="small">Prices could not be loaded. Ring <a href="tel:+19172177975">917-217-7975</a> ' +
+    'or email <a href="mailto:forensics@wirewalk.com">forensics@wirewalk.com</a>.</p>'; });
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function render() {
+  if (!ITEMS.length) return;
+  let html = "";
+  for (const g of ["respond", "acquire", "examine", "prepare"]) {
+    const rows = ITEMS.filter(i => i.group === g);
+    if (!rows.length) continue;
+    html += '<div class="grp"><h2>' + GROUP_NAME[g] + "</h2>" +
+            '<p class="note-l">' + GROUP_NOTE[g] + "</p>";
+    for (const i of rows) {
+      html += '<div class="svc"><div class="head"><h3>' + esc(i.name) + "</h3><p>" + esc(i.blurb) + "</p></div>" +
+        '<div class="side"><span class="px">' + esc(i.listFormatted || "Quoted") +
+        "<s>the rate does not move</s></span>" +
+        '<span class="acts">' +
+          '<button class="pay" data-sku="' + esc(i.sku) + '" data-mode="full">Pay now</button>' +
+          '<button data-sku="' + esc(i.sku) + '" data-mode="po">Purchase order</button>' +
+        "</span></div></div>";
+    }
+    html += "</div>";
+  }
+  $("#cat").innerHTML = html;
+  $("#cat").addEventListener("click", e => {
+    const b = e.target.closest("button[data-sku]");
+    if (b) choose(b.dataset.sku, b.dataset.mode);
+  });
+}
+
+/* Commit from the row you are reading. Setting a value from script does not
+   fire change, so nothing here relies on one. */
+function choose(sku, mode) {
+  const i = ITEMS.find(x => x.sku === sku);
+  if (!i) return;
+  picked = { sku, mode, name: i.name, price: i.listFormatted };
+  $("#form").hidden = false;
+  $("#chosen").innerHTML = "Ordering <b>" + esc(i.name) + "</b> &mdash; " +
+    (mode === "po" ? "on a purchase order" : "paying " + esc(i.listFormatted) + " now") +
+    '<button type="button" id="undo">change</button>';
+  $("#undo").addEventListener("click", () => { picked = null; $("#form").hidden = true;
+    window.scrollTo({ top: 0, behavior: "smooth" }); });
+  $("#go").textContent = mode === "po" ? "Request an invoice" : "Continue to payment";
+  document.querySelector("#checkout").scrollIntoView({ behavior: "smooth", block: "start" });
+  const first = [...$("#form").querySelectorAll("input")].find(el => !el.value);
+  if (first) setTimeout(() => first.focus({ preventScroll: true }), 420);
+  mountTurnstile();
+}
+
+function mountTurnstile() {
+  if (!window.turnstile || widgetId !== null) return;
+  widgetId = turnstile.render("#ts", { sitekey: SITE_KEY,
+    callback: t => { tsToken = t; $("#go").disabled = false; },
+    "expired-callback": () => { tsToken = null; $("#go").disabled = true; } });
+}
+
+function omsg(t, cls) { const m = $("#omsg"); m.hidden = !t; m.className = "omsg " + (cls || ""); m.textContent = t || ""; }
+
+$("#go").addEventListener("click", async () => {
+  if (!picked) return;
+  const name = $("#o-name").value.trim(), email = $("#o-email").value.trim();
+  if (name.length < 2) return omsg("A name, please.", "bad");
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return omsg("That email does not look right.", "bad");
+  if (!tsToken) return omsg("Just finishing the verification.", "wait");
+
+  $("#go").disabled = true; omsg("One moment…", "wait");
+  let d;
+  try {
+    const r = await fetch(API + "/checkout", { method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ sku: picked.sku, mode: picked.mode, email, name,
+        org: $("#o-org").value.trim(), reference: $("#o-ref").value.trim(),
+        practice: "forensics", token: tsToken }) });
+    d = await r.json();
+  } catch { $("#go").disabled = false; return omsg("Could not reach the ordering system. Ring 917-217-7975.", "bad"); }
+
+  if (d.url) return void (window.location = d.url);
+  $("#go").disabled = false;
+  if (widgetId !== null) { turnstile.reset(widgetId); tsToken = null; }
+  omsg(d.error || "Could not start checkout. Ring 917-217-7975 and I will sort it.", "bad");
+});
+</script>

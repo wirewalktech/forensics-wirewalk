@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "eDiscovery"
-lede: "Which stages of the EDRM I take and which I refer out, and why I meter processing at the point that costs me money instead of the point that earns it."
-description: "Identification, preservation, collection, processing, analysis and production, with the stages I refer out named. Processing metered per GB of source volume as collected, pre-expansion and pre-deduplication, and the culling conflict stated against my own interest."
+lede: "Collection, processing, hosting and production, priced per unit. Processing is metered on source volume as collected, which is the smaller number and the one you can check."
+description: "eDiscovery prices per GB, per page, per user and per hour. Which EDRM stages I take and which I refer out. Processing metered per GB of source volume as collected, pre-expansion and pre-deduplication."
 permalink: /ediscovery/
 doc_id: WW-F-012
 version: "1.0"
@@ -10,297 +10,146 @@ issued: 2026-09-11
 revised: 2026-09-11
 scope: "EDRM stages and per-unit economics"
 authority: Principal
-content_sha256: 4b1910050349242c44d51381ce8739e9bbaed3eff5a2b3386d1f0c223c840c45
+content_sha256: 44121924f1a715c76d736647e2d85569aa1a673201a015b4b88cc3376b88a7c9
 ---
 
-<section class="cl"><span class="n">1</span>
-<h2>EDRM is shared vocabulary, not a standard</h2>
-<p>The Electronic Discovery Reference Model is a diagram of stages that most people in this field use to talk to each other. It is not a standard, and the Federal Rules do not require it. It is not linear either. A matter moves backwards through it about as often as forwards, because what processing turns up keeps changing what should have been collected. I use its vocabulary here so that a litigation support manager can map my lines onto the workflow they already run, and for no other reason. I do not treat conformity with a diagram as evidence of anything.</p>
-<p>What follows is what I do at each stage, what the deliverable looks like, and what it costs per unit. It does not tell you what your obligations are. When a discovery obligation attached, what has to be preserved, what has to be produced and what can properly be withheld are questions for your lawyer. I work to the instruction rather than supplying it.</p>
-</section>
-
-<section class="cl"><span class="n">1.1</span>
-<h3>What I perform, and what I refer out</h3>
-<p>A one-person practice that claims the whole model is describing a consultancy it does not staff. Below is how I would mark the stages for you on the first call.</p>
+<section>
+<h2>What it costs</h2>
+<p><b>Processing is billed per gigabyte of source volume as collected</b> &mdash; before containers are expanded, before duplicates come out. You can count that on your own drive before you hand it over. Most vendors meter the expanded figure, which no client can check.</p>
 <div class="tw">
 <table class="ledger">
-  <caption>EDRM stages &middot; take / refer out / out of scope</caption>
+  <caption>eDiscovery units &middot; reviewed 2026-09-11 &middot; next review 2027-03-11</caption>
   <thead><tr>
-    <th style="width:22%">Stage</th><th style="width:15%">Posture</th><th style="width:30%">What I produce</th><th>What this does not establish</th>
-  </tr></thead>
-  <tbody>
-    <tr>
-      <td>Information governance</td>
-      <td>Out of scope</td>
-      <td>Nothing. I would say so on the first call rather than take it and learn it on your matter.</td>
-      <td class="not">That your retention programme is adequate. I can describe what a log source would have answered had it been retained. Designing the programme that retains it is a different practice from mine.</td>
-    </tr>
-    <tr>
-      <td>Identification</td>
-      <td>Take</td>
-      <td>A data map of custodians, systems, accounts and repositories, with retention and licence tier recorded per source, and the sources that expire first flagged by date.</td>
-      <td class="not">That the map is complete. It records what custodians and administrators told me and what the systems reported. A repository nobody names and no administrator console lists will not appear on it.</td>
-    </tr>
-    <tr>
-      <td>Preservation and legal hold</td>
-      <td>Take, under counsel's instruction</td>
-      <td>In-platform holds, suspension of retention, expiry and replication, a hold confirmation report, and custodian notice tracking where counsel asks me to run it.</td>
-      <td class="not">That a duty to preserve attached, or when. That is a legal determination counsel makes. A hold I applied on instruction is evidence of the instruction, not evidence that its timing was right.</td>
-    </tr>
-    <tr>
-      <td>Collection</td>
-      <td>Take</td>
-      <td>Hashed collection sets with manifests, a written record of the authority I relied on, and a written note of what I deliberately did not collect.</td>
-      <td class="not">That everything responsive was collected. A targeted collection is a decision about scope. The note recording what was left out exists so that the decision can be argued about now rather than discovered later.</td>
-    </tr>
-    <tr>
-      <td>Processing</td>
-      <td>Take</td>
-      <td>Expansion, text and metadata extraction, OCR where it is needed, deduplication and de-NISTing, exception reporting, and a processing log tying output counts back to input counts.</td>
-      <td class="not">That every document processed cleanly. The exception report is the point: encrypted containers, corrupt files and unsupported formats are reported by count and by path, not quietly dropped.</td>
-    </tr>
-    <tr>
-      <td>Review: hosting and administration</td>
-      <td>Take, as a pass-through</td>
-      <td>Hosting on a third-party platform, load and quality control, search and filter construction, and production sets cut to counsel's specification.</td>
-      <td class="not">That I am the platform. I administer somebody else's. The user licences are passed through at cost with no mark-up, and if the platform is wrong for your matter I will say so rather than bill hosting on it.</td>
-    </tr>
-    <tr>
-      <td>Review: the review itself</td>
-      <td>Refer out</td>
-      <td>An introduction to a managed review provider, and the technical work that supports whoever does it.</td>
-      <td class="not">That I supervise their calls or stand behind them. Responsiveness and privilege are legal determinations. I do not supply review attorneys and I do not make those calls for anyone.</td>
-    </tr>
-    <tr>
-      <td>Analysis</td>
-      <td>Take</td>
-      <td>Volume and custodian analytics, date and domain distribution, and culling models with the volume and cost consequence of each option stated before it is applied.</td>
-      <td class="not">That analytics found the important document. Clustering and threading organise a review. They do not read it, and a search that returns nothing is not proof that nothing is there.</td>
-    </tr>
-    <tr>
-      <td>Production</td>
-      <td>Take</td>
-      <td>Native, near-native or imaged production with a load file, Bates or control numbering, a production log, and hash verification of the delivered set.</td>
-      <td class="not">That the produced set is admissible. Form of production is a discovery question. Admissibility is decided later, by the court, on grounds that have nothing to do with how well the load file was built.</td>
-    </tr>
-    <tr>
-      <td>Presentation support</td>
-      <td>Take</td>
-      <td>Exhibit preparation, hash-verified copies for the court and the opposing party, and a statement of which exhibits are computed summaries and which are illustrative aids.</td>
-      <td class="not">That an exhibit is evidence. A timeline assembled from artefacts is ordinarily an illustrative aid under <span class="v">FRE 107</span>. A computed summary of voluminous admissible material can be substantive under <span class="v">FRE 1006</span>. I say which one I produced.</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</section>
-
-<section class="cl"><span class="n">2</span>
-<h2>Identification</h2>
-<p>Identification is an interview and a set of console queries, and what it produces is a document rather than an opinion. I ask custodians and administrators what exists. Then I check the answer against what the tenant, the directory and the endpoint management console actually report, because those two lists can come apart, and the gap between them is where the unnamed sources sit. The ones that go unnamed most often are personal accounts used for work, a departed employee's mailbox still sitting on a deletion timer, a chat platform nobody thinks of as a record system, and a shared drive inherited from a merged entity. And the backup estate, which almost nobody volunteers.</p>
-<p>The output records, per source, what it is, who controls it, how long it is retained, what licence tier governs the audit record, and the date by which it has to be preserved or it is gone. That last column is the one people actually use. Sources do not all expire on the same day, and a list ordered by expiry is a list somebody can work down in order.</p>
-</section>
-
-<section class="cl"><span class="n">3</span>
-<h2>Preservation and legal hold</h2>
-<p>I apply holds on instruction. In a cloud tenant that ordinarily means in-platform holds, suspension of retention and expiry policies, suspension of backup expiry, garbage collection and replication, and an audit log export taken <em>out</em> of the tenant while the window is still open. On endpoints the first job is getting devices out of the return-and-reimage queue, before anyone has a chance to be helpful with them. Then documenting the state each one was found in.</p>
-<p>What you get back is a hold confirmation report: what was placed on hold, where, by which mechanism, at what time, and which sources could not be held and why. Where counsel wants custodian notices and acknowledgements tracked, I will run the tracking. The notices themselves come from counsel.</p>
-</section>
-
-<section class="cl"><span class="n">3.1</span>
-<h3>The limits of a hold, stated before it is applied</h3>
-<p>A hold placed today preserves what still exists today. It does not recover what a retention cycle deleted last month, and switching on an audit setting now logs forward only. If a source was never configured to record the thing you need, no amount of preservation fixes that retrospectively. I say so while I am placing the hold, rather than at the point you ask me for the data.</p>
-<p>If ESI has already been lost, what I report is what the artefacts show: what existed, when it was deleted, by what mechanism, and whether it can be restored or replaced from backups, shadow copies, journals or a second custodian. <span class="v">FRCP 37(e)</span> is the exclusive framework for that question, and its subsection <span class="v">(e)(2)</span> turns on a finding that a party acted with the intent to deprive another of the information. That finding belongs to the court. I do not offer it. And where routine retention deletion cannot be distinguished from deliberate destruction in the artefacts, I say so, which is more often than anyone would like.</p>
-</section>
-
-<section class="cl"><span class="n">4</span>
-<h2>Collection</h2>
-<p>I price collection per device, per custodian, per endpoint and per hour. Never per gigabyte. A per-GB collection price invites an argument about whether the gigabytes were counted before processing or after, and that argument is worth a great deal more to the vendor than to the client. The published prices are on the <a href="{{ '/rates/' | relative_url }}">rate schedule</a>.</p>
-<p>Most eDiscovery collections should be targeted rather than full-disk. A mailbox, a drive, a chat export, a defined artefact set pulled off an endpoint with tooling of the KAPE or Velociraptor class: that answers most discovery questions at a fraction of the downstream processing and hosting cost, because everything collected becomes billable volume later. A full forensic image earns its cost when the question is about the device itself rather than about the documents on it, which usually means deletion, external media, anti-forensic activity, or a timeline that has to be reconstructed. Before I choose, I will tell you which of those two questions I think you are asking.</p>
-<p>Every collection set is hashed at the earliest point the technology allows. It carries a manifest, a record of the authority relied on for each account and device, and a written note of what was deliberately excluded. Authority is confirmed before collection, not after. Where it is unclear I stop until it is resolved, which is an awkward thing to say with the kit already unpacked in somebody's server room, and it is still the right answer. The handling and custody terms are on <a href="{{ '/evidence-handling/' | relative_url }}">evidence handling</a>.</p>
-</section>
-
-<section class="cl"><span class="n">5</span>
-<h2>Processing</h2>
-<p>Processing takes the collected set and makes it reviewable. Containers and archives are expanded, attachments are extracted as separate documents with their family relationships recorded, text and metadata come out, OCR is applied where there is no extractable text, deduplication runs at the level counsel specifies, and known system files are removed against the NIST reference set.</p>
-<p>Two of the outputs matter more than the rest. The exception report lists, by count and by path, everything that did not process: encrypted containers, password-protected files, corrupt items, unsupported formats, anything OCR could not read. Those get resolved, re-run or reported. They do not get quietly dropped, and the count of what went in has to reconcile against the count of what came out. The processing log is the other one. It records the tool, the version, the settings applied, the deduplication scope and the timestamps, so that somebody else can establish that the reviewable set corresponds to the collected set. It is dull to produce, and it is the record everything else rests on.</p>
-</section>
-
-<section class="cl"><span class="n">6</span>
-<h2>Analysis and culling</h2>
-<p>Before anything is hosted, I model the cull. Date range, custodian scope, domain exclusion, file-type exclusion, deduplication scope, near-duplicate and email-thread suppression each take volume out, and each one is a decision that carries a defensibility cost as well as a saving. I put the options in front of counsel with the volume consequence and the monthly hosting consequence of each written down in advance. Counsel decides which ones are safe to apply in the matter. Some of them will not be.</p>
-<p>Where technology-assisted review is in play, I design and validate the protocol as a separate, fixed-price piece of work, with the sample sizes, the measured recall and precision and the stop criteria written down before the review starts rather than reconstructed afterwards. A validated protocol establishes how the classifier performed against a measured sample. It does not establish that every responsive document was found. No review methodology establishes that, including a linear human one.</p>
-</section>
-
-<section class="cl"><span class="n">7</span>
-<h2>Production</h2>
-<p>A production is a delivered set of files plus the metadata that lets the receiving party load it. Most disputes about productions are disputes about that second part.</p>
-</section>
-
-<section class="cl"><span class="n">7.1</span>
-<h3>What a production actually consists of</h3>
-<div class="tw">
-<table class="ledger">
-  <caption>Production deliverable &middot; components</caption>
-  <thead><tr>
-    <th style="width:26%">Component</th><th style="width:34%">What it is</th><th>What this does not establish</th>
-  </tr></thead>
-  <tbody>
-    <tr>
-      <td>Native files</td>
-      <td>The document in the application format it was created in, with its metadata intact. Ordinarily the form I recommend for spreadsheets, databases, chat, and anything carrying formulae, tracked changes or structure.</td>
-      <td class="not">That the native file is unaltered by the act of opening it. Native review changes access times and can trigger recalculation, which is why the produced native travels with a hash and why the working copy is never the produced copy.</td>
-    </tr>
-    <tr>
-      <td>Imaged production<br><span class="small">TIFF or PDF, page-numbered</span></td>
-      <td>A page-format rendering, endorsed with the Bates number and any confidentiality designation, used where the protective order or the requesting party specifies it.</td>
-      <td class="not">That the page image carries what the native carried. Imaging discards formulae, hidden rows, comments and revision history, and in chat it discards the conversational structure. Where a requested form would degrade usability, I say so before producing rather than complying silently.</td>
-    </tr>
-    <tr>
-      <td>Extracted text</td>
-      <td>One searchable text file per document, delivered alongside the image so that the receiving party can search a page-format production.</td>
-      <td class="not">That the text is complete. OCR quality on scanned or photographed material varies, and the exception report records where extraction failed rather than leaving a silent empty file.</td>
-    </tr>
-    <tr>
-      <td>Load file</td>
-      <td>The delimited metadata file, commonly <span class="v">.DAT</span> or <span class="v">.CSV</span> for fields and <span class="v">.OPT</span> or <span class="v">.LFP</span> for image cross-references, mapping every document to its Bates range, its family, its custodian, its source path and the agreed metadata fields.</td>
-      <td class="not">That the fields agreed are the fields you will want. The field list is negotiated at the <span class="v">FRCP 26(f)</span> conference, and adding a field after production means producing again. I raise the list before the first set goes out.</td>
-    </tr>
-    <tr>
-      <td>Bates or control numbering</td>
-      <td>A unique, sequential, per-page identifier with an agreed prefix, unbroken across the production, so that any page can be cited unambiguously in a deposition or a brief.</td>
-      <td class="not">That Bates numbering is a rule. It is a convention, not a requirement of the Federal Rules, and its only job is unambiguous reference. A native-only production needs an equivalent per-document control number for exactly the same reason.</td>
-    </tr>
-    <tr>
-      <td>Production log and hash manifest</td>
-      <td>What was produced, on what date, in which volume, under which designation, with a digest per file and per volume.</td>
-      <td class="not">That the recipient received what was sent. It establishes what left my custody and in what state, which is why the manifest travels with the media and the digests are recorded at both ends.</td>
-    </tr>
-    <tr>
-      <td>Privilege log support</td>
-      <td>The metadata extract behind the log: author, recipients, date, subject or file name, family relationships, and the withhold or redact basis recorded against each entry, in the format the log requires.</td>
-      <td class="not">That anything on it is privileged. I flag and segregate. Counsel or the court adjudicates, and the privilege call is not mine to make.</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</section>
-
-<section class="cl"><span class="n">7.2</span>
-<h3>Privilege, filtering and the log</h3>
-<p>I operate a documented filter protocol. Potentially privileged material is segregated before substantive review, flagged rather than adjudicated, and escalated to counsel or to a court-appointed special master. The log output is built to meet <span class="v">FRCP 26(b)(5)(A)</span>: a description of the withheld material sufficient to let the other parties assess the claim, without disclosing the protected content itself.</p>
-<p>Log format is now a question for the discovery plan rather than an end-of-review argument. As amended effective <span class="v">2025-12-01</span>, <span class="v">FRCP 26(f)(3)(D)</span> requires the plan to state the parties' views and proposals on the timing and method for complying with <span class="v">26(b)(5)(A)</span>, and <span class="v">FRCP 16(b)(3)(B)(iv)</span> permits, but does not require, the scheduling order to set that timing and method. I will attend that technical conference and say what a given format costs to produce. A log format agreed without reference to what the processing platform can actually export is a format somebody rebuilds by hand later, usually a junior associate, usually the week it is due. Where the court will enter an order under <span class="v">FRE 502(d)</span>, I work under it and say so.</p>
-<p>I do not describe myself as a taint team. A vendor asserting the privilege call is a worse arrangement than a government filter team, and those have drawn sharp judicial criticism.</p>
-</section>
-
-<section class="cl"><span class="n">8</span>
-<h2>Form of production, and when I will argue with the request</h2>
-<p>Under <span class="v">FRCP 34(b)(1)(C)</span> a request may specify the form or forms in which ESI is to be produced, and under <span class="v">FRCP 34(b)(2)(D)</span> a party objecting to a specified form must state the form it intends to use. Where no form is specified, <span class="v">FRCP 34(b)(2)(E)(ii)</span> requires production in a form in which the information is ordinarily maintained, or in a reasonably usable form. <span class="v">FRCP 34(b)(2)(E)(iii)</span> provides that a party need not produce the same ESI in more than one form.</p>
-<p>My part in that is technical and narrow. I produce in the form your lawyer specifies. What I add is a written statement, before production rather than after, of what a requested form will cost the receiving party in usability. A spreadsheet imaged to page format loses its formulae. A database imaged to page format loses everything that made it a database. Whether that degradation matters in your matter is counsel's judgement and the court's, and my job is to put it in writing before the set goes out instead of leaving it to be discovered from the production itself.</p>
-</section>
-
-<section class="cl"><span class="n">9</span>
-<h2>Proportionality is a cost argument, and cost arguments need numbers</h2>
-<p>Under <span class="v">FRCP 26(b)(1)</span> the scope of discovery is matter that is relevant to a party's claim or defence and proportional to the needs of the case, considering the importance of the issues at stake, the amount in controversy, the parties' relative access to relevant information, the parties' resources, the importance of the discovery in resolving the issues, and whether the burden or expense of the proposed discovery outweighs its likely benefit. Separately, <span class="v">FRCP 26(b)(2)(B)</span> allows a party to identify sources of ESI that are not reasonably accessible because of undue burden or cost, with the burden of that showing on the responding party.</p>
-<p>Both of those arguments are made with figures, and the figures are mine: the volume at each source, what restoration or collection would take, what processing and hosting the resulting volume would cost per month, and what the alternative scopes would cost instead. I supply the measured numbers and the method by which they were measured. Whether the burden outweighs the benefit is an argument counsel makes and a court decides. I do not characterise a request as disproportionate on your behalf.</p>
-</section>
-
-<section class="cl"><span class="n">10</span>
-<h2>The economics, and where I measure</h2>
-<p>Processing is billed <b>per gigabyte of source volume as collected, pre-expansion and pre-deduplication</b>. That is a number you can count on your own drive before you hand it over, and it is the number printed on the collection manifest you get at the point of collection.</p>
-<p>The industry convention is different. Most processing is metered on expanded volume, meaning the figure after containers are unpacked, archives opened, attachments broken out into separate documents, mail stores exploded into individual messages and forensic images extracted to their contents. Expansion is real work and there is a coherent argument for billing on it. I am not pretending otherwise. But expansion multiplies, the multiplier is not knowable before the data is processed, and the client cannot check it against anything they hold. A quote given on source volume and invoiced on expanded volume is not a quote.</p>
-<div class="note seal">
-<p><b>The measurement point is chosen against my own interest.</b> Source volume as collected is the smaller number in almost every matter, and the difference is revenue I do not bill. I publish it because the alternative is a unit price nobody can check, and an invoice a client cannot check turns into an argument sooner or later. If the rate does not cover the cost of the work, the rate moves. The measurement point does not.</p>
-</div>
-<p>Two consequences follow, and both sit on my side of the ledger. Everything collected becomes billable volume, so over-collection earns me money, which is the reason collection scope gets discussed before the collection rather than after it. Deduplication is the other one. It usually removes a large fraction of a mail-heavy set, and it happens after the point I measure, so I bill you for the duplicates. I would rather write that here than have you find it on the invoice.</p>
-</section>
-
-<section class="cl"><span class="n">10.1</span>
-<h3>The unit prices</h3>
-<p>The unit is published. The total is not, because nobody knows the quantity until the data is collected. Anyone publishing a total at this stage is publishing a guess.</p>
-<div class="tw">
-<table class="ledger">
-  <caption>eDiscovery units &middot; rates reviewed 2026-09-11 &middot; next review 2027-03-11</caption>
-  <thead><tr>
-    <th style="width:28%">Line</th><th style="width:24%">Unit</th><th style="width:12%">Price</th><th>What this does not establish</th>
+    <th style="width:26%">Line</th><th style="width:26%">Unit</th><th style="width:12%">Price</th><th>What this does not establish</th>
   </tr></thead>
   <tbody>
     <tr>
       <td>Processing and ingest
-        <span class="cond">indicative; confirmed at scoping against current metering</span></td>
-      <td>per GB of source volume <b>as collected</b> &mdash; pre-expansion, pre-deduplication</td>
+        <span class="cond">indicative; confirmed at scoping</span></td>
+      <td>per GB of source volume <b>as collected</b></td>
       <td class="val">$22/GB</td>
-      <td class="not">It does not establish what your total will be. That depends on how much of the collected volume survives culling, and that number does not exist until the work in clause 6 has been done.</td>
+      <td class="not">Not a total; that turns on what survives culling.</td>
     </tr>
     <tr>
       <td>Review hosting, no analytics</td>
       <td>per GB per month</td>
       <td class="val">$9</td>
-      <td class="not">It is a recurring charge on data that is still hosted, not a one-off. It does not establish a review end date, and I will tell you when volume can come down rather than wait to be asked.</td>
+      <td class="not">Recurring while data stays hosted.</td>
     </tr>
     <tr>
       <td>Review hosting, with analytics</td>
       <td>per GB per month</td>
       <td class="val">$14</td>
-      <td class="not">Analytics organises a review. It does not establish responsiveness or privilege, both of which stay a lawyer's determination.</td>
+      <td class="not">Analytics organises a review; it does not decide responsiveness.</td>
     </tr>
     <tr>
       <td>Review platform user licence</td>
-      <td>per user per month, passed through at cost, no mark-up</td>
+      <td>per user per month, at cost</td>
       <td class="val">$75</td>
-      <td class="not">It does not establish that the named seat count is the right one, which is a review-team decision. I take no commission on the pass-through and none from the platform.</td>
+      <td class="not">No mark-up, no commission, either direction.</td>
     </tr>
     <tr>
-      <td>Imaged production
-        <span class="cond">indicative; confirmed at scoping</span></td>
+      <td>Imaged production</td>
       <td>per page</td>
       <td class="val">$0.05</td>
-      <td class="not">A per-page price does not establish that page format is the right form. See clause 8: where imaging would degrade usability I say so before producing.</td>
+      <td class="not">Page format is not always the right form.</td>
     </tr>
     <tr>
-      <td>TAR protocol design and validation
-        <span class="cond">indicative; confirmed at scoping</span></td>
+      <td>TAR protocol design and validation</td>
       <td>per project, fixed</td>
       <td class="val">$6,500</td>
-      <td class="not">It establishes how the classifier performed against a measured sample. It does not establish that every responsive document was found, and no review methodology does.</td>
+      <td class="not">Measured recall against a sample, not proof nothing was missed.</td>
     </tr>
     <tr>
       <td>eDiscovery project management</td>
       <td>per hour</td>
       <td class="val">$180/hr</td>
-      <td class="not">Hourly work runs against a written ceiling rather than open-ended. I stop and report at 80% of the authorisation and do not resume without a written increase.</td>
+      <td class="not">Runs to a written ceiling; I stop at 80% and report.</td>
     </tr>
   </tbody>
 </table>
 </div>
-<p class="small">Per-GB pricing in this field is moving down and toward bundles, so the review date is printed on the table itself rather than assumed. When this schedule is revised, the superseded version stays reachable through the <a href="{{ '/versions/' | relative_url }}">version register</a>, so a figure quoted to you months earlier can be checked against what was published on the day it was quoted. Collection is never priced per gigabyte. Those prices are per device, per custodian and per endpoint, and they sit on the <a href="{{ '/rates/' | relative_url }}">rate schedule</a>.</p>
+<p class="small">Collection is never priced per gigabyte: it is per device, per custodian and per endpoint, on the <a href="{{ '/rates/' | relative_url }}">rate schedule</a>. Superseded schedules stay on the <a href="{{ '/versions/' | relative_url }}">version register</a>.</p>
 </section>
 
-<section class="cl"><span class="n">10.2</span>
-<h3>The culling conflict, stated plainly</h3>
-<p>My per-GB revenue is a function of how much data reaches processing and how long it stays hosted. Targeted collection reduces the first. Culling reduces both. On a mail-heavy matter, the gap between a broad collection hosted for a year and a scoped one culled before hosting is the gap between a five-figure bill and a four-figure one.</p>
-<p>So my incentive runs backwards, and this is the part of the page I found hardest to write. Every recommendation in clauses 4 and 6 that saves you money costs me money, and there is no structural fix for that. A vendor who bills on volume and advises on volume is conflicted whatever they put on a website, mine included. What I can do is name it, tell you when it is biting, and put the volume and the cost consequence of each culling option in writing before any of it is applied, so that the decision is yours and is made on numbers rather than on my say-so.</p>
-<p>If you would rather have the conflict removed than disclosed, ask me to quote the project management hourly and put the hosting with a third party. I will tell you when that works out cheaper for you. Sometimes it does.</p>
+<section>
+<h2>What I take, what I refer out</h2>
+<div class="tw">
+<table class="ledger">
+  <caption>EDRM stages &middot; posture and deliverable</caption>
+  <thead><tr>
+    <th style="width:18%">Stage</th><th style="width:16%">Posture</th><th style="width:34%">What you get</th><th>What this does not establish</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>Identification</td><td>Take</td>
+      <td>A data map of custodians, systems and accounts, ordered by expiry date.</td>
+      <td class="not">That the map is complete; nobody names every repository.</td>
+    </tr>
+    <tr>
+      <td>Preservation and hold</td><td>Take, on counsel's instruction</td>
+      <td>A hold confirmation report: what was held, where, how, and what could not be.</td>
+      <td class="not">That a duty to preserve attached, or when. Counsel's call.</td>
+    </tr>
+    <tr>
+      <td>Collection</td><td>Take</td>
+      <td>Hashed sets with manifests, and a note of what I deliberately did not collect.</td>
+      <td class="not">That everything responsive was collected. Scope is a decision, recorded.</td>
+    </tr>
+    <tr>
+      <td>Processing</td><td>Take</td>
+      <td>A reviewable set, an exception report by count and path, and a log reconciling counts.</td>
+      <td class="not">That everything processed cleanly. Failures are reported, not dropped.</td>
+    </tr>
+    <tr>
+      <td>Hosting and platform admin</td><td>Take, pass-through</td>
+      <td>Hosting on a third-party platform, load and QC, and sets cut to counsel's specification.</td>
+      <td class="not">That I am the platform. I administer somebody else's.</td>
+    </tr>
+    <tr>
+      <td>The review itself</td><td>Refer out</td>
+      <td>An introduction to a managed review provider, and the technical work behind it.</td>
+      <td class="not">That I supervise their calls or stand behind them.</td>
+    </tr>
+    <tr>
+      <td>Analysis and culling</td><td>Take</td>
+      <td>Each culling option with its volume and monthly cost, before any is applied.</td>
+      <td class="not">That a search returning nothing proves nothing is there.</td>
+    </tr>
+    <tr>
+      <td>Production</td><td>Take</td>
+      <td>Native or imaged sets, extracted text, load file, Bates numbering, production log, hash manifest.</td>
+      <td class="not">That the set is admissible; the court decides that later.</td>
+    </tr>
+    <tr>
+      <td>Privilege log support</td><td>Take, to <span class="v">FRCP 26(b)(5)(A)</span></td>
+      <td>The metadata extract behind the log, with the withhold or redact basis per entry.</td>
+      <td class="not">That anything on it is privileged. I flag; counsel decides.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p><b>What you end up holding:</b> a hashed collection manifest, a processing log and exception report, the produced set with its load file and hash manifest, and the privilege log metadata. Where imaging would strip a spreadsheet of what made it useful, I say so first. I do not take information governance.</p>
 </section>
 
-<section class="cl"><span class="n">11</span>
-<h2>Ask which economics you are buying</h2>
-<p>The most expensive mistake in this area is not choosing the wrong vendor. It is running a matter through the wrong cost model. Forensic examination is hourly against a written ceiling, because the deliverable is an answer. eDiscovery is per gigabyte and per month, because the deliverable is a processed, hosted, produced volume. A breach notification exercise can be framed as either, and the difference between the two framings is the whole bill.</p>
-<p>So ask me on the first call which one you are buying. The scoping call is free, including the version of it that ends with me telling you the data cannot answer your question, or that what you need is a review provider and not an examiner.</p>
+<section>
+<h2>Why I will argue you out of part of this bill</h2>
+<p><b>Everything collected becomes billable volume.</b> Over-collection earns me money, and deduplication runs after the point I measure, so I bill you for duplicates. On a mail-heavy matter, a broad set hosted for a year against a scoped set culled first is the difference between a five-figure bill and a four-figure one.</p>
+<p><b>So my incentive runs backwards, and there is no structural fix for it.</b> I can name it and put the numbers in front of counsel before any cull is applied. If you would rather the conflict were removed than disclosed, ask me to quote project management hourly and host elsewhere. Sometimes that is cheaper, and I will say so.</p>
 <div class="refuse">
 <h2>On eDiscovery matters, I will not</h2>
 <ol>
-  <li>Bill you for expanded volume. Processing is measured on the data as I collected it, pre-expansion and pre-deduplication.</li>
-  <li>Image a whole disk where a targeted collection answers the question.</li>
-  <li>Tell you when culling would take your bill from five figures to four and then not do it, even though the bill I would otherwise send you is the larger one.</li>
-  <li>Take a commission from any platform or hosting vendor I place. Review platform licences are passed through at cost, with no mark-up in either direction.</li>
+  <li>Bill you for expanded volume.</li>
+  <li>Image a whole disk where a targeted collection answers it.</li>
+  <li>Stay quiet about a cull that takes your bill from five figures to four.</li>
+  <li>Take a commission from any platform or vendor I place.</li>
   <li>Bill an hour above the ceiling you authorised in writing.</li>
-  <li>Adjudicate privilege. I flag and segregate; counsel or the court decides.</li>
-  <li>Opine that a party acted with intent to deprive another of ESI. I report what the artefacts show. That finding is the court's.</li>
-  <li>Produce in a form I know will degrade usability without telling you first.</li>
-  <li>Take a matter I cannot finish inside your production deadline. I will say so on the first call rather than accept it and miss it.</li>
+  <li>Adjudicate privilege, or opine that ESI was destroyed on purpose. Both are the court's.</li>
+  <li>Take a matter I cannot finish inside your production deadline.</li>
 </ol>
 </div>
-<p class="small">The full list is published on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a> and repeated verbatim in the engagement letter.</p>
+<p class="small">Full list on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a>, verbatim in the engagement letter.</p>
+<p><b>Ring me on <span class="v">917-217-7975</span></b> and I will tell you whether this is a forensics problem, an eDiscovery problem, or a job for a review provider. The call costs nothing, including the one that ends with me saying the data cannot answer it.</p>
 <div class="acts">
   <a class="btn" href="{{ '/rates/' | relative_url }}">The rate schedule</a>
   <a class="btn" href="{{ '/scope/' | relative_url }}">The service ledger</a>
