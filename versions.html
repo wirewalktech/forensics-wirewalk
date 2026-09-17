@@ -5,12 +5,12 @@ lede: "Every page here carries a digest of its own source and a link to its hist
 description: "How the footer digest on each page is produced, how to verify it yourself from the public repository, what a match and a mismatch prove, and the index of every published document with its version and commit history."
 permalink: /versions/
 doc_id: WW-F-015
-version: "1.0"
+version: "1.1"
 issued: 2026-09-11
-revised: 2026-09-11
+revised: 2026-09-17
 scope: "Document integrity and version index"
 authority: Principal
-content_sha256: c6e4e004eeef2abb39884f63ea17246b5d23a4373cb10de18a242e34ae2dfd85
+content_sha256: 57718ff95bcf539f844366bf845385fade9404334d67bdb97747befd8004c997
 ---
 
 <section>
@@ -55,12 +55,12 @@ content_sha256: c6e4e004eeef2abb39884f63ea17246b5d23a4373cb10de18a242e34ae2dfd85
   <code>awk 'f{print} /^---$/{n++; if(n==2) f=1}' versions.html | shasum -a 256</code></li>
 </ol>
 <p>Must equal the footer digest and front-matter <span class="v">content_sha256</span>.</p>
-<p><b>A match proves one thing:</b> this text is byte for byte the source that was stamped. <b>A mismatch</b> usually means I published without stamping &mdash; my failure, what this check catches. It does establish this is not the stamped text.</p>
+<p><b>A match proves one thing:</b> the checked source body is byte for byte the source that was stamped. The digest does not cover front matter, shared layouts, styles, or service prices loaded from the ordering system. <b>A mismatch</b> usually means I published without stamping &mdash; my failure, what this check catches. It does establish this is not the stamped text.</p>
 </section>
 
 <section>
 <h2>What it is not</h2>
-<p>Not a timestamping authority, not notarisation, and no evidence about any examination or opinion of mine &mdash; test those against the <a href="/method/">method</a> and the <a href="/limits/">limits</a>. Nor does it protect you against me: I compute the digest and hold the repository. Clone any term that may matter later.</p>
+<p>Not a timestamping authority, not notarization, and no evidence about any examination or opinion of mine &mdash; test those against the <a href="/method/">method</a> and the <a href="/limits/">limits</a>. Nor does it protect you against me: I compute the digest and hold the repository. Clone any term that may matter later.</p>
 </section>
 
 <section>
@@ -68,26 +68,13 @@ content_sha256: c6e4e004eeef2abb39884f63ea17246b5d23a4373cb10de18a242e34ae2dfd85
 <p>An identifier is never reused. A withdrawn page leaves this table, not the history.</p>
 <div class="tw">
 <table class="ledger">
-  <caption>Published documents &mdash; index at 2026-09-11</caption>
-  <thead><tr><th>Document</th><th>Page</th><th>Version</th><th>History</th></tr></thead>
+  <caption>Published documents — current versions</caption>
+  <thead><tr><th>Identifier</th><th>Document</th><th>Version</th><th>History</th></tr></thead>
   <tbody>
-    <tr><td class="val">WW-F-001</td><td><a href="/">Home</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/index.html">index.html</a></td></tr>
-    <tr><td class="val">WW-F-002</td><td><a href="/emergency/">Emergency</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/emergency.html">emergency.html</a></td></tr>
-    <tr><td class="val">WW-F-003</td><td><a href="/scope/">Scope</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/scope.html">scope.html</a></td></tr>
-    <tr><td class="val">WW-F-004</td><td><a href="/rates/">Rates</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/rates.html">rates.html</a></td></tr>
-    <tr><td class="val">WW-F-005</td><td><a href="/method/">Method</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/method.html">method.html</a></td></tr>
-    <tr><td class="val">WW-F-006</td><td><a href="/limits/">Limits</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/limits.html">limits.html</a></td></tr>
-    <tr><td class="val">WW-F-007</td><td><a href="/engagement/">Engagement</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/engagement.html">engagement.html</a></td></tr>
-    <tr><td class="val">WW-F-008</td><td><a href="/roles/">Roles</a></td><td class="val">1.1</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/roles.html">roles.html</a></td></tr>
-    <tr><td class="val">WW-F-010</td><td><a href="/evidence-handling/">Evidence handling</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/evidence-handling.html">evidence-handling.html</a></td></tr>
-    <tr><td class="val">WW-F-011</td><td><a href="/standby/">Standby</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/standby.html">standby.html</a></td></tr>
-    <tr><td class="val">WW-F-012</td><td><a href="/ediscovery/">eDiscovery</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/ediscovery.html">ediscovery.html</a></td></tr>
-    <tr><td class="val">WW-F-013</td><td><a href="/specimen-report/">Specimen report</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/specimen-report.html">specimen-report.html</a></td></tr>
-    <tr><td class="val">WW-F-014</td><td><a href="/contact/">Contact</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/contact.html">contact.html</a></td></tr>
-    <tr><td class="val">WW-F-015</td><td><a href="/versions/">Versions</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/versions.html">versions.html</a></td></tr>
-    <tr><td class="val">WW-F-016</td><td><a href="/matters/">Matters</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/matters.html">matters.html</a></td></tr>
-    <tr><td class="val">WW-F-017</td><td><a href="/security/">Security</a></td><td class="val">2.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/security.html">security.html</a></td></tr>
-    <tr><td class="val">WW-F-018</td><td><a href="/order/">Order</a></td><td class="val">1.0</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/order.html">order.html</a></td></tr>
+  {% assign documents = site.pages | sort: 'doc_id' %}
+  {% for doc in documents %}{% if doc.doc_id %}
+    <tr><td class="val">{{ doc.doc_id }}</td><td><a href="{{ doc.url | relative_url }}">{{ doc.title | escape }}</a></td><td class="val">{{ doc.version }}</td><td><a href="https://github.com/wirewalktech/forensics-wirewalk/commits/main/{{ doc.path }}">History</a></td></tr>
+  {% endif %}{% endfor %}
   </tbody>
 </table>
 </div>
@@ -95,5 +82,5 @@ content_sha256: c6e4e004eeef2abb39884f63ea17246b5d23a4373cb10de18a242e34ae2dfd85
 
 <section>
 <h2>If something does not match</h2>
-<p>A digest that fails, a version that did not move when a price did, a page with no row above: tell me. Ring <a class="v" href="tel:+19172177975">917-217-7975</a> or use the form on <a href="/contact/">contact</a>. Reporting a defect creates no engagement. Same number for the work.</p>
+<p>A digest that fails, a version that did not move when a price did, a page with no row above: tell me. Call <a class="v" href="tel:+19172177975">917-217-7975</a> or use the form on <a href="/contact/">contact</a>. Reporting a defect creates no engagement. Same number for the work.</p>
 </section>

@@ -7,7 +7,7 @@
 <footer class="coc"><div class="wrap">
   <div class="fields">
     <span><b>PAGE</b> <span>{{ page.url }}</span></span>
-    <span><b>REVISED</b> <span>{{ page.revised | default: page.issued | default: '2026-09-11' }}T00:00:00-04:00</span></span>
+    <span><b>REVISED</b> <span>{{ page.revised | default: page.issued | default: '2026-09-11' }}</span></span>
     {% if page.content_sha256 %}
     <span><b>SHA-256 (SOURCE)</b> <span>{{ page.content_sha256 }}</span></span>
     {% endif %}
@@ -23,7 +23,7 @@
   </div>
   <p class="house"><i></i>Wirewalk Forensics and Security is part of Wirewalk.
     <a href="https://www.wirewalk.com/">Advisory</a> &middot;
-    <a href="https://ai.wirewalk.com/">The Operating Review</a></p>
+    <a href="https://ai.wirewalk.com/">Wirewalk AI</a></p>
   <p class="house">Nothing on this site is legal advice, and reading it creates no engagement.
     An engagement begins when a conflicts check has cleared and an engagement letter is signed.</p>
 </div></footer>

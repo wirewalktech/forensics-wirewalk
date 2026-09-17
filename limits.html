@@ -5,17 +5,17 @@ lede: "What a forensic examination can establish, what it cannot, and why in eac
 description: "What digital evidence cannot establish — attribution, intent, absence, timestamps, USB records, deleted data, cloud logs and automated tool output — with the mechanism in each case, and what to ask for instead."
 permalink: /limits/
 doc_id: WW-F-006
-version: "1.0"
+version: "1.1"
 issued: 2026-09-11
-revised: 2026-09-11
+revised: 2026-09-17
 scope: "Reach and limits of findings"
 authority: Principal
-content_sha256: 653ec3727182226eb965ca8be50231e0d66b6c10e220de33904b93f645189eaf
+content_sha256: 963e4a639dfac5f04e25976daf504de71c8fa63921aec39eac600059ab647e5e
 ---
 
 <section>
 <h2>Six places digital evidence stops</h2>
-<p>Every finding has a reach. Past it, one artefact supports two or three explanations at once. These six are where cases run out of road.</p>
+<p>Every finding has a reach. Past it, one artifact supports two or three explanations at once. These six are where cases run out of road.</p>
 <div class="tw">
 <table class="ledger">
   <caption>The limits that matter</caption>
@@ -24,7 +24,7 @@ content_sha256: 653ec3727182226eb965ca8be50231e0d66b6c10e220de33904b93f645189eaf
     <tr><td>A device — or an account — is not a person</td><td>What the machine did, under which session or credential.</td><td class="not">Who was at the keyboard. Shared logins, remote tools and malware look alike on disk.</td></tr>
     <tr><td>Intent is a finding for the court</td><td>What was destroyed, when, by what mechanism, and whether retention would have taken it anyway.</td><td class="not">Intent to deprive under Rule 37(e)(2). Where expiry and destruction look alike, I say so.</td></tr>
     <tr><td>Timestamps are precise, not accurate</td><td>Times as each clock recorded them, from a named field, with the offset printed.</td><td class="not">The true time, where one clock is the only source. "Created" never means authored.</td></tr>
-    <tr><td>Absence is not evidence of absence</td><td>That an artefact is missing where comparable events reliably have one.</td><td class="not">That nothing happened, or that it was hidden. Rotation, retention and SSD trim delete on a schedule.</td></tr>
+    <tr><td>Absence is not evidence of absence</td><td>That an artifact is missing where comparable events reliably have one.</td><td class="not">That nothing happened, or that it was hidden. Rotation, retention and SSD trim delete on a schedule.</td></tr>
     <tr><td>USB records show attachment, not copying</td><td>That a device reporting a given identity was attached, and usually when.</td><td class="not">That anything was copied, which way, or how much. <span class="v">USBSTOR</span> serials repeat across production runs.</td></tr>
     <tr><td>Deletion is decided by the medium</td><td>What the medium and encryption state permit, and which backup or custodian is the better prospect.</td><td class="not">Recovery from encrypted flash. The controller erases on its own schedule.</td></tr>
   </tbody>
@@ -32,7 +32,7 @@ content_sha256: 653ec3727182226eb965ca8be50231e0d66b6c10e220de33904b93f645189eaf
 </div>
 <p><span class="cond">Recovery attempts bill the same whether or not they return anything, so I say what the medium permits first.</span></p>
 <p><strong>Cloud logs record access, not content.</strong> In Microsoft 365, <span class="v">MailItemsAccessed</span> — the record that governs what must be notified — depends on audit tier and is absent from many tenants that assume they have it. Enabling it mid-incident logs forward only.</p>
-<p><strong>Automated output is not a finding.</strong> Tools disagree and versions change behaviour, so I read behind the parse to the structure itself and record the tool and version.</p>
+<p><strong>Automated output is not a finding.</strong> Tools disagree and versions change behavior, so I read behind the parse to the structure itself and record the tool and version.</p>
 </section>
 
 <section>
@@ -44,8 +44,8 @@ content_sha256: 653ec3727182226eb965ca8be50231e0d66b6c10e220de33904b93f645189eaf
   <thead><tr><th style="width:24%">What I can establish</th><th style="width:38%">On what basis</th><th style="width:38%">What this does not establish</th></tr></thead>
   <tbody>
     <tr><td>That a copy corresponds to its source</td><td>A digest taken at acquisition, re-verified before analysis and before production.</td><td class="not">That the source was unaltered before I reached it.</td></tr>
-    <tr><td>The sequence of events</td><td>Ordering corroborated across independent artefacts, often sound where absolute times are not.</td><td class="not">The cause, or the person behind it.</td></tr>
-    <tr><td>That material was removed, and how</td><td>Journal and recycle records, wipe-utility artefacts, reset records, retention rules.</td><td class="not">Intent, which is for the court.</td></tr>
+    <tr><td>The sequence of events</td><td>Ordering corroborated across independent artifacts, often sound where absolute times are not.</td><td class="not">The cause, or the person behind it.</td></tr>
+    <tr><td>That material was removed, and how</td><td>Journal and recycle records, wipe-utility artifacts, reset records, retention rules.</td><td class="not">Intent, which is for the court.</td></tr>
     <tr><td>That an account behaved unlike itself</td><td>A baseline built from the account's own history.</td><td class="not">Who held the credential.</td></tr>
     <tr><td>Whether an opposing report is supported by its own material</td><td>Each finding marked supported, partly supported, unsupported or untestable.</td><td class="not">That the conclusion is wrong.</td></tr>
   </tbody>
@@ -69,6 +69,6 @@ content_sha256: 653ec3727182226eb965ca8be50231e0d66b6c10e220de33904b93f645189eaf
 <p>I report what the evidence supports, including when it supports nothing, or supports the other side. The fee is the same either way.</p>
 </div>
 <p>The rate is fixed before I look at anything, so I have no reason to stretch a finding past its reach.</p>
-<p>Ring me on <a class="call" href="tel:+19172177975"><b>917-217-7975</b></a> and I will tell you whether this is even a forensics problem. That call is free, and so is the one that ends with me saying you do not need an examiner. Or use the <a href="/contact/">contact</a> form.</p>
+<p>Call me on <a class="call" href="tel:+19172177975"><b>917-217-7975</b></a> and I will tell you whether this is even a forensics problem. That call is free, and so is the one that ends with me saying you do not need an examiner. Or use the <a href="/contact/">contact</a> form.</p>
 <p><a href="{{ '/method/' | relative_url }}">Method</a> · <a href="{{ '/rates/' | relative_url }}">rates</a> · <a href="{{ '/scope/' | relative_url }}">scope</a>.</p>
 </section>

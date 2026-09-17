@@ -181,3 +181,18 @@ footer.coc .house i{display:inline-block;width:9px;height:9px;background:var(--t
   .doc a[href^="http"]::after{content:" <" attr(href) ">";font-family:var(--mono);font-size:8.5pt}
   footer.coc{border-top:1.5pt solid #000;background:#fff}
 }
+
+/* Navigation wraps as complete links, with usable targets on narrow screens. */
+main>.wrap{padding-top:30px}
+nav.top{display:flex;flex-wrap:wrap;gap:4px 17px;align-items:center}
+nav.top a{display:block;margin:0;padding:8px 0}
+@media(max-width:480px){
+  .brand{flex-wrap:wrap;gap:5px 8px;font-size:15px}
+  .brand s{font-size:14px}
+  .spec dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .spec dl>div{border-right:0;border-bottom:1px solid var(--hairline)!important;padding:10px}
+  .spec dl>div:nth-last-child(-n+2){border-bottom:0!important}
+  .spec dd{overflow-wrap:anywhere}
+  .doc{min-width:0}
+}
+.doc code{overflow-wrap:anywhere}

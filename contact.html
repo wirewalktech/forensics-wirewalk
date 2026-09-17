@@ -2,19 +2,19 @@
 layout: default
 title: "Contact"
 lede: "Telephone 917-217-7975. The first call is free and there is no box on this page for case detail."
-description: "How to reach Wirewalk Forensics and Security: telephone, email, and a five-field enquiry form. No case-detail field and no chat widget. For an incident in progress, see the first-hour page."
+description: "How to reach Wirewalk Forensics and Security: telephone, email, and a five-field inquiry form. No case-detail field and no chat widget. For an incident in progress, see the first-hour page."
 permalink: /contact/
 doc_id: WW-F-014
-version: "1.0"
+version: "1.1"
 issued: 2026-09-11
-revised: 2026-09-11
+revised: 2026-09-17
 scope: "How to reach the practice"
 authority: Principal
-content_sha256: 3937ec1c9004cf972f96e0c4894ea7df3869dcc6e4a961a9ad4f0a769a9cc740
+content_sha256: db207b4732de34d893d7ea5a4639dae3ea125fc827d25db954d252b45fdcfcc7
 ---
 
 <style>
-/* The enquiry block is the only form on the site. The reason for each field
+/* The inquiry form collects only contact details. The reason for each field
    sits beside the field, not in a privacy page. */
 form.enq{border:1px solid var(--rule);background:var(--label-stock);margin:18px 0 10px}
 form.enq > .fld{padding:14px 16px;border-bottom:1px solid var(--hairline)}
@@ -23,7 +23,7 @@ form.enq label.lab{display:block;font-size:11px;letter-spacing:.08em;text-transf
   color:var(--ink-2);margin-bottom:5px}
 form.enq .why{display:block;font-size:13.5px;line-height:1.45;color:var(--ink-2);margin:6px 0 0}
 form.enq input[type=text],form.enq input[type=email],form.enq input[type=tel],form.enq select{
-  width:100%;max-width:34rem;font-family:var(--sans);font-size:15px;color:var(--ink);
+  width:100%;max-width:34rem;font-family:var(--sans);font-size:16px;color:var(--ink);
   background:var(--paper);border:1px solid var(--rule);border-radius:2px;padding:9px 11px}
 form.enq input:focus,form.enq select:focus{outline:2px solid var(--annotation);outline-offset:1px}
 form.enq .act{padding:14px 16px;border-top:1px solid var(--rule);background:var(--kraft)}
@@ -38,18 +38,21 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
 <h2>Telephone <span class="v"><a href="tel:+19172177975">917-217-7975</a></span></h2>
 <p><b>The first call is free</b> — up to 45 minutes of scoping and preservation triage, with a written preservation instruction where one is needed. Rates in full at <a href="{{ '/rates/' | relative_url }}">/rates</a>.</p>
 <p><b>Email <span class="v"><a href="mailto:sales@wirewalk.com">sales@wirewalk.com</a></span></b> for scheduling, purchase orders and invoices. Not for case facts, credentials or attachments: email is not a secure channel.</p>
-<p><b>Happening right now?</b> Ring me, and open <a href="{{ '/emergency/' | relative_url }}">the first-hour page</a> while it connects.</p>
-<p><span class="cond">Where a matter requires a licence or a certification, that condition is named in the engagement letter and either met or the matter is declined.</span></p>
+<p><b>Happening right now?</b> Call me, and open <a href="{{ '/emergency/' | relative_url }}">the first-hour page</a> while it connects.</p>
+<p><span class="cond">Where a matter requires a license or a certification, that condition is named in the engagement letter and either met or the matter is declined.</span></p>
 </section>
 
 <section>
-<h2>The enquiry form</h2>
-<p>Five fields, each with its reason beside it. There is no box for case detail: until the conflicts check clears, nothing protects what you type.</p>
+<h2 id="inquiry">Request a callback or invoice</h2>
+<p id="request-summary" class="note" hidden></p>
+<p>Five fields, each with its reason beside it. There is no box for case detail: share only contact and scheduling information. Secure intake is arranged after the conflicts check.</p>
 
 <form class="enq" method="POST" action="https://wirewalk-portal.wirewalk-upload.workers.dev/api/enquiry">
-  <input type="hidden" name="_subject" value="Forensics enquiry — forensics.wirewalk.com">
+  <input type="hidden" name="_subject" value="Forensics inquiry — forensics.wirewalk.com">
   <input type="hidden" name="_template" value="table">
   <input type="hidden" name="_next" value="https://forensics.wirewalk.com/thanks/">
+  <input type="hidden" name="service" id="requested-service" value="">
+  <input type="hidden" name="request" id="requested-kind" value="callback">
   <input type="hidden" name="page" value="/contact/">
   <div class="hp" aria-hidden="true"><label>Leave this field empty
     <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
@@ -57,7 +60,7 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
   <div class="fld">
     <label class="lab" for="f-name">Name</label>
     <input id="f-name" type="text" name="name" autocomplete="name" required>
-    <span class="why">The conflicts check cannot be run against an anonymous enquiry.</span>
+    <span class="why">The conflicts check cannot be run against an anonymous inquiry.</span>
   </div>
 
   <div class="fld">
@@ -86,11 +89,11 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
   <div class="fld">
     <label class="lab" for="f-email">Email address</label>
     <input id="f-email" type="email" name="email" autocomplete="email" required>
-    <span class="why">To confirm the enquiry and send the engagement letter.</span>
+    <span class="why">To confirm the inquiry and send the engagement letter.</span>
   </div>
 
   <div class="act">
-    <button type="submit">Send</button>
+    <button type="submit">Send request</button>
     <span class="why">Keep case detail, custodian names and credentials out of every field above.</span>
   </div>
 </form>
@@ -100,7 +103,7 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
   <caption>Limits</caption>
   <thead><tr><th style="width:44%">What sending it does</th><th>What this does not establish</th></tr></thead>
   <tbody>
-    <tr><td>Puts your name in front of a person; I read enquiries myself.</td>
+    <tr><td>Puts your name in front of a person; I read inquiries myself.</td>
       <td class="not">A response time. There is none outside a signed standby agreement.</td></tr>
     <tr><td>Starts the conflicts check, and a callback if it clears.</td>
       <td class="not">That I am free to act.</td></tr>
@@ -123,10 +126,23 @@ form.enq button:hover{border-color:var(--annotation);color:var(--annotation)}
 </ol>
 </div>
 <p class="small">The full list is on the <a href="{{ '/#we-will-not' | relative_url }}">home page</a> and in the engagement letter.</p>
-<p><b>Ring me on <span class="v"><a href="tel:+19172177975">917-217-7975</a></span> and I will tell you whether this is even a forensics problem.</b></p>
+<p><b>Call me on <span class="v"><a href="tel:+19172177975">917-217-7975</a></span> and I will tell you whether this is even a forensics problem.</b></p>
 <div class="acts">
   <a class="btn" href="{{ '/rates/' | relative_url }}">Rate schedule</a>
   <a class="btn" href="{{ '/engagement/' | relative_url }}">Engagement terms</a>
   <a class="btn k" href="{{ '/emergency/' | relative_url }}">Incident in progress</a>
 </div>
 </section>
+
+<script>
+(function(){
+  const q=new URLSearchParams(location.search), service=(q.get('service')||'').slice(0,100);
+  const kind=q.get('request')==='invoice'?'invoice':q.get('request')==='inspection'?'inspection':'callback';
+  document.getElementById('requested-service').value=service;
+  document.getElementById('requested-kind').value=kind;
+  if(service||kind!=='callback'){
+    const p=document.getElementById('request-summary');p.hidden=false;
+    p.textContent='Request: '+kind+(service?' for '+service:'')+'. This requests a conversation; it does not place an order or reserve availability.';
+  }
+})();
+</script>
