@@ -196,3 +196,4 @@ nav.top a{display:block;margin:0;padding:8px 0}
   .doc{min-width:0}
 }
 .doc code{overflow-wrap:anywhere}
+[hidden]{display:none!important}
