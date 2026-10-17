@@ -16,6 +16,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+{% comment %} First-party, no cookie, no third party, no request of its own: keeps how
+  a visitor arrived (link tags, landing path, referring host) for 30 days and adds it
+  to the /contact/ inquiry as hidden _src_* fields. Not loaded by the emergency layout,
+  which stays script-free by design. {% endcomment %}
+<script src="{{ '/assets/src-fields.js' | relative_url }}" defer></script>
 </head>
 <body>
 
