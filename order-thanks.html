@@ -6,12 +6,12 @@ permalink: /order/thanks/
 noindex: true
 sitemap: false
 doc_id: WW-F-019
-version: "1.0"
+version: "1.1"
 issued: 2026-09-17
-revised: 2026-09-17
+revised: 2026-10-19
 scope: Payment confirmation
 authority: Principal
-content_sha256: f87d59ffea296a69fded86995c17cecd9c4b2a5d9d84d400efb2ee0656814218
+content_sha256: 753860d0015d0a7cc724072f71bc2d3767061ba4e2a5d3901fae7db5c392948a
 ---
 <div id="outcome" class="note" role="status">Checking payment status…</div>
 <noscript><p>Enable JavaScript to check payment status, or contact us with your payment reference before paying again.</p></noscript>
@@ -25,9 +25,9 @@ content_sha256: f87d59ffea296a69fded86995c17cecd9c4b2a5d9d84d400efb2ee0656814218
  if(!id){unknown();return;}
  fetch('https://wirewalk-orders.wirewalk-upload.workers.dev/session?id='+encodeURIComponent(id))
  .then(r=>{if(!r.ok)throw Error();return r.json();}).then(d=>{
-  if(!/^f-/.test(d.service||'')){unknown();return;}
+  if(!d||typeof d.service!=='string'||!/^f-/.test(d.service)){unknown();return;}
   if(d.livemode!==true){out.textContent='Test payment only. No real payment or engagement is confirmed.';return;}
-  if(!d.paid){out.textContent='Payment is not confirmed yet. Bank payments may still be processing. Please contact us with your reference before paying again.';return;}
+  if(d.paid!==true){out.textContent='Payment is not confirmed yet. Bank payments may still be processing. Please contact us with your reference before paying again.';return;}
   out.textContent=d.amountFormatted+' received. Thank you. '+(d.balanceDue>0?'Remaining service balance: '+d.balanceDueFormatted+'.':'The selected service fee is paid.')+' Engagement acceptance and any separately agreed expenses are confirmed in writing.';
  }).catch(unknown);
 })();
